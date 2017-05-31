@@ -49,8 +49,8 @@
     "wrench": "~1.5.8"
   },
   "scripts": {
-    "preinstall": "bower install",
-    "test": "gulp test"
+    "test": "gulp test",
+    "postinstall": "bower install"
   },
   "engines": {
     "node": ">=0.10.0"
