@@ -13,7 +13,7 @@
       *  STRUCTURE
       ***/
       .state('main', {
-        url: '',
+        url: '/',
         views: {
           '': {
             templateUrl: 'app/structure/main/main.html',
@@ -21,30 +21,16 @@
             controllerAs: 'main'
           },
           'header@main': {
-            templateUrl: 'app/structure/main/header.html'
+            templateUrl: 'app/structure/header/header.html'
+          },
+          'nav@main': {
+            templateUrl: 'app/structure/nav/nav.html'
+          },
+          'footer@main': {
+            templateUrl: 'app/structure/footer/footer.html'
           }
         }
-      })
-
-      .state('main.welcome', {
-        url: '/welcome',
-        templateUrl: 'app/components/welcome/welcome.html',
-        controller: 'WelcomeController',
-        controllerAs: 'welcome'
-      })
-      .state('main.credenciamento', {
-        url: '/credenciamento',
-        templateUrl: 'app/components/credenciamento/form-1.html',
-        controller: 'CredenciamentoController',
-        controllerAs: 'credentials'
-      })
-      .state('main.cadastro-cartao', {
-        url: '/cadastrar-cartao',
-        templateUrl: '/app/components/credenciamento/form-2.html',
-        controller: 'CadastrarCartaoController',
-        controllerAs: 'cadastro'
-      })
-
+      });
 
       $urlRouterProvider.otherwise('/');
   }
