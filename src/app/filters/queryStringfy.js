@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('gulpApp')
+  angular.module('vivaSp')
     .filter('queryStringfy', function () {
       return function(obj) {
         var str = [];

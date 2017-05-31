@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('gulpApp')
+  angular.module('vivaSp')
     .factory('LoaderInterceptor', function ($rootScope, $q, $log) {
       var numLoadings = 0;
       return {

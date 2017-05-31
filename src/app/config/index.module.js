@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   angular
-    .module('gulpApp', [
+    .module('vivaSp', [
       'ngCookies',
       'ngTouch',
       'ngSanitize',

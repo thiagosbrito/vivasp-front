@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('gulpApp')
+    .module('vivaSp')
     .config(routerConfig);
 
   /** @ngInject */

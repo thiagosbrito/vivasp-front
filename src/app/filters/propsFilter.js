@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('gulpApp')
+  angular.module('vivaSp')
     .filter('propsFilter', function () {
       return function(items, props) {
         var out = [];

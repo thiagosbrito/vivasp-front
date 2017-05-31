@@ -1,6 +1,6 @@
 (function (){
   'use strict';
-  angular.module('gulpApp')
+  angular.module('vivaSp')
     .filter('cpf',function () {
       return function (input) {
         var str = input + '';

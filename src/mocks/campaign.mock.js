@@ -1,6 +1,6 @@
 (function (){
   'use strict';
-  angular.module('gulpApp')
+  angular.module('vivaSp')
   .constant('CampaignMocks', [
     {
       "campaignId": 0,
