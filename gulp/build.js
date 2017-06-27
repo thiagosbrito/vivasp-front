@@ -13,21 +13,28 @@ gulp.task('partials', function () {
     path.join(conf.paths.src, '/app/**/*.html'),
     path.join(conf.paths.tmp, '/serve/app/**/*.html')
   ])
-    .pipe($.htmlmin({
-      removeEmptyAttributes: true,
-      removeAttributeQuotes: true,
-      collapseBooleanAttributes: true,
-      collapseWhitespace: true
-    }))
-    .pipe($.angularTemplatecache('templateCacheHtml.js', {
-      module: 'clApp',
-      root: 'app'
-    }))
-    .pipe(gulp.dest(conf.paths.tmp + '/partials/'));
+  .pipe($.htmlmin({
+    removeEmptyAttributes: true,
+    removeAttributeQuotes: true,
+    collapseBooleanAttributes: true,
+    collapseWhitespace: true
+  }))
+  .pipe($.angularTemplatecache('templateCacheHtml.js', {
+    module: 'vivaSp',
+    root: 'app'
+  }))
+  .pipe(gulp.dest(conf.paths.dist + '/partials/'));
+});
+
+gulp.task('copy', function () {
+  return gulp.src([
+      'src/**/*.html'
+    ])
+    .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('html', ['inject', 'partials'], function () {
-  var partialsInjectFile = gulp.src(path.join(conf.paths.tmp, '/partials/templateCacheHtml.js'), { read: false });
+  var partialsInjectFile = gulp.src(path.join(conf.paths.dist, '/partials/templateCacheHtml.js'), { read: false });
   var partialsInjectOptions = {
     starttag: '<!-- inject:partials -->',
     ignorePath: path.join(conf.paths.tmp, '/partials'),
@@ -95,4 +102,4 @@ gulp.task('clean', function () {
   return $.del([path.join(conf.paths.dist, '/'), path.join(conf.paths.tmp, '/')]);
 });
 
-gulp.task('build', ['html', 'fonts', 'other']);
+gulp.task('build', ['html','copy','fonts', 'other']);

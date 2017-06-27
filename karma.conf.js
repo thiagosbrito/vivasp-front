@@ -50,7 +50,7 @@ module.exports = function(config) {
     usePolling: true,
     ngHtml2JsPreprocessor: {
       stripPrefix: conf.paths.src + '/',
-      moduleName: 'clApp'
+      moduleName: 'vivaSp'
     },
 
     logLevel: 'WARN',
