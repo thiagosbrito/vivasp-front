@@ -13,7 +13,7 @@
       *  STRUCTURE
       ***/
       .state('main', {
-        url: '/',
+        url: '',
         views: {
           '': {
             templateUrl: 'app/structure/main/main.html',
@@ -30,7 +30,14 @@
             templateUrl: 'app/structure/footer/footer.html'
           }
         }
-      });
+      })
+
+      .state('main.home', {
+        url:'/home',
+        templateUrl: 'app/site/features/home/home.html',
+        controller: 'HomeController',
+        controllerAs: 'home'
+      })
 
       $urlRouterProvider.otherwise('/');
   }

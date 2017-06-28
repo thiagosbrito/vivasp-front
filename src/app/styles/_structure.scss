@@ -1,0 +1,87 @@
+@import "./variables";
+.header-flex {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 150px;
+  // border: 1px solid;
+  .social-links,
+  .accessible-links {
+    ul {
+      list-style: none;
+      li {
+        display:  inline
+      }
+    }
+  }
+  .logo {
+    flex-grow: 1;
+    width: 333px;
+    height: 150px;
+    background: url('../../assets/images/logos/logo-principal.png') center -25px no-repeat;
+    overflow: hidden;
+    img {
+      margin-top: -30px
+    }
+
+  }
+  .social-links {
+    flex-grow: 5;
+    // border: 1px solid;
+    ul {
+      margin: 60px 0 0;
+      padding: 0;
+      float: left;
+      li {
+        margin: 10px;
+        a {
+          i {
+            color: $gray-links-social;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+  .accessible-links {
+    flex-grow: 5;
+    // border: 1px solid;
+    ul {
+      margin: 60px 0 0;
+      padding: 0;
+      float: right;
+      li {
+        margin: 10px;
+        a {
+          i {
+            color: $yellow-links-accessible;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+ul.main-nav {
+  list-style: none;
+  margin: 0 auto;
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  li {
+    margin: auto;
+  }
+}
+
+.content-wrapper {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.add-spot {
+  margin: 30px 0;
+}
+
+
+.art-spot {
+  margin: 30px 0;
+}
