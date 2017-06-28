@@ -27,7 +27,9 @@
             templateUrl: 'app/structure/nav/nav.html'
           },
           'footer@main': {
-            templateUrl: 'app/structure/footer/footer.html'
+            templateUrl: 'app/structure/footer/footer.html',
+            controller: 'FooterController',
+            controllerAs: 'footer'
           }
         }
       })
