@@ -8,12 +8,9 @@
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
-
-      /***
-      *  STRUCTURE
-      ***/
       .state('main', {
         url: '',
+        abstract: true,
         views: {
           '': {
             templateUrl: 'app/structure/main/main.html',
@@ -47,6 +44,42 @@
         controller: 'CategoriesController',
         controllerAs: 'category'
       })
+
+
+      .state('main.quemsomos',{
+        url: '/quem-somos',
+        templateUrl: 'app/site/features/institucional/quem-somos.html',
+        controller: 'QuemSomosController',
+        controllerAs: 'quemsomos'
+      })
+
+      .state('main.contato',{
+        url: '/contato',
+        templateUrl: 'app/site/features/institucional/contato.html',
+        controller: 'ContatoController',
+        controllerAs: 'contato'
+      })
+
+      .state('main.trabalhe',{
+        url: '/trabalhe-conosco',
+        templateUrl: 'app/site/features/institucional/trabalhe-conosco.html',
+        controller: 'TrabalheConoscoController',
+        controllerAs: 'trabalhe'
+      })
+
+      .state('main.marca',{
+        url: '/marca-vivasp',
+        templateUrl: 'app/site/features/institucional/marca-vivasp.html',
+        controller: 'MarcaVivaSPController',
+        controllerAs: 'marca'
+      })
+
+      .state('main.anuncie', {
+        url: '/anuncie-aqui',
+        templateUrl: 'app/site/features/institucional/anuncie-aqui.html',
+        controller: 'AnuncieAquiController',
+        controllerAs: 'anuncie'
+      })
       /*cinema
       musica
       danca
@@ -57,7 +90,7 @@
       teatro
       literatura*/
 
-      $urlRouterProvider.otherwise('/');
+      $urlRouterProvider.otherwise('/home');
   }
 
 }).call(this);
