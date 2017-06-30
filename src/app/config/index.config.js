@@ -6,9 +6,10 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, $httpProvider) {
+  function config($logProvider, $httpProvider, $locationProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
     $httpProvider.interceptors.push('LoaderInterceptor');
+    $locationProvider.html5Mode(true);
   }
 })();

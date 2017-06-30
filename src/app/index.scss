@@ -7,10 +7,14 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 
 $fa-font-path: "../../bower_components/font-awesome/fonts";
 @import "../../bower_components/font-awesome/scss/font-awesome.scss";
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 * {
   -webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+  &:not(i) {
+    font-family: 'Roboto', sans-serif !important;
+  }
 }
 
 /**

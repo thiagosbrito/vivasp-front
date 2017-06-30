@@ -41,6 +41,22 @@
         controllerAs: 'home'
       })
 
+      .state('main.categories',{
+        url: '/categoria/:categoriaNome',
+        templateUrl: 'app/site/features/categories/categories.html',
+        controller: 'CategoriesController',
+        controllerAs: 'category'
+      })
+      /*cinema
+      musica
+      danca
+      exposicão
+      curso
+      lazer
+      gastronomia
+      teatro
+      literatura*/
+
       $urlRouterProvider.otherwise('/');
   }
 
