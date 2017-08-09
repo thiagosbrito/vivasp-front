@@ -7,6 +7,8 @@
 
   /** @ngInject */
   function routerConfig($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/home');
+
     $stateProvider
       .state('main', {
         url: '',
@@ -18,7 +20,9 @@
             controllerAs: 'main'
           },
           'header@main': {
-            templateUrl: 'app/structure/header/header.html'
+            templateUrl: 'app/structure/header/header.html',
+            controller: 'HeaderController',
+            controllerAs: 'header'
           },
           'nav@main': {
             templateUrl: 'app/structure/nav/nav.html'
@@ -90,7 +94,6 @@
       teatro
       literatura*/
 
-      $urlRouterProvider.otherwise('/home');
   }
 
 }).call(this);

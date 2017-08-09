@@ -1,0 +1,11 @@
+.full-width-image-holder {
+  padding: 0;
+  margin: 32px 0;
+  &:first-child {
+    margin: 0;
+  }
+}
+
+.filter-holder {
+  margin-bottom: 32px;
+}

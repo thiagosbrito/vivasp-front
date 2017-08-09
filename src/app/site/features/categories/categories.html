@@ -1,1 +1,144 @@
-{{category.category}}
+<div class="container-fluid full-width-image-holder">
+  <div class="row">
+    <div class="col-md-12">
+      <img src="assets/images/categories/food/food-001.jpg" alt="" class="img-responsive center-block">
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 add-holder">
+      <img src="assets/images/adds/add-001.jpg" alt="" class="img-responsive center-block">
+    </div>
+    <div class="col-md-8 col-md-offset-2 filter-holder">
+      <div class="row">
+        <div class="col-md-1">
+          <i class="fa fa-filter fa-2x"></i>
+        </div>
+        <div class="col-md-9">
+          <div class="filter-options">
+            <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
+              <a href id="simple-dropdown" uib-dropdown-toggle>
+                Valor <i class="fa" ng-class="{'fa-caret-down': open, 'fa-caret-up': !open}"></i>
+              </a>
+              <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li><a href="#">R$ 10,00 ~ R$ 30,00</a></li>
+                <li><a href="#">R$30,00 ~ R$ 50,00</a></li>
+                <li><a href="#">R$50,00 ~ R$ 100,00</a></li>
+                <li><a href="#">acima de R$ 100,00</a></li>
+              </ul>
+            </span>
+            <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
+              <a href id="simple-dropdown" uib-dropdown-toggle>
+                Região <i class="fa fa-caret-down"></i>
+              </a>
+              <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li><a href="#">Centro</a></li>
+                <li><a href="#">Grande SP</a></li>
+                <li><a href="#">Leste</a></li>
+                <li><a href="#">Oeste</a></li>
+                <li><a href="#">Norte</a></li>
+                <li><a href="#">Sul</a></li>
+              </ul>
+            </span>
+            <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
+              <a href id="simple-dropdown" uib-dropdown-toggle>
+                Avaliação <i class="fa fa-caret-down"></i>
+              </a>
+              <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li><a href="#">1 estrela <i class="fa fa-star"></i></a></li>
+                <li><a href="#">2 estrelas <i class="fa fa-star"></i> <i class="fa fa-star"></i></a></li>
+                <li><a href="#">3 estrelas <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></a></li>
+                <li><a href="#">4 estrelas <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></a></li>
+                <li><a href="#">5 estrelas <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></a></li>
+              </ul>
+            </span>
+            <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
+              <a href id="simple-dropdown" uib-dropdown-toggle>
+                Tipo <i class="fa fa-caret-down"></i>
+              </a>
+              <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li><a href="#">Lanches</a></li>
+                <li><a href="#">Cozinha Asiática</a></li>
+                <li><a href="#">Cozinha Árabe</a></li>
+                <li><a href="#">Cozinha Brasileira</a></li>
+                <li><a href="#">Cozinha Italiana</a></li>
+              </ul>
+            </span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-primary pull-right"><i class="fa fa-times"></i> Limpar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4 feat-food" ng-repeat="food in foods[0]" ng-mouseover="food.active = true">
+      <div class="img-holder">
+        <img ng-src="{{food.imageUrl}}" alt="">
+      </div>
+      <h3 class="event-type-title">
+        {{food.title}}
+      </h3>
+      <p class="event-text">
+        {{food.description}}
+      </p>
+      <div class="backdrop" ng-class="{'active': food.active}">
+        <ul class="social-share">
+          <li><a href="#">
+            <i class="fa fa-2x fa-facebook"></i>
+          </a></li>
+          <li><a href="#">
+            <i class="fa fa-2x fa-twitter"></i>
+          </a></li>
+          <li><a href="#">
+            <i class="fa fa-2x fa-instagram"></i>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid full-width-image-holder">
+  <div class="row">
+    <div class="col-md-12">
+      <img src="assets/images/categories/food/food-002.jpg" alt="" class="img-responsive center-block">
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 feat-food" ng-repeat="food in foods[1]" ng-mouseover="food.active = true">
+      <div class="img-holder">
+        <img ng-src="{{food.imageUrl}}" alt="">
+      </div>
+      <h3 class="event-type-title">
+        {{food.title}}
+      </h3>
+      <p class="event-text">
+        {{food.description}}
+      </p>
+      <div class="backdrop" ng-class="{'active': food.active}">
+        <ul class="social-share">
+          <li><a href="#">
+            <i class="fa fa-2x fa-facebook"></i>
+          </a></li>
+          <li><a href="#">
+            <i class="fa fa-2x fa-twitter"></i>
+          </a></li>
+          <li><a href="#">
+            <i class="fa fa-2x fa-instagram"></i>
+          </a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid full-width-image-holder">
+  <div class="row">
+    <div class="col-md-12">
+      <img src="assets/images/categories/food/food-003.jpg" alt="" class="img-responsive center-block">
+    </div>
+  </div>
+</div>

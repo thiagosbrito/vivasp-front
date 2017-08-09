@@ -12,9 +12,17 @@ $fa-font-path: "../../bower_components/font-awesome/fonts";
 * {
   -webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+  &:not(span.glyphicon),
   &:not(i) {
     font-family: 'Roboto', sans-serif !important;
   }
+}
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+
+  src: url($icon-font-path'fonts/glyphicons-halflings-regular.eot');
+  src: url($icon-font-path'fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url($icon-font-path'fonts/glyphicons-halflings-regular.woff') format('woff'), url($icon-font-path'fonts/glyphicons-halflings-regular.ttf') format('truetype'), url($icon-font-path'fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
 /**

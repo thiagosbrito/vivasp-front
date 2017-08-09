@@ -1,0 +1,48 @@
+@import "../variables";
+.feat-food {
+  position: relative;
+  overflow: hidden;
+  h3 {
+    display: inline-block;
+    margin: 12px 0;
+    padding-bottom: 5px;
+    transition: all ease .2s;
+  }
+  &:hover {
+    .backdrop {
+      opacity: 1;
+    }
+    h3 {
+      color: #fd4c14;
+      border-bottom: 3px solid #fd4c14;
+    }
+  }
+  .backdrop {
+    position: absolute;
+    width: 360px;
+    height: 240px;
+    background-color: rgba(#fd4c14, .75);
+    top: 0;
+    opacity: 0;
+    left: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease .5s;
+    .social-share {
+      list-style: none;
+      display: flex;
+      padding: 0;
+      li {
+        margin: 0 9px;
+        a {
+          color: #FFF;
+          transition: color ease .5s;
+          &:hover {
+            color: #CCC;
+          }
+        }
+      }
+    }
+  }
+}
