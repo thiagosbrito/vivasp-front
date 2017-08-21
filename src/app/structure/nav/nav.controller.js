@@ -1,12 +1,11 @@
 (function () {
   'use strict';
-
   angular.module('vivaSp')
-    .controller('HomeController', HomeController);
+    .controller('NavController',NavController);
 
-    HomeController.$inject = ['$scope', '$state','FirebaseAPI'];
+    NavController.$inject = ['$scope','$state','FirebaseAPI'];
 
-    function HomeController ($scope, $state, FirebaseAPI) {
+    function NavController ($scope, $state, FirebaseAPI) {
       var vm = this;
 
       var getId = function (payload) {
@@ -24,6 +23,5 @@
           }
         )
       }();
-      
     }
 })();

@@ -25,7 +25,9 @@
             controllerAs: 'header'
           },
           'nav@main': {
-            templateUrl: 'app/structure/nav/nav.html'
+            templateUrl: 'app/structure/nav/nav.html',
+            controller: 'NavController',
+            controllerAs: 'nav'
           },
           'footer@main': {
             templateUrl: 'app/structure/footer/footer.html',
@@ -49,6 +51,29 @@
         controllerAs: 'category'
       })
 
+      .state('main.categories.landing',{
+        url: '/pesquisar',
+        templateUrl: 'app/site/features/categories/pesquisar.html',
+        controller: 'CategoriesSearchController',
+        controllerAs: 'search'
+      })
+
+      .state('main.categories.results',{
+        url: '/resultados',
+        templateUrl: 'app/site/features/categories/resultados.html',
+        controller: 'CategoriesResultsController',
+        controllerAs: 'result',
+        params: {
+          filter: {}
+        }
+      })
+
+      .state('main.categories.view',{
+        url: '/visualizar/:itemId',
+        templateUrl: 'app/site/features/categories/visualizar.html',
+        controller: 'CategoriesViewController',
+        controllerAs: 'view'
+      })
 
       .state('main.quemsomos',{
         url: '/quem-somos',

@@ -6,11 +6,12 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log, $rootScope) {
+  function runBlock($log, $rootScope, cfpLoadingBar) {
     $log.debug('runBlock end');
 
     $rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
       console.log('$stateChangeStart to '+toState.to+'- fired when the transition begins. toState,toParams : \n',toState, toParams);
+      cfpLoadingBar.start();
     });
 
     $rootScope.$on('$stateChangeError',function(event, toState, toParams, fromState, fromParams){
@@ -19,6 +20,7 @@
 
     $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams){
       console.log('$stateChangeSuccess to '+toState.name+'- fired once the state transition is complete.');
+      cfpLoadingBar.complete();
     });
 
     $rootScope.$on('$viewContentLoaded',function(event){

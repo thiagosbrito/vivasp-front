@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 filter-holder">
+      <div class="row">
+        <div class="col-md-1">
+          <i class="fa fa-filter fa-2x"></i>
+        </div>
+        <div class="col-md-8">
+          <div class="filter-options">
+            <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
+              <label ng-if="result.filter.valor">
+                {{result.filter.valor.description}}
+              </label>
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!result.filter.valor">
+                Valor <i class="fa fa-caret-down"></i>
+              </a>
+              <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li ng-repeat="valor in result.filters.valor"><a ng-click="setFilter('valor', valor)" ng-bind-html="valor.description"></a></li>
+              </ul>
+            </span>
+            <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
+              <label ng-if="result.filter.regiao">
+                {{result.filter.regiao.description}}
+              </label>
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!result.filter.regiao">
+                Região <i class="fa fa-caret-down"></i>
+              </a>
+              <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li ng-repeat="regiao in result.filters.regiao"><a ng-click="setFilter('regiao', regiao)" ng-bind-html="regiao.description"></a></li>
+              </ul>
+            </span>
+            <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
+              <label ng-if="result.filter.avaliacao" ng-bind-html="result.filter.avaliacao.description"></label>
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!result.filter.avaliacao">
+                Avaliação <i class="fa fa-caret-down"></i>
+              </a>
+              <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li ng-repeat="avaliacao in result.filters.avaliacao"><a ng-click="setFilter('avaliacao', avaliacao)" ng-bind-html="avaliacao.description"></a></li>
+              </ul>
+            </span>
+            <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
+              <label ng-if="result.filter.tipo">
+                {{result.filter.tipo.description}}
+              </label>
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!result.filter.tipo">
+                Tipo <i class="fa fa-caret-down"></i>
+              </a>
+              <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li ng-repeat="tipo in result.filters.tipo"><a ng-click="setFilter('tipo', tipo)" ng-bind-html="tipo.description"></a></li>
+              </ul>
+            </span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-sm btn-add-event" ng-click="search()"><i class="fa fa-search"></i> Pesquisar</button>
+          <button class="btn btn-sm btn-info" ng-click="clearFilter"><i class="fa fa-times"></i> Limpar filtro</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 feat-food" ng-repeat="food in result.foods[0]" ng-mouseover="food.active = true">
+      <div class="img-holder">
+        <img ng-src="{{food.imageUrl}}" alt="">
+      </div>
+      <h3 class="event-type-title">
+        {{food.title}}
+      </h3>
+      <p class="event-text">
+        {{food.description}}
+      </p>
+    </div>
+  </div>
+</div>

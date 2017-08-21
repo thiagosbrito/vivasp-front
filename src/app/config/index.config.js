@@ -6,10 +6,12 @@
     .config(config);
 
   /** @ngInject */
-  function config($logProvider, $httpProvider, $locationProvider) {
+  function config($logProvider, $httpProvider, $locationProvider, cfpLoadingBarProvider) {
     // Enable log
     $logProvider.debugEnabled(true);
     $httpProvider.interceptors.push('LoaderInterceptor');
     $locationProvider.html5Mode(true);
+    cfpLoadingBarProvider.includeSpinner = false;
   }
+
 })();

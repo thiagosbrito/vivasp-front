@@ -1,17 +1,23 @@
 (function () {
   'use strict';
-
   angular.module('vivaSp')
-    .controller('CategoriesController', CategoriesController);
+    .controller('CategoriesSearchController', CategoriesSearch);
 
-    CategoriesController.$inject = ['$scope', '$stateParams'];
+    CategoriesSearch.$inject = ['$scope','$state','$stateParams'];
 
-    function CategoriesController ($scope, $stateParams) {
+    function CategoriesSearch ($scope, $state, $stateParams) {
+
       var vm = this;
 
-      vm.category = $stateParams.categoriaNome;
+      $scope.doSearch = function (filter) {
+        console.log(filter);
+        $state.go('main.categories.results',{filter: filter});
+      }
 
-      $scope.foods = [
+      $scope.toggled = function(open) {
+        console.log(open);
+      };
+      vm.foods = [
         [
           {
             title: 'Hamburgueria Nacional',
@@ -47,11 +53,6 @@
           },
         ],
       ]
-
-      $scope.toggled = function(open) {
-        console.log(open);
-      };
-
       vm.filters = {
         'valor': [
           {
@@ -161,6 +162,5 @@
           tipo: null
         };
       }
-
     }
 })();

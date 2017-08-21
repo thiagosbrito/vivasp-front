@@ -1,0 +1,105 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 filter-holder">
+      <div class="row">
+        <div class="col-md-1">
+          <i class="fa fa-filter fa-2x"></i>
+        </div>
+        <div class="col-md-8">
+          <div class="filter-options">
+            <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
+              <label ng-if="search.filter.valor">
+                {{search.filter.valor.description}}
+              </label>
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!search.filter.valor">
+                Valor <i class="fa fa-caret-down"></i>
+              </a>
+              <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li ng-repeat="valor in search.filters.valor"><a ng-click="setFilter('valor', valor)" ng-bind-html="valor.description"></a></li>
+              </ul>
+            </span>
+            <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
+              <label ng-if="search.filter.regiao">
+                {{search.filter.regiao.description}}
+              </label>
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!search.filter.regiao">
+                Região <i class="fa fa-caret-down"></i>
+              </a>
+              <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li ng-repeat="regiao in search.filters.regiao"><a ng-click="setFilter('regiao', regiao)" ng-bind-html="regiao.description"></a></li>
+              </ul>
+            </span>
+            <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
+              <label ng-if="search.filter.avaliacao" ng-bind-html="search.filter.avaliacao.description"></label>
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!search.filter.avaliacao">
+                Avaliação <i class="fa fa-caret-down"></i>
+              </a>
+              <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li ng-repeat="avaliacao in search.filters.avaliacao"><a ng-click="setFilter('avaliacao', avaliacao)" ng-bind-html="avaliacao.description"></a></li>
+              </ul>
+            </span>
+            <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
+              <label ng-if="search.filter.tipo">
+                {{search.filter.tipo.description}}
+              </label>
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!search.filter.tipo">
+                Tipo <i class="fa fa-caret-down"></i>
+              </a>
+              <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li ng-repeat="tipo in search.filters.tipo"><a ng-click="setFilter('tipo', tipo)" ng-bind-html="tipo.description"></a></li>
+              </ul>
+            </span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-sm btn-add-event" ng-click="doSearch(search.filter)"><i class="fa fa-search"></i> Pesquisar</button>
+          <button class="btn btn-sm btn-info" ng-click="clearFilter"><i class="fa fa-times"></i> Limpar filtro</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 feat-food" ng-repeat="food in search.foods[0]" ng-mouseover="food.active = true">
+      <div class="img-holder">
+        <img ng-src="{{food.imageUrl}}" alt="">
+      </div>
+      <h3 class="event-type-title">
+        {{food.title}}
+      </h3>
+      <p class="event-text">
+        {{food.description}}
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container-fluid full-width-image-holder">
+  <div class="row">
+    <div class="col-md-12">
+      <img src="assets/images/categories/food/food-002.jpg" alt="" class="img-responsive center-block">
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 feat-food" ng-repeat="food in search.foods[1]" ng-mouseover="food.active = true">
+      <div class="img-holder">
+        <img ng-src="{{food.imageUrl}}" alt="">
+      </div>
+      <h3 class="event-type-title">
+        {{food.title}}
+      </h3>
+      <p class="event-text">
+        {{food.description}}
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container-fluid full-width-image-holder">
+  <div class="row">
+    <div class="col-md-12">
+      <img src="assets/images/categories/food/food-003.jpg" alt="" class="img-responsive center-block">
+    </div>
+  </div>
+</div>

@@ -9,6 +9,9 @@
       'ngMessages',
       'ngAria',
       'ui.router',
-      'ui.bootstrap'
+      'ui.bootstrap',
+      'firebase',
+      'angular-loading-bar',
+      'cfp.loadingBar'
     ]);
 })();
