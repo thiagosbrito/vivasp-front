@@ -51,7 +51,7 @@
         controllerAs: 'category'
       })
 
-      .state('main.categories.landing',{
+      .state('main.categories.search',{
         url: '/pesquisar',
         templateUrl: 'app/site/features/categories/pesquisar.html',
         controller: 'CategoriesSearchController',
