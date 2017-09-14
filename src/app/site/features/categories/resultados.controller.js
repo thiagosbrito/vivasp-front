@@ -10,42 +10,363 @@
       var vm = this;
 
       vm.filter = $stateParams.filter;
+
+      vm.range = function (count) {
+        return new Array(+count);
+      };
+
       vm.foods = [
         [
           {
-            title: 'Hamburgueria Nacional',
-            description: 'A Hamburgueria Nacional está oferencendo descontos de até 20%',
-            imageUrl: 'http://lorempixel.com/360/240/food/1'
+            title: 'Sujinho Hamburgueria',
+            imageUrl: 'http://lorempixel.com/360/240/food/1',
+            info: {
+              address: {
+                street: 'R, Maceió, 64',
+                neighbourhood: 'Consolação',
+                city: 'São Paulo',
+                state: 'SP',
+                postalCode: '01302-010'
+              },
+              schedule: [
+                {
+                  days: 'Domingo à Quinta',
+                  time: '12:00 - 00:00'
+                },
+                {
+                  days: 'Sexta e Sábado',
+                  time: '12:00 - 02:00'
+                }
+              ],
+              contacts: {
+                phone: '(11) 3231-5207',
+                siteTitle: 'hamburgueriadosujinho.com.br'
+              },
+              avgPrice: 'R$ 30,00',
+              rate: 4
+            }
           },
           {
-            title: 'Bom Prato',
-            description: 'Bom Prato inaugura 3 lojas na região de Santo Amaro',
-            imageUrl: 'http://lorempixel.com/360/240/food/2'
+            title: 'Wendy\'s',
+            imageUrl: 'http://lorempixel.com/360/240/food/2',
+            info: {
+              address: {
+                street: 'R, Serafim Grande, 664',
+                neighbourhood: 'Consolação',
+                city: 'São Paulo',
+                state: 'SP',
+                postalCode: '01302-011'
+              },
+              schedule: [
+                {
+                  days: 'Domingo à Quinta',
+                  time: '12:00 - 00:00'
+                },
+                {
+                  days: 'Sexta e Sábado',
+                  time: '12:00 - 02:00'
+                }
+              ],
+              contacts: {
+                phone: '(11) 3231-5207',
+                siteTitle: 'wendys.com.br'
+              },
+              avgPrice: 'R$ 30,00',
+              rate: 4
+            }
           },
           {
-            title: 'Mc Donald\'s',
-            description: 'Novo brinquedo do Mc Lanche Feliz promete cativar até os adultos',
-            imageUrl: 'http://lorempixel.com/360/240/food/3'
+            title: 'Sujinho Hamburgueria',
+            imageUrl: 'http://lorempixel.com/360/240/food/3',
+            info: {
+              address: {
+                street: 'R, Maceió, 64',
+                neighbourhood: 'Consolação',
+                city: 'São Paulo',
+                state: 'SP',
+                postalCode: '01302-010'
+              },
+              schedule: [
+                {
+                  days: 'Domingo à Quinta',
+                  time: '12:00 - 00:00'
+                },
+                {
+                  days: 'Sexta e Sábado',
+                  time: '12:00 - 02:00'
+                }
+              ],
+              contacts: {
+                phone: '(11) 3231-5207',
+                siteTitle: 'hamburgueriadosujinho.com.br'
+              },
+              avgPrice: 'R$ 30,00',
+              rate: 4
+            }
           },
-        ],
-        [
           {
-            title: 'Jedi\'s Burger',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
-            imageUrl: 'http://lorempixel.com/360/240/food/4'
+            title: 'Wendy\'s',
+            imageUrl: 'http://lorempixel.com/360/240/food/4',
+            info: {
+              address: {
+                street: 'R, Serafim Grande, 664',
+                neighbourhood: 'Consolação',
+                city: 'São Paulo',
+                state: 'SP',
+                postalCode: '01302-011'
+              },
+              schedule: [
+                {
+                  days: 'Domingo à Quinta',
+                  time: '12:00 - 00:00'
+                },
+                {
+                  days: 'Sexta e Sábado',
+                  time: '12:00 - 02:00'
+                }
+              ],
+              contacts: {
+                phone: '(11) 3231-5207',
+                siteTitle: 'wendys.com.br'
+              },
+              avgPrice: 'R$ 30,00',
+              rate: 4
+            }
           },
           {
-            title: 'Nona Paola',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
-            imageUrl: 'http://lorempixel.com/360/240/food/5'
+            title: 'Sujinho Hamburgueria',
+            imageUrl: 'http://lorempixel.com/360/240/food/5',
+            info: {
+              address: {
+                street: 'R, Maceió, 64',
+                neighbourhood: 'Consolação',
+                city: 'São Paulo',
+                state: 'SP',
+                postalCode: '01302-010'
+              },
+              schedule: [
+                {
+                  days: 'Domingo à Quinta',
+                  time: '12:00 - 00:00'
+                },
+                {
+                  days: 'Sexta e Sábado',
+                  time: '12:00 - 02:00'
+                }
+              ],
+              contacts: {
+                phone: '(11) 3231-5207',
+                siteTitle: 'hamburgueriadosujinho.com.br'
+              },
+              avgPrice: 'R$ 30,00',
+              rate: 4
+            }
           },
           {
-            title: 'Varanda Ranch Steak',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
-            imageUrl: 'http://lorempixel.com/360/240/food/6'
+            title: 'Wendy\'s',
+            imageUrl: 'http://lorempixel.com/360/240/food/6',
+            info: {
+              address: {
+                street: 'R, Serafim Grande, 664',
+                neighbourhood: 'Consolação',
+                city: 'São Paulo',
+                state: 'SP',
+                postalCode: '01302-011'
+              },
+              schedule: [
+                {
+                  days: 'Domingo à Quinta',
+                  time: '12:00 - 00:00'
+                },
+                {
+                  days: 'Sexta e Sábado',
+                  time: '12:00 - 02:00'
+                }
+              ],
+              contacts: {
+                phone: '(11) 3231-5207',
+                siteTitle: 'wendys.com.br'
+              },
+              avgPrice: 'R$ 30,00',
+              rate: 4
+            }
           },
-        ],
-      ]
+          {
+            title: 'Sujinho Hamburgueria',
+            imageUrl: 'http://lorempixel.com/360/240/food/7',
+            info: {
+              address: {
+                street: 'R, Maceió, 64',
+                neighbourhood: 'Consolação',
+                city: 'São Paulo',
+                state: 'SP',
+                postalCode: '01302-010'
+              },
+              schedule: [
+                {
+                  days: 'Domingo à Quinta',
+                  time: '12:00 - 00:00'
+                },
+                {
+                  days: 'Sexta e Sábado',
+                  time: '12:00 - 02:00'
+                }
+              ],
+              contacts: {
+                phone: '(11) 3231-5207',
+                siteTitle: 'hamburgueriadosujinho.com.br'
+              },
+              avgPrice: 'R$ 30,00',
+              rate: 4
+            }
+          },
+          {
+            title: 'Wendy\'s',
+            imageUrl: 'http://lorempixel.com/360/240/food/8',
+            info: {
+              address: {
+                street: 'R, Serafim Grande, 664',
+                neighbourhood: 'Consolação',
+                city: 'São Paulo',
+                state: 'SP',
+                postalCode: '01302-011'
+              },
+              schedule: [
+                {
+                  days: 'Domingo à Quinta',
+                  time: '12:00 - 00:00'
+                },
+                {
+                  days: 'Sexta e Sábado',
+                  time: '12:00 - 02:00'
+                }
+              ],
+              contacts: {
+                phone: '(11) 3231-5207',
+                siteTitle: 'wendys.com.br'
+              },
+              avgPrice: 'R$ 30,00',
+              rate: 4
+            }
+          },
+          {
+            title: 'Sujinho Hamburgueria',
+            imageUrl: 'http://lorempixel.com/360/240/food/9',
+            info: {
+              address: {
+                street: 'R, Maceió, 64',
+                neighbourhood: 'Consolação',
+                city: 'São Paulo',
+                state: 'SP',
+                postalCode: '01302-010'
+              },
+              schedule: [
+                {
+                  days: 'Domingo à Quinta',
+                  time: '12:00 - 00:00'
+                },
+                {
+                  days: 'Sexta e Sábado',
+                  time: '12:00 - 02:00'
+                }
+              ],
+              contacts: {
+                phone: '(11) 3231-5207',
+                siteTitle: 'hamburgueriadosujinho.com.br'
+              },
+              avgPrice: 'R$ 30,00',
+              rate: 4
+            }
+          },
+          {
+            title: 'Wendy\'s',
+            imageUrl: 'http://lorempixel.com/360/240/food/10',
+            info: {
+              address: {
+                street: 'R, Serafim Grande, 664',
+                neighbourhood: 'Consolação',
+                city: 'São Paulo',
+                state: 'SP',
+                postalCode: '01302-011'
+              },
+              schedule: [
+                {
+                  days: 'Domingo à Quinta',
+                  time: '12:00 - 00:00'
+                },
+                {
+                  days: 'Sexta e Sábado',
+                  time: '12:00 - 02:00'
+                }
+              ],
+              contacts: {
+                phone: '(11) 3231-5207',
+                siteTitle: 'wendys.com.br'
+              },
+              avgPrice: 'R$ 30,00',
+              rate: 4
+            }
+          },
+          {
+            title: 'Sujinho Hamburgueria',
+            imageUrl: 'http://lorempixel.com/360/240/food/1',
+            info: {
+              address: {
+                street: 'R, Maceió, 64',
+                neighbourhood: 'Consolação',
+                city: 'São Paulo',
+                state: 'SP',
+                postalCode: '01302-010'
+              },
+              schedule: [
+                {
+                  days: 'Domingo à Quinta',
+                  time: '12:00 - 00:00'
+                },
+                {
+                  days: 'Sexta e Sábado',
+                  time: '12:00 - 02:00'
+                }
+              ],
+              contacts: {
+                phone: '(11) 3231-5207',
+                siteTitle: 'hamburgueriadosujinho.com.br'
+              },
+              avgPrice: 'R$ 30,00',
+              rate: 4
+            }
+          },
+          {
+            title: 'Wendy\'s',
+            imageUrl: 'http://lorempixel.com/360/240/food/2',
+            info: {
+              address: {
+                street: 'R, Serafim Grande, 664',
+                neighbourhood: 'Consolação',
+                city: 'São Paulo',
+                state: 'SP',
+                postalCode: '01302-011'
+              },
+              schedule: [
+                {
+                  days: 'Domingo à Quinta',
+                  time: '12:00 - 00:00'
+                },
+                {
+                  days: 'Sexta e Sábado',
+                  time: '12:00 - 02:00'
+                }
+              ],
+              contacts: {
+                phone: '(11) 3231-5207',
+                siteTitle: 'wendys.com.br'
+              },
+              avgPrice: 'R$ 30,00',
+              rate: 4
+            }
+          }
+        ]
+      ];
 
     }
 })();

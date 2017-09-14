@@ -17,29 +17,40 @@
       border-bottom: 3px solid #fd4c14;
     }
   }
-  .backdrop {
-    position: absolute;
-    width: 360px;
-    height: 240px;
-    background-color: rgba(#fd4c14, .75);
-    top: 0;
-    opacity: 0;
-    left: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all ease .5s;
-    .social-share {
+  &.feat-food-infos {
+    height: 560px;
+    .food-infos {
       list-style: none;
-      display: flex;
+      margin: 0;
       padding: 0;
       li {
-        margin: 0 9px;
-        a {
-          color: #FFF;
-          transition: color ease .5s;
-          &:hover {
-            color: #CCC;
+        display: flex;
+        padding: 5px 0;
+        font-family: 'Roboto';
+        color: #aaa;
+        font-weight: 600;
+        &:last-child {
+          padding: 5px 0 0 24px;
+          span {
+            color: #fd4c14;
+            margin: 0px 5px;
+          }
+        }
+        .icon {
+          width: 32px;
+          height: 32px;
+          i {
+            font-size: 26px;
+            color: #fd4c14;
+          }
+        }
+        .infos {
+          display: flex;
+          vertical-align: middle;
+          align-items: center;
+          span {
+            display: block;
+            margin-left: 24px;
           }
         }
       }

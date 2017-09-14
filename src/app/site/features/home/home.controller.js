@@ -21,9 +21,10 @@
         FirebaseAPI.getAll('categories').then(
           function (res) {
             vm.categories = getId(res.data);
+            console.log(vm.categories);
           }
         )
       }();
-      
+
     }
 })();

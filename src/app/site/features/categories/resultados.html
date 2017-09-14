@@ -61,16 +61,55 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-4 feat-food" ng-repeat="food in result.foods[0]" ng-mouseover="food.active = true">
+    <div class="col-md-4 feat-food feat-food-infos" ng-repeat="food in result.foods[0] track by $index" ng-mouseover="food.active = true" ui-sref="main.categories.view({itemId: $index})">
       <div class="img-holder">
         <img ng-src="{{food.imageUrl}}" alt="">
       </div>
       <h3 class="event-type-title">
         {{food.title}}
       </h3>
-      <p class="event-text">
-        {{food.description}}
-      </p>
+      <ul class="food-infos">
+        <li>
+          <div class="icon">
+            <i class="fa fa-map-marker"></i>
+          </div>
+          <div class="infos">
+            {{food.info.address.street}} - {{food.info.address.neighbourhood}} <br>
+            {{food.info.address.city}} - {{food.info.address.state}} - {{food.info.address.postalCode}}
+          </div>
+        </li>
+        <li>
+          <div class="icon">
+            <i class="fa fa-clock-o"></i>
+          </div>
+          <div class="infos">
+            {{food.info.schedule[0].days}}<br>
+            {{food.info.schedule[0].time}}<br>
+            {{food.info.schedule[1].days}}<br>
+            {{food.info.schedule[1].time}}
+          </div>
+        </li>
+        <li>
+          <div class="icon">
+            <i class="fa fa-phone"></i>
+          </div>
+          <div class="infos">
+            {{food.info.contacts.phone}}<br>
+            {{food.info.contacts.email}}
+          </div>
+        </li>
+        <li>
+          <div class="icon">
+            <i class="fa fa-dollar"></i>
+          </div>
+          <div class="infos">
+            Média: {{food.info.avgPrice}}
+          </div>
+        </li>
+        <li>
+          <span ng-repeat="star in result.range(food.info.rate) track by $index"><i class="fa fa-star"></i></span>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

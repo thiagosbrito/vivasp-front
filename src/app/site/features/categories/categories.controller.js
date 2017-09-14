@@ -4,13 +4,13 @@
   angular.module('vivaSp')
     .controller('CategoriesController', CategoriesController);
 
-    CategoriesController.$inject = ['$scope', '$stateParams'];
+    CategoriesController.$inject = ['$scope', '$stateParams','$state'];
 
-    function CategoriesController ($scope, $stateParams) {
+    function CategoriesController ($scope, $stateParams, $state) {
       var vm = this;
 
       vm.category = $stateParams.categoriaNome;
-
+      $scope.state = $state;
       $scope.foods = [
         [
           {

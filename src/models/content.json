@@ -1,0 +1,24 @@
+{
+  "title": "",
+  "description":"",
+  "createdAt": "",
+  "createdBy": {},
+  "featHome": true,
+  "featCategory": true,
+  "featSearch": true,
+  "content": "",
+  "updatedAt":"",
+  "updatedBy":{},
+  "priceRate":"",
+  "dates": [
+    {
+      "date":"",
+      "time":""
+    }
+  ],
+  "rate":"",
+  "contact":{
+    "phone":"",
+    "email":""
+  }
+}
