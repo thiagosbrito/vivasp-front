@@ -24,7 +24,73 @@ $fa-font-path: "../../bower_components/font-awesome/fonts";
   src: url($icon-font-path'fonts/glyphicons-halflings-regular.eot');
   src: url($icon-font-path'fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url($icon-font-path'fonts/glyphicons-halflings-regular.woff') format('woff'), url($icon-font-path'fonts/glyphicons-halflings-regular.ttf') format('truetype'), url($icon-font-path'fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
+.center-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  &.login-modal {
+    background: rgba(#003973, .65);
+    background: -webkit-linear-gradient(to right, rgba(#E5E5BE, .65), rgba(#003973, .65));
+    background: linear-gradient(to right, rgba(#E5E5BE, .65), rgba(#003973, .65));
+    .modal-content {
+      border-radius: 0;
+      box-shadow: none;
+      .modal-header {
+        margin-bottom: 10px;
+      }
+      .modal-body {
+        .divider-login-inputs {
+          position: relative;
+          font-size: 16px;
+          z-index: 1;
+          overflow: hidden;
+          text-align: center;
+          width: 100%;
+          color: #ccc;
+          span {
+            padding: 10px;
+            background-color: #FFF;
+            display: inline-block;
+          }
+        }
+        .divider-login-inputs:before,
+        .divider-login-inputs:after {
+          position: absolute;
+          top: 51%;
+          overflow: hidden;
+          width: 49%;
+          height: 1px;
+          content: '\a0';
+          background-color: #ccc;
+        }
+        .divider-login-inputs:before {
+          margin-left: -50%;
+          text-align: right;
+        }
+      }
+      .extra-buttons {
+        .btn-link {
+          text-decoration: none;
+          &.pull-left {
+            padding-left: 0;
+          }
+          &.pull-right {
+            padding-right: 0;
+          }
+          color: #FFF;
+        }
+      }
+    }
+  }
 
+}
 /**
  *  Do not remove the comments below. It's the markers used by wiredep to inject
  *  sass dependencies when defined in the bower.json of your dependencies

@@ -1,0 +1,75 @@
+<div class="modal-header text-center">
+  {{$ctrl.showLoginForm ? 'Faça seu login' : 'Cadastre-se'}}
+</div>
+<div class="modal-body">
+  <form role="form" name="loginForm" class="form" ng-show="$ctrl.showLoginForm" novalidate>
+    <fieldset>
+      <div class="form-group">
+        <input type="text" class="form-control" ng-model="$ctrl.loginObj.email" required placeholder="Digite seu email">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" ng-model="$ctrl.loginObj.password" required placeholder="Digite sua senha">
+      </div>
+    </fieldset>
+    <div class="form-group">
+      <button class="btn btn-danger pull-left" ng-click="$ctrl.Cancel()">
+        Cancelar
+      </button>
+      <button class="btn btn-primary pull-right" ng-click="$ctrl.Login($ctrl.loginObj)">
+        Entrar
+      </button>
+    </div>
+  </form>
+  <form role="form" class="form" novalidate name="signForm" ng-show="$ctrl.showSignUpForm">
+    <fieldset>
+      <div class="form-group">
+        <input type="text" class="form-control" ng-model="$ctrl.signUp.name" required placeholder="Digite seu nome">
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class="form-group">
+        <input type="text" class="form-control" ng-model="$ctrl.signUp.email" required placeholder="Digite seu email">
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class="form-group">
+        <input type="text" class="form-control" ng-model="$ctrl.signUp.password" required placeholder="Digite sua senha">
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class="form-group">
+        <input type="text" class="form-control" ng-model="$ctrl.rePass" required placeholder="Confirme sua senha">
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class="form-group">
+        <button class="btn btn-danger pull-left" ng-click="$ctrl.CancelSign()">
+          Cancelar
+        </button>
+        <button class="btn btn-primary pull-right" ng-click="$ctrl.SignUpUser($ctrl.signUp)">
+          Entrar
+        </button>
+      </div>
+    </fieldset>
+  </form>
+  <div class="divider-login-inputs">
+    <span>
+      ou
+    </span>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-block btn-primary">
+      <i class="fa fa-facebook"></i> Login com Facebook
+    </button>
+  </div>
+</div>
+
+
+<div class="extra-buttons">
+  <button class="btn btn-link pull-left" ng-click="$ctrl.ForgotPassword()">
+    esqueci minha senha
+  </button>
+  <button class="btn btn-link pull-right" ng-click="$ctrl.SignUpForm()">
+    cadastre-se
+  </button>
+</div>

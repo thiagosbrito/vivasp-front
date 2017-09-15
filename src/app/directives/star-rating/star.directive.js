@@ -4,7 +4,7 @@
   'use strict';
 
   angular
-    .module('vivaspAdmin')
+    .module('vivaSp')
     .directive('starRating', starRating);
 
   function starRating() {

@@ -12,6 +12,7 @@
       'ui.bootstrap',
       'firebase',
       'angular-loading-bar',
-      'cfp.loadingBar'
+      'cfp.loadingBar',
+      'toastr'
     ]);
 })();

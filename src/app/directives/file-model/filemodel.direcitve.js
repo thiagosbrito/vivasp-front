@@ -1,4 +1,4 @@
-angular.module('vivaspAdmin')
+angular.module('vivaSp')
 
   .directive('fileModel',['$parse', function ($parse){
     return {

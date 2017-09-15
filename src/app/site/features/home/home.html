@@ -1,25 +1,11 @@
 <section class="main">
   <section class="feature-events-banners">
     <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-      <div uib-slide index="0">
-        <img src="assets/images/banners/banner-001.jpg" style="margin:auto;">
+      <div uib-slide index="$index" ng-repeat="bn in home.banners track by $index">
+        <img ng-src="{{bn.imgUrl}}" style="margin:auto;">
         <div class="carousel-caption">
-          <h4>Cinema</h4>
-          <p>Sucesso da Broadway, "Wicked" estreia dia 4 de março no teatro Renault em São Paulo</p>
-        </div>
-      </div>
-      <div uib-slide index="1">
-        <img src="assets/images/banners/banner-001.jpg" style="margin:auto;">
-        <div class="carousel-caption">
-          <h4>Cinema</h4>
-          <p>Sucesso da Broadway, "Wicked" estreia dia 4 de março no teatro Renault em São Paulo</p>
-        </div>
-      </div>
-      <div uib-slide index="2">
-        <img src="assets/images/banners/banner-001.jpg" style="margin:auto;">
-        <div class="carousel-caption">
-          <h4>Cinema</h4>
-          <p>Sucesso da Broadway, "Wicked" estreia dia 4 de março no teatro Renault em São Paulo</p>
+          <h4>{{bn.title}}</h4>
+          <p>{{bn.description}}</p>
         </div>
       </div>
     </div>

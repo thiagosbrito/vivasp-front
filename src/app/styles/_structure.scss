@@ -215,3 +215,11 @@ section.footer {
   background: $yellow-links-accessible;
   height: 4px;
 }
+.feature-events-banners {
+  .carousel-inner {
+    height: 500px;
+    .item {
+      height: 500px;
+    }
+  }
+}

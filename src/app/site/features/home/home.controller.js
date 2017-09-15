@@ -4,27 +4,33 @@
   angular.module('vivaSp')
     .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', '$state','FirebaseAPI'];
+    HomeController.$inject = ['$scope', '$state','$firebaseArray'];
 
-    function HomeController ($scope, $state, FirebaseAPI) {
+    function HomeController ($scope, $state, $firebaseArray) {
       var vm = this;
 
-      var getId = function (payload) {
-        angular.forEach(payload, function (value, k) {
-          value.$id = k;
-        })
+      var bannersRef = firebase.database().ref('banners');
+      var carouselRef = bannersRef.child('carousel');
+      var query = carouselRef.orderByChild('active').equalTo(true);
 
-        return payload;
-      };
+      vm.banners = $firebaseArray(query);
 
-      $scope.getCategories = function () {
-        FirebaseAPI.getAll('categories').then(
-          function (res) {
-            vm.categories = getId(res.data);
-            console.log(vm.categories);
-          }
-        )
-      }();
+      // var getId = function (payload) {
+      //   angular.forEach(payload, function (value, k) {
+      //     value.$id = k;
+      //   })
+      //
+      //   return payload;
+      // };
+      //
+      // $scope.getCategories = function () {
+      //   FirebaseAPI.getAll('categories').then(
+      //     function (res) {
+      //       vm.categories = getId(res.data);
+      //       console.log(vm.categories);
+      //     }
+      //   )
+      // }();
 
     }
 })();
