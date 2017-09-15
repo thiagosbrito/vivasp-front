@@ -4,12 +4,26 @@
   angular.module('vivaSp')
     .controller('CategoriesController', CategoriesController);
 
-    CategoriesController.$inject = ['$scope', '$stateParams','$state'];
+    CategoriesController.$inject = ['$scope', '$stateParams','$state','$firebaseArray'];
 
-    function CategoriesController ($scope, $stateParams, $state) {
+    function CategoriesController ($scope, $stateParams, $state, $firebaseArray) {
       var vm = this;
 
       vm.category = $stateParams.categoriaNome;
+
+      var bannersRef = firebase.database().ref('banners');
+      var carouselRef = bannersRef.child('destaques');
+      var query = carouselRef.orderByChild('destaqueCategoria').equalTo(true);
+      
+      vm.banners = $firebaseArray(query);
+      // vm.banners = vm.banners[0];
+
+      vm.banners.$loaded().then(
+        function (a) {
+          console.log(_.findWhere(a, {contentId: $state.params.itemId}))
+        }
+      )
+
       $scope.state = $state;
       $scope.foods = [
         [

@@ -1,3 +1,28 @@
+<div class="container-fluid full-width-image-holder">
+  <div class="row">
+    <div class="col-md-12">
+      <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+        <div uib-slide index="$index" ng-repeat="bn in category.banners track by $index">
+          <a href="/categoria{{bn.linkUrl}}">
+            <img ng-src="{{bn.imgUrl}}" style="margin:auto;">
+            <div class="carousel-caption">
+              <h4>{{bn.title}}</h4>
+              <p>{{bn.description}}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- <img src="assets/images/results/result-001.jpg" alt="" class="img-responsive center-block" ng-if="state.current.name == 'main.categories.view'"> -->
+    </div>
+  </div>
+</div>
+<div class="container" ng-if="state.current.name != 'main.categories.view'">
+  <div class="row">
+    <div class="col-md-12 add-holder">
+      <img src="assets/images/adds/add-001.jpg" alt="" class="img-responsive center-block">
+    </div>
+  </div>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-1 filter-holder">

@@ -1,17 +1,41 @@
+<section class="art-spot" ng-style="{'background-image': 'url(' + view.destImg.imgUrl + ')'}">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 img-caption">
+        <div class="infos">
+          <h3 class="title">
+            {{view.destImg.title}}
+          </h3>
+          <p>
+            {{view.destImg.description}}
+          </p>
+          <span>
+            {{view.destImg.text}}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <img ng-src="{{view.destImg.imgUrl}}" alt="{{view.destImg.title}}" class="center-block"> -->
+</section>
+<div class="container" ng-if="state.current.name != 'main.categories.view'">
+  <div class="row">
+    <div class="col-md-12 add-holder">
+      <img src="assets/images/adds/add-001.jpg" alt="" class="img-responsive center-block">
+    </div>
+  </div>
+</div>
 <section class="container" id="description">
   <div class="row">
     <div class="col-md-12">
+      <h3 class="title" ng-bind="view.content.title"></h3>
+      <span ng-bind="view.content.description"></span>
       <hr>
-      <p>por: Ana Carolina dos Santos Cerqueira 24/08/2017 <i class="fa fa-clock-o"></i> 22:35  |  Atualizado 28/08/2017 00:35</p>
+      <p>por: {{view.content.author.displayName}} {{view.content.createdAt | date: 'dd/MM/yyyy'}} <i class="fa fa-clock-o"></i> {{view.content.createdAt | date: 'hh:mm'}}  |  {{view.content.updatedAt ? 'Atualizado ' : ''}}{{view.content.updatedAt | date: 'dd/MM/yyyy hh:mm'}}</p>
       <hr>
     </div>
     <div class="col-md-12">
-      <p>
-        Feitos na grelha de carvão e temperados com sal grosso triturado, os discos lembram as carnes da casa-mãe no sabor, a churrascaria Sujinho.
-        Em três tamanhos (80 gramas por R$ 10.79, 160 gramas por R$ 14,79 e 250 gramas por R$19.34), os hambúrgueres podem receber mais de trinta
-        complementos, como ovo frito (R$ 1.80) e molho chimichurri (R$ 2.80). É melhor ficar com as combinações já prontas. O Mathias Burger (R$ 24.64)
-        leva cebola na brasa, queijo cheddar, e maionese. Dica esperta: a matriz só aceita dinheiro, cheque e alguns cartões de vale-refeição.
-      </p>
+      <p ng-bind-html="view.content.content"></p>
     </div>
   </div>
 </section>

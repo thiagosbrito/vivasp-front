@@ -107,6 +107,11 @@ ul.main-nav {
 
 .art-spot {
   margin: 30px 0;
+  height: 500px;
+  img {
+    width: auto;
+    height: 500px;
+  }
 }
 section.footer {
   height: 445px;
@@ -215,7 +220,32 @@ section.footer {
   background: $yellow-links-accessible;
   height: 4px;
 }
-.feature-events-banners {
+.feature-events-banners,
+.content-wrapper {
+  .art-spot {
+    width: 100%;
+    height: 500px;
+    background-position: top center;
+    .img-caption {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      .infos {
+        flex: 1;
+        align-self: flex-end;
+        h3.title {
+          color: #FFF;
+          font-family: 'Roboto';
+        }
+        p {
+          color: #FFF;
+        }
+        span {
+          color: #FFF
+        }
+      }
+    }
+  }
   .carousel-inner {
     height: 500px;
     .item {

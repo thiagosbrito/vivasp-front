@@ -2,11 +2,13 @@
   <section class="feature-events-banners">
     <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
       <div uib-slide index="$index" ng-repeat="bn in home.banners track by $index">
-        <img ng-src="{{bn.imgUrl}}" style="margin:auto;">
-        <div class="carousel-caption">
-          <h4>{{bn.title}}</h4>
-          <p>{{bn.description}}</p>
-        </div>
+        <a href="/categoria{{bn.linkUrl}}">
+          <img ng-src="{{bn.imgUrl}}" style="margin:auto;">
+          <div class="carousel-caption">
+            <h4>{{bn.title}}</h4>
+            <p>{{bn.description}}</p>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -59,7 +61,7 @@
     </div>
   </section>
   <section class="art-spot">
-    <img src="assets/images/banners/banner-002.jpg" alt="" class="img-responsive center-block">
+    <img ng-src="{{home.destUp.imgUrl}}" alt="{{home.destUp.title}}" class="img-responsive center-block">
   </section>
   <section class="feature-news">
     <div class="container">
