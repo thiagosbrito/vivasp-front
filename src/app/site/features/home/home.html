@@ -60,8 +60,25 @@
       </div>
     </div>
   </section>
-  <section class="art-spot">
-    <img ng-src="{{home.destUp.imgUrl}}" alt="{{home.destUp.title}}" class="img-responsive center-block">
+  <section class="art-spot" ng-style="{'background-image': 'url(' + home.destUp.imgUrl + ')'}">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 img-caption">
+          <div class="infos">
+            <h3 class="title">
+              {{home.destUp.title}}
+            </h3>
+            <p>
+              {{home.destUp.description}}
+            </p>
+            <span>
+              {{home.destUp.text}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <img ng-src="{{view.destImg.imgUrl}}" alt="{{view.destImg.title}}" class="center-block"> -->
   </section>
   <section class="feature-news">
     <div class="container">
@@ -150,7 +167,24 @@
       </div>
     </div>
   </section>
-  <section class="art-spot">
-    <img src="assets/images/banners/banner-003.jpg" alt="" class="img-responsive center-block">
+  <section class="art-spot" ng-style="{'background-image': 'url(' + home.destDown.imgUrl + ')'}">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 img-caption">
+          <div class="infos">
+            <h3 class="title">
+              {{home.destDown.title}}
+            </h3>
+            <p>
+              {{home.destDown.description}}
+            </p>
+            <span>
+              {{home.destDown.text}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <img ng-src="{{view.destImg.imgUrl}}" alt="{{view.destImg.title}}" class="center-block"> -->
   </section>
 </section>

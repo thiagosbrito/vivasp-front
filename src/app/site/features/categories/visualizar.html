@@ -1,4 +1,4 @@
-<section class="art-spot" ng-style="{'background-image': 'url(' + view.destImg.imgUrl + ')'}">
+<section class="art-spot" ng-style="{'background-image': 'url(' + view.content.imgUrl + ')'}">
   <div class="container">
     <div class="row">
       <div class="col-md-12 img-caption">
@@ -142,7 +142,7 @@
       <h4>
         Comente
       </h4>
-      <div class="comment-holder">
+      <div class="comment-holder" ng-repeat="comment in view.content.comments track by $index">
         <div class="icon">
           <div class="icon-circle">
             <i class="fa fa-user fa-2x"></i>
@@ -151,32 +151,55 @@
         <div class="messagem">
           <div class="rate-date">
             <div class="rate">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
+              <input-stars max="5" ng-model="comment.rate" disabled></input-stars>
             </div>
             <div class="date">
-              8 dias atrás
+              publicado em: {{comment.createdAt | date: 'dd/MM/yyyy'}}
             </div>
           </div>
           <div class="username">
-            Thiago Santos de Brito
+            {{comment.author.displayName}}
           </div>
           <div class="comment">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit doloribus provident officiis. Odit soluta cupiditate, doloremque, eius odio consequuntur sapiente blanditiis minima recusandae, dolorem aliquid modi quod, illo ullam fuga?
+            {{comment.comment}}
           </div>
         </div>
       </div>
-      <div class="input-comment form-group">
-        <br>
+      <div class="input-comment">
+        <form role="form" class="form" novalidate name="formComment">
+          <fieldset>
+            <div class="form-group">
+              <label>Deixe seu comentário:</label>
+              <textarea name="comment" id="commentField" rows="4" class="form-control" maxlength="2000" ng-model="view.commentObj.comment"></textarea>
+              <span>Caracteres restantes: {{(2000 - view.commentObj.comment.length)}}</span>
+            </div>
+          </fieldset>
+          <fieldset>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Avaliação</label>
+                  <input-stars max="5" ng-model="view.commentObj.rate"></input-stars>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <label for="" style="display: inline-block">&nbsp;</label>
+                  <button class="btn btn-primary pull-right" ng-click="(view.AddComment(view.commentObj))">
+                    enviar comentário
+                  </button>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+        <!-- <br>
         <label>
           Comentário:
         </label>
         <textarea class="form-control" rows="6" style="resize: none"></textarea>
         <br>
-        <button class="btn btn-primary pull-right">Comentar</button>
+        <button class="btn btn-primary pull-right">Comentar</button> -->
       </div>
     </div>
   </div>

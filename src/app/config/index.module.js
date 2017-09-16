@@ -13,6 +13,7 @@
       'firebase',
       'angular-loading-bar',
       'cfp.loadingBar',
-      'toastr'
+      'toastr',
+      'angular-input-stars'
     ]);
 })();

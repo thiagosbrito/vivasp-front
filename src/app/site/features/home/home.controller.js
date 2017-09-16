@@ -11,6 +11,16 @@
 
       var bannersRef = firebase.database().ref('banners');
 
+      var contentRef = firebase.database().ref('content');
+      var queryContent = contentRef.orderByChild('featHome').equalTo(true);
+      vm.content = $firebaseArray(queryContent);
+
+      vm.content.$loaded().then(
+        function (a) {
+          console.log(a)
+        }
+      )
+
       var carouselRef = bannersRef.child('carousel');
       var query = carouselRef.orderByChild('active').equalTo(true);
 
@@ -23,7 +33,10 @@
 
       vm.destaques.$loaded().then(
         function (a) {
+          console.log(a);
           vm.destUp = _.findWhere(vm.destaques, {position: "0"});
+          vm.destDown = _.findWhere(vm.destaques, {position: "1"});
+          console.log(vm.destUp, vm.destDown);
         }
       )
       // if(vm.destaques) {

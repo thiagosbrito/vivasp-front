@@ -14,13 +14,19 @@
       var bannersRef = firebase.database().ref('banners');
       var carouselRef = bannersRef.child('destaques');
       var query = carouselRef.orderByChild('destaqueCategoria').equalTo(true);
-      
+
       vm.banners = $firebaseArray(query);
+
+      vm.bCategories = [];
+
       // vm.banners = vm.banners[0];
 
       vm.banners.$loaded().then(
         function (a) {
-          console.log(_.findWhere(a, {contentId: $state.params.itemId}))
+          angular.forEach(a, function (value) {
+            value.categoryId == $stateParams.categoriaId ? vm.bCategories.push(value) : false
+          })
+          console.log(vm.bCategories);
         }
       )
 

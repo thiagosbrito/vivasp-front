@@ -45,10 +45,11 @@
       })
 
       .state('main.categories',{
-        url: '/categoria/:categoriaNome',
+        url: '/categoria/:categoriaId',
         templateUrl: 'app/site/features/categories/categories.html',
         controller: 'CategoriesController',
-        controllerAs: 'category'
+        controllerAs: 'category',
+        abstract: false
       })
 
       .state('main.categories.search',{
