@@ -2,7 +2,7 @@
   <div class="container">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <ul class="main-nav">
-        <li ng-repeat="cat in nav.categories">
+        <li ng-repeat="cat in nav.categories" ui-sref-active="active">
           <a ui-sref="main.categories.search({categoriaId: cat.$id})">{{cat.title}}</a>
         </li>
         <!-- <li ui-sref-active="active"><a ui-sref="main.categories.search({categoriaNome:'videos'})">Videos</a></li>
