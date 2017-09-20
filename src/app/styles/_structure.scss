@@ -1,6 +1,7 @@
 @import "./variables";
 @import "themify/themify-icons";
 @import "directives/star-rating/rating";
+@import "../../bower_components/bourbon/app/assets/stylesheets/bourbon";
 
 .header-flex {
   width: 100%;
@@ -49,15 +50,20 @@
     flex-grow: 5;
     // border: 1px solid;
     ul {
-      margin: 60px 0 0;
-      padding: 0;
-      float: right;
-      li {
-        margin: 10px;
-        a {
-          i {
-            color: $yellow-links-accessible;
-            font-size: 20px;
+      &:not(.dropdown-menu) {
+        margin: 60px 0 0;
+        padding: 0;
+        float: right;
+        li {
+          margin: 10px;
+          a {
+            i {
+              color: $yellow-links-accessible;
+              font-size: 20px;
+            }
+            span.dropdown {
+              border: 1px solid #000;
+            }
           }
         }
       }
@@ -220,6 +226,15 @@ section.footer {
   background: $yellow-links-accessible;
   height: 4px;
 }
+.feature-events-banners {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  div[uib-carousel] {
+    width: 100%
+  }
+}
 .feature-events-banners,
 .content-wrapper {
   .art-spot {
@@ -259,4 +274,97 @@ img-crop {
   overflow: hidden;
   width:500px;
   height:350px;
+}
+.login-modal {
+  .modal-dialog {
+    width: 400px;
+  }
+}
+.vvsp-input {
+  position: relative;
+  border-bottom: $yellow-links-accessible 2px solid;
+  font-family: 'Roboto';
+  transition: color ease .35s;
+  &.error {
+    border-color: $red-error;
+    label {
+      font-weight: 600;
+      color: $red-error;
+    }
+  }
+  input {
+    width: 100%;
+    padding: 6px 0px;
+    margin: 0;
+    border: none;
+    outline: none;
+    &:focus ~ label,
+    &:not(.ng-empty) ~ label {
+      top: -8px;
+      font-size: 12px;
+    }
+  }
+  label {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    font-size: 16px;
+    font-weight: 400;
+    color: #999;
+    transition: all ease .5s;
+  }
+}
+
+$color--green: #7ac142;
+$curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: $color--green;
+  fill: none;
+  animation: stroke .6s $curve forwards;
+}
+
+.checkmark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: block;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  margin: 10% auto;
+  box-shadow: inset 0px 0px 0px $color--green;
+  animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke .3s $curve .8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px $color--green;
+  }
 }

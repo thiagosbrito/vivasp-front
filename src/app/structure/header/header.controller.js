@@ -33,6 +33,12 @@
         );
       }
 
+      $ctrl.Logout = function () {
+        firebase.auth().signOut().then(function() {
+          $state.reload();
+        });
+      }
+
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
           $ctrl.user = user;

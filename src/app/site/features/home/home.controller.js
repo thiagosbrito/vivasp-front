@@ -17,10 +17,10 @@
 
       vm.content.$loaded().then(
         function (a) {
-          console.log(a)
+          console.log("CONTENT:",a)
         }
       )
-
+      vm.hasBanners = false;
       var carouselRef = bannersRef.child('carousel');
       var query = carouselRef.orderByChild('active').equalTo(true);
 
@@ -28,7 +28,12 @@
       var queryDest = destaquesRef.orderByChild('destaqueHome').equalTo(true);
 
       vm.banners = $firebaseArray(query);
-      console.log(vm.banners);
+      vm.banners.$loaded().then(
+        function (a) {
+          vm.hasBanners = true;
+          vm.bannersList = a;
+        }
+      )
       vm.destaques = $firebaseArray(queryDest);
 
       vm.destaques.$loaded().then(

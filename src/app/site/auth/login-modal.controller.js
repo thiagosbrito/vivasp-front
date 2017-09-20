@@ -21,11 +21,25 @@
       $ctrl.Login = function (user) {
         ref.signInWithEmailAndPassword(user.email, user.password).then(
           function (res) {
-            console.log(res);
+            $uibModalInstance.close();
           }
         ).catch(
           function (error) {
-            console.log(error);
+            if (error.code == 'auth/wrong-password') {
+              $ctrl.wrongPassword = true;
+              $ctrl.userNotFound = false;
+              $ctrl.invalidEmail = false;
+            }
+            if (error.code == 'auth/user-not-found') {
+              $ctrl.userNotFound = true;
+              $ctrl.wrongPassword = false;
+              $ctrl.invalidEmail = false;
+            }
+            if (error.code == 'auth/invalid-email') {
+              $ctrl.invalidEmail = true;
+              $ctrl.userNotFound = false;
+              $ctrl.wrongPassword = false;
+            }
           }
         )
       }
@@ -33,14 +47,32 @@
       $ctrl.SignUpForm = function () {
         $ctrl.showSignUpForm = true;
         $ctrl.showLoginForm = false;
+        $ctrl.showForgotForm = false;
+      }
+
+      $ctrl.ForgotPassword = function () {
+        $ctrl.showForgotForm = true;
+        $ctrl.showSignUpForm = false;
+        $ctrl.showLoginForm = false;
       }
 
       $ctrl.CancelSign = function () {
         $ctrl.showSignUpForm = false;
         $ctrl.showLoginForm = true;
+        $ctrl.showForgotForm = false
       }
 
       $ctrl.authObj = $firebaseAuth();
+
+      $ctrl.RetrievePassword = function (email) {
+        ref.sendPasswordResetEmail(email).then(function() {
+          $ctrl.showForgotForm = false
+          $ctrl.check = true;
+        }, function(error) {
+          console.log(error);
+        });
+        // $ctrl.forgotObj.email
+      }
 
 
       $ctrl.SignUpUser = function (signObj) {

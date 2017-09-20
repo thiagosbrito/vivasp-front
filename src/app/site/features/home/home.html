@@ -1,7 +1,12 @@
 <section class="main">
   <section class="feature-events-banners">
-    <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-      <div uib-slide index="$index" ng-repeat="bn in home.banners track by $index">
+    <div class="spinner animated" ng-if="!home.hasBanners">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+    <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides" ng-if="home.hasBanners">
+      <div uib-slide index="$index" ng-repeat="bn in home.bannersList track by $index">
         <a href="/categoria{{bn.linkUrl}}">
           <img ng-src="{{bn.imgUrl}}" style="margin:auto;">
           <div class="carousel-caption">
@@ -40,7 +45,7 @@
             <img src="assets/images/featured/feat-002.jpg" alt="" class="img-responsive">
           </div>
           <h3 class="event-type-title">
-            Cinema
+            Música
           </h3>
           <p class="event-text">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
@@ -51,7 +56,7 @@
             <img src="assets/images/featured/feat-003.jpg" alt="" class="img-responsive">
           </div>
           <h3 class="event-type-title">
-            Cinema
+            Dança
           </h3>
           <p class="event-text">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
@@ -88,7 +93,7 @@
             <img src="http://placehold.it/360x240" alt="">
           </div>
           <h3 class="event-type-title">
-            Cinema
+            Cursos
           </h3>
           <p class="event-text">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
@@ -99,7 +104,7 @@
             <img src="http://placehold.it/360x240" alt="">
           </div>
           <h3 class="event-type-title">
-            Cinema
+            Lazer
           </h3>
           <p class="event-text">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
@@ -110,7 +115,7 @@
             <img src="http://placehold.it/360x240" alt="">
           </div>
           <h3 class="event-type-title">
-            Cinema
+            Gastronomia
           </h3>
           <p class="event-text">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
@@ -136,7 +141,7 @@
             <img src="http://placehold.it/360x240" alt="">
           </div>
           <h3 class="event-type-title">
-            Cinema
+            Teatro
           </h3>
           <p class="event-text">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
@@ -147,13 +152,13 @@
             <img src="http://placehold.it/360x240" alt="">
           </div>
           <h3 class="event-type-title">
-            Cinema
+            Videos
           </h3>
           <p class="event-text">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
           </p>
         </section>
-        <section class="col-md-4 event-holder">
+        <section class="col-md-4 event-holder especial">
           <div class="img-holder">
             <img src="http://placehold.it/360x240" alt="">
           </div>

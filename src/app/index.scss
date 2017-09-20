@@ -7,7 +7,8 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 
 $fa-font-path: "../../bower_components/font-awesome/fonts";
 @import "../../bower_components/font-awesome/scss/font-awesome.scss";
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import "../../bower_components/animate-sass/animate";
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i');
 
 * {
   -webkit-font-smoothing: antialiased;
@@ -36,9 +37,7 @@ $fa-font-path: "../../bower_components/font-awesome/fonts";
   align-items: center;
   justify-content: center;
   &.login-modal {
-    background: rgba(#003973, .65);
-    background: -webkit-linear-gradient(to right, rgba(#E5E5BE, .65), rgba(#003973, .65));
-    background: linear-gradient(to right, rgba(#E5E5BE, .65), rgba(#003973, .65));
+    background: rgba(#282830, .65);
     .modal-content {
       border-radius: 0;
       box-shadow: none;
