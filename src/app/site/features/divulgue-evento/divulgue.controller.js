@@ -9,7 +9,11 @@
     function DivulgueController ($scope, $uibModalInstance, $firebaseArray) {
       var $ctrl = this;
 
-      $ctrl.event = firebase.database().ref('events');
+      $ctrl.event = $firebaseArray(firebase.database().ref('events'))
+
+      $ctrl.Close = function () {
+        $uibModalInstance.dismiss('cancel');
+      }
 
       $ctrl.regions = [
         {
@@ -36,7 +40,21 @@
           description: 'Sul',
           value: 5
         }
-      ]
+      ];
+
+      $ctrl.formSent = false;
+
+      $ctrl.AddEvent = function (obj) {
+        $ctrl.event.$add(obj).then(
+          function (res) {
+            $ctrl.formSent = true;
+          }
+        ).catch(
+          function (error) {
+            console.log(error)
+          }
+        )
+      };
 
     }
 })();

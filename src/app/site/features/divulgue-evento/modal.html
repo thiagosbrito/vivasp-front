@@ -1,45 +1,50 @@
 <div class="modal-header text-center">
   Divulgue seu evento
+  <button type="button" ng-click="$ctrl.Close()" class="close" data-dismiss="modal">&times;</button>
 </div>
 <div class="modal-body">
-  <form role="form" name="eventForm" class="form">
+  <form role="form" name="eventForm" class="form" ng-if="!$ctrl.formSent">
     <fieldset>
-      <div class="form-group vvsp-input">
-        <input type="text" ng-model="$ctrl.event.title" id="eventTitle" name="eventTitle">
-        <label for="eventTitle">Título do Evento:</label>
+      <div class="form-group">
+        <input type="text" required="required" ng-model="$ctrl.event.title" id="eventTitle" name="eventTitle">
+        <label class="control-label" for="input">Título:</label>
+        <i class="bar"></i>
       </div>
     </fieldset>
     <div class="row">
       <div class="col-md-4">
         <fieldset>
-          <div class="form-group vvsp-input">
+          <div class="form-group">
             <select
               name="eventRegion"
+              required="required"
               id="eventRegion"
               ng-options="reg.value as reg.description for reg in $ctrl.regions"
               ng-model="$ctrl.event.cityZone">
             </select>
-            <label>Região:</label>
+            <label class="control-label" for="select">Região:</label>
+            <i class="bar"></i>
           </div>
         </fieldset>
       </div>
       <div class="col-md-4">
         <fieldset>
-          <div class="form-group vvsp-input">
-            <select name="eventPerfil" id="eventPerfil" ng-model="$ctrl.event.profile">
+          <div class="form-group">
+            <select name="eventPerfil" id="eventPerfil" ng-model="$ctrl.event.profile" required="required">
               <option value="Artista ou coletivo artístico">Artista ou coletivo artístico</option>
               <option value="Produtor de Conteúdo">Produtor de Conteúdo</option>
               <option value="Leitor / usuário do Site">Leitor / usuário do Site</option>
               <option value="Parceiro (anunciante)">Parceiro (anunciante)</option>
             </select>
-            <label for="eventPerfil">Perfil:</label>
+            <label class="control-label" for="eventPerfil">Perfil:</label>
+            <i class="bar"></i>
           </div>
         </fieldset>
       </div>
       <div class="col-md-4">
         <fieldset>
-          <div class="form-group vvsp-input">
-            <select name="eventAtividade" id="eventAtividade" ng-model="$ctrl.event.activity">
+          <div class="form-group">
+            <select name="eventAtividade" id="eventAtividade" ng-model="$ctrl.event.activity" required="required">
               <option value="Cinema">Cinema</option>
               <option value="Teatro">Teatro</option>
               <option value="Música">Música</option>
@@ -50,18 +55,138 @@
               <option value="Exposição">Exposição</option>
               <option value="Curso">Curso</option>
             </select>
-            <label for="eventAtividade">Tipo de Atividade</label>
+            <label for="eventAtividade" class="control-label">Tipo de Atividade:</label>
+            <i class="bar"></i>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <fieldset>
+          <div class="form-group">
+            <input type="text" ng-model="$ctrl.event.artist" name="eventArtist" id="eventArtist" required="required">
+            <label for="eventArtist" class="control-label">Artista:</label>
+            <i class="bar"></i>
+          </div>
+        </fieldset>
+      </div>
+      <div class="col-md-8">
+        <fieldset>
+          <div class="form-group">
+            <input type="text" ng-model="$ctrl.event.description" name="eventDescription" id="eventDescription" required="required">
+            <label class="control-label" for="eventDescription">Descrição curta:</label>
+            <i class="bar"></i>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <fieldset>
+          <div class="form-group">
+            <textarea required="required" ng-model="$ctrl.event.longDescription" name="eventLongDescription" id="eventLongDescription"></textarea>
+            <label class="control-label" for="textarea">Descrição longa:</label>
+            <i class="bar"></i>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <fieldset>
+          <div class="form-group">
+            <input type="text" ng-model="$ctrl.event.address" name="eventAddress" id="eventAddress" required="required">
+            <label class="control-label" for="eventAddress">Endereço: <small>ex: Avendia São João 473, Centro</small></label>
+            <i class="bar"></i>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-9">
+        <fieldset>
+          <div class="form-group">
+            <input type="text" ng-model="$ctrl.event.datas" name="eventData" required="required" id="eventData">
+            <label class="control-label" for="eventData">Datas: <small>ex: Dias 06 e 07 de Fevereiro às 19 hs e Dia 13 às 20 hs</small></label>
+            <i class="bar"></i>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <fieldset>
+          <div class="form-group">
+            <input type="text" ng-model="$ctrl.event.contatoSite" name="eventContatoSite" required="required" id="eventContatoSite">
+            <label class="control-label" for="eventContantoSite">Contato(s) do responsável para ser publicado no site:</label>
+            <i class="bar"></i>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <fieldset>
+          <div class="form-group">
+            <input type="text" ng-model="$ctrl.event.contatoRedacao" name="eventContatoRedacao" required="required" id="eventContatoRedacao">
+            <label class="control-label" for="eventContantoSite">Contato(s) do responsável (para nossa redação):</label>
+            <i class="bar"></i>
+          </div>
+        </fieldset>
+      </fieldset>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <fieldset>
+          <div class="form-group">
+            <select name="eventParentRating" id="eventParentRating" ng-model="$ctrl.event.parentRating">
+              <option value="livre">Livre</option>
+              <option value="10">10</option>
+              <option value="12">12</option>
+              <option value="14">14</option>
+              <option value="16">16</option>
+              <option value="18">18</option>
+            </select>
+            <label for="eventParentRating" class="control-label">Classificação Etária (Indicativa):</label>
+            <i class="bar"></i>
+          </div>
+        </fieldset>
+      </div>
+      <div class="col-md-6">
+        <fieldset>
+          <div class="form-group">
+            <select name="eventRecommend" id="eventRecommend" ng-model="$ctrl.event.recommend">
+              <option value="todos">Todos</option>
+              <option value="casais">Casais</option>
+              <option value="familia">Família</option>
+            </select>
+            <label for="eventRecommend" class="control-label">Recomendado para:</label>
+            <i class="bar"></i>
           </div>
         </fieldset>
       </div>
     </div>
   </form>
-</div>
-<div class="modal-footer">
-  <button class="btn btn-danger pull-left">
-    Cancelar
-  </button>
-  <button class="btn btn-primary pull-right">
-    Enviar Evento
-  </button>
+  <div class="sent-message" ng-class="{'fadeIn': $ctrl.formSent}" ng-if="$ctrl.formSent">
+    <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+      <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+      <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+    </svg>
+    <h3 class="text-center">Evento enviado com sucesso.</h3>
+    <p class="text-center">Nossa equipe avaliará seu evento e em breve entraremos em contato. Muito Obrigado!</p>
+    <button class="btn btn-add-event" ng-click="$ctrl.Close()">
+      Fechar
+    </button>
+  </div>
+  <div class="row" ng-hide="$ctrl.formSent">
+    <div class="col-md-12">
+      <div class="form-group">
+        <a class="btn btn-primary pull-right" ng-click="$ctrl.AddEvent($ctrl.event)">
+          Enviar Evento
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

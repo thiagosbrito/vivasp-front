@@ -1,0 +1,51 @@
+[debug] [2017-09-21T02:49:30.501Z] ----------------------------------------------------------------------
+[debug] [2017-09-21T02:49:30.505Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2017-09-21T02:49:30.505Z] CLI Version:   3.9.2
+[debug] [2017-09-21T02:49:30.505Z] Platform:      darwin
+[debug] [2017-09-21T02:49:30.505Z] Node Version:  v6.11.2
+[debug] [2017-09-21T02:49:30.506Z] Time:          Wed Sep 20 2017 23:49:30 GMT-0300 (-03)
+[debug] [2017-09-21T02:49:30.506Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-09-21T02:49:30.526Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-09-21T02:49:30.526Z] > authorizing via signed-in user
+[debug] [2017-09-21T02:49:30.528Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-09-21T02:49:30.529Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/YeSDmL2RAk3-eG5eTu4jCQ-9oq67LmkSkqBNnFZ2Vz4',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Wed Sep 20 2017 23:49:30 GMT-0300 (-03)
+[debug] [2017-09-21T02:49:30.859Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T02:49:30.869Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/vivasp-249f9  
+ Wed Sep 20 2017 23:49:30 GMT-0300 (-03)
+[debug] [2017-09-21T02:49:32.051Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T02:49:32.053Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/vivasp-249f9/tokens  
+ Wed Sep 20 2017 23:49:32 GMT-0300 (-03)
+[debug] [2017-09-21T02:49:33.059Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'vivasp-249f9'...
+[info] 
+[info] i  deploying database, hosting
+[info] ✔  database: rules ready to deploy.
+[info] i  hosting: preparing dist directory for upload...
+[debug] [2017-09-21T02:49:36.957Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/vivasp-249f9/uploads/-KuXKmdQRsXknWVumGt4?fileCount=118&message=  
+ Wed Sep 20 2017 23:49:36 GMT-0300 (-03)
+[debug] [2017-09-21T02:51:01.955Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T02:51:01.955Z] [hosting] .tgz uploaded successfully, waiting for extraction
+[error] 
+[error] Error: File upload failed: Deploy failed.
+[debug] [2017-09-21T02:52:15.030Z] Error Context: {
+  "duration": 95797,
+  "fileCount": 118,
+  "ip": "201.6.224.200",
+  "start": 1505962238682,
+  "status": "failed",
+  "statusMessage": "Deploy failed.",
+  "uid": "115085795380455315987",
+  "uploadedCount": 118,
+  "user": {
+    "email": "thiago83brito@hotmail.com",
+    "gaiaId": "115085795380455315987",
+    "image": "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"
+  }
+}

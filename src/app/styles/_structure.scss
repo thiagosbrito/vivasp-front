@@ -2,6 +2,7 @@
 @import "themify/themify-icons";
 @import "directives/star-rating/rating";
 @import "../../bower_components/bourbon/app/assets/stylesheets/bourbon";
+@import "./inputs";
 
 .header-flex {
   width: 100%;
@@ -213,6 +214,19 @@ section.footer {
   color: $gray-links-social;
   font-weight: 600;
   font-family: 'Roboto';
+  &:focus,
+  &:active,
+  &:visited {
+    outline: none !important;
+  }
+  &:hover {
+    background-color: #f5f5f5;
+    box-shadow: none;
+  }
+  &:active {
+    background-color: #f0f0f0;
+    box-shadow: none;
+  }
   // &:hover {
   //
   // }
@@ -363,7 +377,7 @@ $select-padding: 4px;
     background-color: transparent;
     width: 100%;
     padding: $select-padding 0;
-    font-size: $select-font-size;
+    font-size: 100%;
     color: $select-color;
     border: none;
     border-bottom: 1px solid $select-border-color;
@@ -421,7 +435,7 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
   stroke-width: 2;
   stroke: #fff;
   stroke-miterlimit: 10;
-  margin: 10% auto;
+  margin: 3% auto;
   box-shadow: inset 0px 0px 0px $color--green;
   animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
 }
@@ -451,5 +465,33 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
 @keyframes fill {
   100% {
     box-shadow: inset 0px 0px 0px 30px $color--green;
+  }
+}
+
+.btn-primary {
+  background-color: #4589B0;
+  border: none !important;
+  &:hover,
+  &:active,
+  &:focus,
+  &:visited {
+    outline: none !important;
+  }
+}
+.sent-message {
+  h3 {
+    font-weight: 200;
+    text-align: center;
+  }
+  p {
+    text-align: center;
+  }
+  .btn-add-event {
+    background-color: #f5f5f5;
+    color: darken($gray-links-social, 25%);
+    font-weight: 400;
+    margin: 48px auto 0;
+    position: relative;
+    display: block;
   }
 }
