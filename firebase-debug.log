@@ -49,3 +49,93 @@
     "image": "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"
   }
 }
+[debug] [2017-09-21T04:19:08.420Z] ----------------------------------------------------------------------
+[debug] [2017-09-21T04:19:08.427Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2017-09-21T04:19:08.428Z] CLI Version:   3.9.2
+[debug] [2017-09-21T04:19:08.428Z] Platform:      darwin
+[debug] [2017-09-21T04:19:08.428Z] Node Version:  v6.11.2
+[debug] [2017-09-21T04:19:08.429Z] Time:          Thu Sep 21 2017 01:19:08 GMT-0300 (-03)
+[debug] [2017-09-21T04:19:08.429Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-09-21T04:19:08.449Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-09-21T04:19:08.450Z] > authorizing via signed-in user
+[debug] [2017-09-21T04:19:08.452Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-09-21T04:19:08.453Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/YeSDmL2RAk3-eG5eTu4jCQ-9oq67LmkSkqBNnFZ2Vz4',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Thu Sep 21 2017 01:19:08 GMT-0300 (-03)
+[debug] [2017-09-21T04:19:08.802Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T04:19:08.812Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/vivasp-249f9  
+ Thu Sep 21 2017 01:19:08 GMT-0300 (-03)
+[debug] [2017-09-21T04:19:09.985Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T04:19:09.986Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/vivasp-249f9/tokens  
+ Thu Sep 21 2017 01:19:09 GMT-0300 (-03)
+[debug] [2017-09-21T04:19:10.716Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'vivasp-249f9'...
+[info] 
+[info] i  deploying database, hosting
+[info] ✔  database: rules ready to deploy.
+[info] i  hosting: preparing dist directory for upload...
+[debug] [2017-09-21T04:19:14.663Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/vivasp-249f9/uploads/-KuXeIWSZEyvKN8ch56M?fileCount=121&message=  
+ Thu Sep 21 2017 01:19:14 GMT-0300 (-03)
+[debug] [2017-09-21T04:21:17.571Z] <<< HTTP RESPONSE 409
+[debug] [2017-09-21T04:21:17.572Z] <<< HTTP RESPONSE BODY undefined
+[debug] [2017-09-21T04:21:17.575Z] TypeError: Cannot read property 'error' of undefined
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:10:12)
+    at Request._callback (/usr/local/lib/node_modules/firebase-tools/lib/api.js:39:25)
+    at Request.self.callback (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:188:22)
+    at emitTwo (events.js:106:13)
+    at Request.emit (events.js:191:7)
+    at Request.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1171:10)
+    at emitOne (events.js:96:13)
+    at Request.emit (events.js:188:7)
+    at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/firebase-tools/node_modules/request/request.js:1091:12)
+    at IncomingMessage.g (events.js:292:16)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2017-09-21T04:25:20.844Z] ----------------------------------------------------------------------
+[debug] [2017-09-21T04:25:20.848Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2017-09-21T04:25:20.848Z] CLI Version:   3.9.2
+[debug] [2017-09-21T04:25:20.848Z] Platform:      darwin
+[debug] [2017-09-21T04:25:20.848Z] Node Version:  v6.11.2
+[debug] [2017-09-21T04:25:20.849Z] Time:          Thu Sep 21 2017 01:25:20 GMT-0300 (-03)
+[debug] [2017-09-21T04:25:20.849Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-09-21T04:25:20.870Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-09-21T04:25:20.871Z] > authorizing via signed-in user
+[debug] [2017-09-21T04:25:20.874Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/vivasp-249f9  
+ Thu Sep 21 2017 01:25:20 GMT-0300 (-03)
+[debug] [2017-09-21T04:25:22.051Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T04:25:22.053Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/vivasp-249f9/tokens  
+ Thu Sep 21 2017 01:25:22 GMT-0300 (-03)
+[debug] [2017-09-21T04:25:23.326Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'vivasp-249f9'...
+[info] 
+[info] i  deploying database, hosting
+[info] ✔  database: rules ready to deploy.
+[info] i  hosting: preparing dist directory for upload...
+[debug] [2017-09-21T04:25:27.132Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/vivasp-249f9/uploads/-KuXfiW0_-YNfPLCCRQe?fileCount=121&message=  
+ Thu Sep 21 2017 01:25:27 GMT-0300 (-03)
+[debug] [2017-09-21T04:26:10.754Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T04:26:10.755Z] [hosting] .tgz uploaded successfully, waiting for extraction
+[error] 
+[error] Error: File upload failed: Deploy failed.
+[debug] [2017-09-21T04:27:21.316Z] Error Context: {
+  "duration": 83640,
+  "fileCount": 121,
+  "ip": "201.6.224.200",
+  "start": 1505967957344,
+  "status": "failed",
+  "statusMessage": "Deploy failed.",
+  "uid": "115085795380455315987",
+  "uploadedCount": 121,
+  "user": {
+    "email": "thiago83brito@hotmail.com",
+    "gaiaId": "115085795380455315987",
+    "image": "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"
+  }
+}
