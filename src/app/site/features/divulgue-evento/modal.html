@@ -1,0 +1,67 @@
+<div class="modal-header text-center">
+  Divulgue seu evento
+</div>
+<div class="modal-body">
+  <form role="form" name="eventForm" class="form">
+    <fieldset>
+      <div class="form-group vvsp-input">
+        <input type="text" ng-model="$ctrl.event.title" id="eventTitle" name="eventTitle">
+        <label for="eventTitle">Título do Evento:</label>
+      </div>
+    </fieldset>
+    <div class="row">
+      <div class="col-md-4">
+        <fieldset>
+          <div class="form-group vvsp-input">
+            <select
+              name="eventRegion"
+              id="eventRegion"
+              ng-options="reg.value as reg.description for reg in $ctrl.regions"
+              ng-model="$ctrl.event.cityZone">
+            </select>
+            <label>Região:</label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="col-md-4">
+        <fieldset>
+          <div class="form-group vvsp-input">
+            <select name="eventPerfil" id="eventPerfil" ng-model="$ctrl.event.profile">
+              <option value="Artista ou coletivo artístico">Artista ou coletivo artístico</option>
+              <option value="Produtor de Conteúdo">Produtor de Conteúdo</option>
+              <option value="Leitor / usuário do Site">Leitor / usuário do Site</option>
+              <option value="Parceiro (anunciante)">Parceiro (anunciante)</option>
+            </select>
+            <label for="eventPerfil">Perfil:</label>
+          </div>
+        </fieldset>
+      </div>
+      <div class="col-md-4">
+        <fieldset>
+          <div class="form-group vvsp-input">
+            <select name="eventAtividade" id="eventAtividade" ng-model="$ctrl.event.activity">
+              <option value="Cinema">Cinema</option>
+              <option value="Teatro">Teatro</option>
+              <option value="Música">Música</option>
+              <option value="Lazer">Lazer</option>
+              <option value="Gastronomia">Gastronomia</option>
+              <option value="Literatura">Literatura</option>
+              <option value="Dança">Dança</option>
+              <option value="Exposição">Exposição</option>
+              <option value="Curso">Curso</option>
+            </select>
+            <label for="eventAtividade">Tipo de Atividade</label>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-danger pull-left">
+    Cancelar
+  </button>
+  <button class="btn btn-primary pull-right">
+    Enviar Evento
+  </button>
+</div>

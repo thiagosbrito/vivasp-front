@@ -3,7 +3,17 @@
   angular.module('vivaSp')
     .controller('HeaderController', HeaderController);
 
-    HeaderController.$inject = ['$scope','$state','$stateParams','$uibModal','$firebaseArray','$log', 'sha256','toastr','UserAPI'];
+    HeaderController.$inject = [
+      '$scope',
+      '$state',
+      '$stateParams',
+      '$uibModal',
+      '$firebaseArray',
+      '$log',
+      'sha256',
+      'toastr',
+      'UserAPI'
+    ];
 
     function HeaderController ($scope, $state, $stateParams, $uibModal, $firebaseArray, $log, sha256, toastr, UserAPI) {
 
@@ -14,7 +24,7 @@
 
       ref.currentUser ? $ctrl.user = ref.currentUser : $ctrl.user = null;
 
-      $ctrl.Login = function () {
+      $ctrl.Login = function (source) {
         var modalInstance = $uibModal.open({
           animation: true,
           controller: 'LoginModalController',
@@ -25,7 +35,9 @@
 
         modalInstance.result.then(
           function () {
-            // $ctrl.user = ref.currentUser;
+            if (source) {
+              $ctrl.DivulgueEvento();
+            }
           },
           function () {
             $log.info('modal-component dismissed at: ' + new Date());
@@ -43,8 +55,32 @@
         if (user) {
           $ctrl.user = user;
         } else {
-          console.log('No user is logged');
+          $ctrl.user = null;
         }
-      })
+      });
+
+      $ctrl.DivulgueEvento = function () {
+        if($ctrl.user) {
+          var modalInstance = $uibModal.open({
+            animation: true,
+            controller: 'DivulgueEventoController',
+            controllerAs: '$ctrl',
+            windowClass: 'center-modal login-modal large',
+            templateUrl: 'app/site/features/divulgue-evento/modal.html'
+          });
+
+          modalInstance.result.then(
+            function () {
+
+            },
+            function () {
+              $log.info('modal-component dismissed at: ' + new Date());
+            }
+          );
+        }
+        else {
+          $ctrl.Login('divulgue');
+        }
+      }
     }
 })();

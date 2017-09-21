@@ -8,7 +8,7 @@
   display: flex;
   flex-direction: row;
   height: 150px;
-  // border: 1px solid;
+  border-bottom: 1px solid #f6f6f6;
   .social-links,
   .accessible-links {
     ul {
@@ -22,12 +22,10 @@
     flex-grow: 1;
     width: 333px;
     height: 150px;
-    background: url('../../assets/images/logos/logo-principal.png') center -25px no-repeat;
+    background: url('../../assets/images/logos/logo-principal.png') center no-repeat;
+    background-size: contain;
     overflow: hidden;
     cursor: pointer;
-    img {
-      margin-top: -30px
-    }
   }
   .social-links {
     flex-grow: 5;
@@ -59,7 +57,7 @@
           margin: 10px;
           a {
             i {
-              color: $yellow-links-accessible;
+              color: $gray-links-social;
               font-size: 20px;
             }
             span.dropdown {
@@ -212,16 +210,20 @@ section.footer {
   }
 }
 .btn-add-event {
-  background-color: $yellow-links-accessible;
-  color: #fff;
-  &:visited,
-  &:focus {
-    color: #fff;
-    outline: none;
-  }
-  &:hover {
-    color: #7b6625;
-  }
+  color: $gray-links-social;
+  font-weight: 600;
+  font-family: 'Roboto';
+  // &:hover {
+  //
+  // }
+  // &:visited,
+  // &:focus {
+  //   color: #fff;
+  //   outline: none;
+  // }
+  // &:hover {
+  //   color: #7b6625;
+  // }
 }
 #loading-bar .bar {
   background: $yellow-links-accessible;
@@ -233,7 +235,40 @@ section.footer {
   align-items: center;
   justify-content: center;
   div[uib-carousel] {
-    width: 100%
+    width: 100%;
+    .right.carousel-control, .left.carousel-control {
+      opacity: 0;
+      filter:alpha(opacity=0); /* IE support */
+    }
+    .carousel-caption {
+      background-color: rgba(#000, .65);
+      width: 100%;
+      left: 0;
+      right: 0;
+      text-align: left;
+      font-family: 'Roboto';
+      h4 {
+        color: #ffc705;
+        font-size: 26px;
+      }
+      p {
+        font-size: 22px;
+        font-weight: 400;
+      }
+    }
+    .carousel-indicators {
+      li {
+        width: 16px;
+        height: 16px;
+        margin: 3px;
+        background-color: rgba(#FFF, .45);
+        border: none;
+        transition: background-color ease .5s;
+        &.active {
+          background-color: rgba(#ffc705, .75);
+        }
+      }
+    }
   }
 }
 .feature-events-banners,
@@ -264,6 +299,10 @@ section.footer {
   }
   .carousel-inner {
     height: 500px;
+    .right.carousel-control, .left.carousel-control {
+      opacity: 0 !important;
+      filter:alpha(opacity=0);
+    }
     .item {
       height: 500px;
       overflow: hidden;
@@ -280,12 +319,38 @@ img-crop {
   .modal-dialog {
     width: 400px;
   }
+  &.large {
+    .modal-dialog {
+      width: 650px;
+    }
+  }
 }
+
+$color-black: "0,0,0";
+$select-background-color: transparent;
+$select-border-color: unquote("rgba(#{$color-black}, 0.12)") !default;
+$select-font-size: 16px;
+$select-color: unquote("rgba(#{$color-black}, 0.90)") !default;
+$select-padding: 4px;
+
 .vvsp-input {
   position: relative;
   border-bottom: $yellow-links-accessible 2px solid;
   font-family: 'Roboto';
   transition: color ease .35s;
+  &:has(select):after {
+    position: absolute;
+    top: 0.75em;
+    right: 0.5em;
+    width: 0;
+    height: 0;
+    padding: 0;
+    content: '';
+    border-left: .25em solid transparent;
+    border-right: .25em solid transparent;
+    border-top: .375em solid $select-border-color;
+    pointer-events: none;
+  }
   &.error {
     border-color: $red-error;
     label {
@@ -293,17 +358,28 @@ img-crop {
       color: $red-error;
     }
   }
+  select {
+    font-family: inherit;
+    background-color: transparent;
+    width: 100%;
+    padding: $select-padding 0;
+    font-size: $select-font-size;
+    color: $select-color;
+    border: none;
+    border-bottom: 1px solid $select-border-color;
+  }
+  select:focus {
+    outline: none
+  }
+  select {
+    appearance: none
+  }
   input {
     width: 100%;
     padding: 6px 0px;
     margin: 0;
     border: none;
     outline: none;
-    &:focus ~ label,
-    &:not(.ng-empty) ~ label {
-      top: -8px;
-      font-size: 12px;
-    }
   }
   label {
     position: absolute;
@@ -313,6 +389,14 @@ img-crop {
     font-weight: 400;
     color: #999;
     transition: all ease .5s;
+  }
+  input,
+  select {
+    &:focus ~ label,
+    &:not(.ng-empty) ~ label {
+      top: -8px;
+      font-size: 12px;
+    }
   }
 }
 
