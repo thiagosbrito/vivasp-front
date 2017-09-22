@@ -49,7 +49,7 @@
         templateUrl: 'app/site/features/categories/categories.html',
         controller: 'CategoriesController',
         controllerAs: 'category',
-        abstract: false
+        abstract: true
       })
 
       .state('main.categories.search',{

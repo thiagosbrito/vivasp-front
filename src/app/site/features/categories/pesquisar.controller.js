@@ -3,17 +3,38 @@
   angular.module('vivaSp')
     .controller('CategoriesSearchController', CategoriesSearch);
 
-    CategoriesSearch.$inject = ['$scope','$state','$stateParams'];
+    CategoriesSearch.$inject = ['$scope','$state','$stateParams','$firebaseArray'];
 
-    function CategoriesSearch ($scope, $state, $stateParams) {
+    function CategoriesSearch ($scope, $state, $stateParams, $firebaseArray) {
 
       var vm = this;
+
+      vm.category = $stateParams.categoriaNome;
+
+      var bannersRef = firebase.database().ref('banners');
+      var carouselRef = bannersRef.child('destaques');
+      var query = carouselRef.orderByChild('destaqueCategoria').equalTo(true);
+
+      vm.banners = $firebaseArray(query);
+
+      vm.bCategories = [];
+
+      // vm.banners = vm.banners[0];
+      vm.hasBanners = false;
+      vm.banners.$loaded().then(
+        function (a) {
+          vm.hasBanners = true
+          angular.forEach(a, function (value) {
+            value.categoryId == $stateParams.categoriaId ? vm.bCategories.push(value) : false
+          })
+        }
+      )
 
       $scope.doSearch = function (filter) {
         console.log(filter);
         $state.go('main.categories.results',{filter: filter});
       }
-
+      vm.hasBanners = false;
       $scope.toggled = function(open) {
         console.log(open);
       };

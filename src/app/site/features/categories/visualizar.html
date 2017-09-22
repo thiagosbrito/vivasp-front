@@ -1,23 +1,23 @@
 <section class="art-spot" ng-style="{'background-image': 'url(' + view.content.imgUrl + ')'}">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 img-caption">
-        <div class="infos">
+  <div class="img-caption">
+    <div class="infos">
+      <div class="container">
+        <div class="holder-info">          
           <h3 class="title">
             {{view.destImg.title}}
           </h3>
-          <p>
+          <p class="description">
             {{view.destImg.description}}
           </p>
-          <span>
+          <span class="complementary-text">
             {{view.destImg.text}}
           </span>
         </div>
       </div>
     </div>
   </div>
-  <!-- <img ng-src="{{view.destImg.imgUrl}}" alt="{{view.destImg.title}}" class="center-block"> -->
 </section>
+
 <div class="container" ng-if="state.current.name != 'main.categories.view'">
   <div class="row">
     <div class="col-md-12 add-holder">
@@ -25,6 +25,7 @@
     </div>
   </div>
 </div>
+
 <section class="container" id="description">
   <div class="row">
     <div class="col-md-12">
@@ -39,6 +40,7 @@
     </div>
   </div>
 </section>
+
 <section class="container" id="adds">
   <div class="row">
     <div class="col-md-12 add-holder">
@@ -46,6 +48,7 @@
     </div>
   </div>
 </section>
+
 <section class="container" id="share">
   <div class="row">
     <div class="col-md-12">
@@ -55,6 +58,7 @@
     </div>
   </div>
 </section>
+
 <section class="container" id="related">
   <div class="row">
     <div class="col-md-12">

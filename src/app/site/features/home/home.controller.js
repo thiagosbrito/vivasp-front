@@ -13,11 +13,51 @@
 
       var contentRef = firebase.database().ref('content');
       var queryContent = contentRef.orderByChild('featHome').equalTo(true);
+
       vm.content = $firebaseArray(queryContent);
+
+      // vm.SeparateByCategory = function (array) {
+      //
+      //   console.log(_.groupBy(array, 'categoryId'));
+      //   return _.groupBy(array, 'categoryId');
+      // }
 
       vm.content.$loaded().then(
         function (a) {
-          console.log("CONTENT:",a)
+
+          vm.featCinema = [];
+          vm.featMusica = [];
+          vm.featDanca = [];
+          vm.featCursos = [];
+          vm.featLazer = [];
+          vm.featGastronomia = [];
+          vm.featTeatro = [];
+
+          vm.homeContent = a;
+
+          angular.forEach(vm.homeContent, function (value) {
+            if (value.category.title == 'Cinema') {
+              vm.featCinema.push(value);
+            }
+            else if (value.category.title == 'Música') {
+              vm.featMusica.push(value)
+            }
+            else if (value.category.title == 'Dança') {
+              vm.featDanca.push(value)
+            }
+            else if (value.category.title == 'Cursos') {
+              vm.featCursos.push(value)
+            }
+            else if (value.category.title == 'Lazer') {
+              vm.featLazer.push(value)
+            }
+            else if (value.category.title == 'Gastronomia') {
+              vm.featGastronomia.push(value)
+            }
+            else {
+              vm.featTeatro.push(value)
+            }
+          })
         }
       )
       vm.hasBanners = false;

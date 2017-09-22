@@ -17,19 +17,6 @@
 
       vm.banners = $firebaseArray(query);
 
-      vm.bCategories = [];
-
-      // vm.banners = vm.banners[0];
-
-      vm.banners.$loaded().then(
-        function (a) {
-          angular.forEach(a, function (value) {
-            value.categoryId == $stateParams.categoriaId ? vm.bCategories.push(value) : false
-          })
-          console.log(vm.bCategories);
-        }
-      )
-
       $scope.state = $state;
       $scope.foods = [
         [

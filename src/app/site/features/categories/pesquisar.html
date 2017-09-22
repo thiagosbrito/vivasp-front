@@ -1,21 +1,48 @@
-<div class="container-fluid full-width-image-holder">
+<div class="container-fluid full-width-image-holder" ng-if="search.bCategories.length >= 2">
   <div class="row">
     <div class="col-md-12">
-      <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-        <div uib-slide index="$index" ng-repeat="bn in category.bCategories track by $index">
+      <div class="spinner animated" ng-if="!search.hasBanners">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+      <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides" ng-if="search.hasBanners">
+        <div uib-slide index="$index" ng-repeat="bn in search.bCategories track by $index">
           <a href="/categoria{{bn.linkUrl}}">
             <img ng-src="{{bn.imgUrl}}" style="margin:auto;">
             <div class="carousel-caption">
-              <h4>{{bn.title}}</h4>
-              <p>{{bn.description}}</p>
+              <div class="container">
+                <h4>{{bn.title}}</h4>
+                <p>{{bn.description}}</p>
+              </div>
             </div>
           </a>
         </div>
       </div>
-      <!-- <img src="assets/images/results/result-001.jpg" alt="" class="img-responsive center-block" ng-if="state.current.name == 'main.categories.view'"> -->
     </div>
   </div>
 </div>
+
+<section class="art-spot" ng-style="{'background-image': 'url(' + search.bCategories[0].imgUrl + ')'}" ng-ig="search.bCategories.length <= 1">
+  <div class="img-caption">
+    <div class="infos">
+      <div class="container">
+        <div class="holder-info">
+          <h3 class="title">
+            {{search.bCategories[0].title}}
+          </h3>
+          <p class="description">
+            {{search.bCategories[0].description}}
+          </p>
+          <span class="complementary-text">
+            {{search.bCategories[0].text}}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="container" ng-if="state.current.name != 'main.categories.view'">
   <div class="row">
     <div class="col-md-12 add-holder">

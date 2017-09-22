@@ -31,26 +31,26 @@
   <section class="feature-news">
     <div class="container">
       <div class="row">
-        <section class="col-md-4 event-holder">
+        <section class="col-md-4 event-holder" ui-sref="main.categories.view({categoriaId: home.featCinema[0].categoryId, itemId: home.featCinema[0].$id})">
           <div class="img-holder">
-            <img src="assets/images/featured/feat-001.jpg" alt="" class="img-responsive">
+            <img ng-src="{{home.featCinema[0].imgUrl}}" alt="" class="img-responsive">
           </div>
           <h3 class="event-type-title">
             Cinema
           </h3>
           <p class="event-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+            {{home.featCinema[0].description}}
           </p>
         </section>
-        <section class="col-md-4 event-holder">
+        <section class="col-md-4 event-holder" ui-sref="main.categories.view({categoriaId: home.featMusica[0].categoryId, itemId: home.featMusica[0].$id})">
           <div class="img-holder">
-            <img src="assets/images/featured/feat-002.jpg" alt="" class="img-responsive">
+            <img ng-src="{{home.featMusica[0].imgUrl}}" alt="" class="img-responsive">
           </div>
           <h3 class="event-type-title">
             Música
           </h3>
           <p class="event-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+            {{home.featMusica[0].description}}
           </p>
         </section>
         <section class="col-md-4 event-holder">
@@ -68,24 +68,23 @@
     </div>
   </section>
   <section class="art-spot" ng-style="{'background-image': 'url(' + home.destUp.imgUrl + ')'}">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 img-caption">
-          <div class="infos">
+    <div class="img-caption">
+      <div class="infos">
+        <div class="container">
+          <div class="holder-info">
             <h3 class="title">
               {{home.destUp.title}}
             </h3>
-            <p>
+            <p class="description">
               {{home.destUp.description}}
             </p>
-            <span>
+            <span class="complementary-text">
               {{home.destUp.text}}
             </span>
           </div>
         </div>
       </div>
     </div>
-    <!-- <img ng-src="{{view.destImg.imgUrl}}" alt="{{view.destImg.title}}" class="center-block"> -->
   </section>
   <section class="feature-news">
     <div class="container">
@@ -175,23 +174,22 @@
     </div>
   </section>
   <section class="art-spot" ng-style="{'background-image': 'url(' + home.destDown.imgUrl + ')'}">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 img-caption">
-          <div class="infos">
+    <div class="img-caption">
+      <div class="infos">
+        <div class="container">
+          <div class="holder-info">
             <h3 class="title">
               {{home.destDown.title}}
             </h3>
-            <p>
+            <p class="description">
               {{home.destDown.description}}
             </p>
-            <span>
+            <span class="complementary-text">
               {{home.destDown.text}}
             </span>
           </div>
         </div>
       </div>
     </div>
-    <!-- <img ng-src="{{view.destImg.imgUrl}}" alt="{{view.destImg.title}}" class="center-block"> -->
   </section>
 </section>
