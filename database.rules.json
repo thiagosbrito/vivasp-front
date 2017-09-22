@@ -1,6 +1,30 @@
 {
   "rules": {
-    ".read": "auth != null",
-    ".write": "auth != null"
+    ".read": "true",
+    ".write": "auth != null",
+    "content": {
+      ".read": "true",
+      ".write": "auth != null",
+    },
+    "banners": {
+      ".read": "true",
+      ".write": "auth != null",
+    },
+    "categories": {
+      ".read": "true",
+      ".write": "auth != null",
+    },
+    "subcategories": {
+      ".read": "true",
+      ".write": "auth != null",
+    },
+    "comments": {
+      ".read": "true",
+      ".write": "auth != null",
+    },
+    "events": {
+      ".read": "true",
+      ".write": "auth != null",
+    }
   }
 }
