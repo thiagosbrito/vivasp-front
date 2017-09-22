@@ -139,3 +139,131 @@
     "image": "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"
   }
 }
+[debug] [2017-09-21T04:30:55.477Z] ----------------------------------------------------------------------
+[debug] [2017-09-21T04:30:55.480Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2017-09-21T04:30:55.481Z] CLI Version:   3.9.2
+[debug] [2017-09-21T04:30:55.481Z] Platform:      darwin
+[debug] [2017-09-21T04:30:55.481Z] Node Version:  v6.11.2
+[debug] [2017-09-21T04:30:55.482Z] Time:          Thu Sep 21 2017 01:30:55 GMT-0300 (-03)
+[debug] [2017-09-21T04:30:55.483Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-09-21T04:30:55.503Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-09-21T04:30:55.503Z] > authorizing via signed-in user
+[debug] [2017-09-21T04:30:55.506Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/vivasp-249f9  
+ Thu Sep 21 2017 01:30:55 GMT-0300 (-03)
+[debug] [2017-09-21T04:30:56.754Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T04:30:56.756Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/vivasp-249f9/tokens  
+ Thu Sep 21 2017 01:30:56 GMT-0300 (-03)
+[debug] [2017-09-21T04:30:57.601Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'vivasp-249f9'...
+[info] 
+[info] i  deploying database, hosting
+[info] ✔  database: rules ready to deploy.
+[info] i  hosting: preparing dist directory for upload...
+[debug] [2017-09-21T04:31:01.220Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/vivasp-249f9/uploads/-KuXh-5-tuj3Gw0og_4y?fileCount=123&message=  
+ Thu Sep 21 2017 01:31:01 GMT-0300 (-03)
+[debug] [2017-09-21T04:31:50.381Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T04:31:50.382Z] [hosting] .tgz uploaded successfully, waiting for extraction
+[error] 
+[error] Error: File upload failed: Deploy failed.
+[debug] [2017-09-21T04:32:50.436Z] Error Context: {
+  "duration": 78253,
+  "fileCount": 123,
+  "ip": "201.6.224.200",
+  "start": 1505968291793,
+  "status": "failed",
+  "statusMessage": "Deploy failed.",
+  "uid": "115085795380455315987",
+  "uploadedCount": 123,
+  "user": {
+    "email": "thiago83brito@hotmail.com",
+    "gaiaId": "115085795380455315987",
+    "image": "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"
+  }
+}
+[debug] [2017-09-21T04:35:33.636Z] ----------------------------------------------------------------------
+[debug] [2017-09-21T04:35:33.639Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2017-09-21T04:35:33.640Z] CLI Version:   3.12.0
+[debug] [2017-09-21T04:35:33.641Z] Platform:      darwin
+[debug] [2017-09-21T04:35:33.641Z] Node Version:  v6.11.2
+[debug] [2017-09-21T04:35:33.642Z] Time:          Thu Sep 21 2017 01:35:33 GMT-0300 (-03)
+[debug] [2017-09-21T04:35:33.642Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-09-21T04:35:33.658Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-09-21T04:35:33.658Z] > authorizing via signed-in user
+[debug] [2017-09-21T04:35:33.661Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/vivasp-249f9  
+ Thu Sep 21 2017 01:35:33 GMT-0300 (-03)
+[debug] [2017-09-21T04:35:34.564Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T04:35:34.566Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/vivasp-249f9/tokens  
+ Thu Sep 21 2017 01:35:34 GMT-0300 (-03)
+[debug] [2017-09-21T04:35:35.302Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'vivasp-249f9'...
+[info] 
+[info] i  deploying database, hosting
+[info] ✔  database: rules ready to deploy.
+[info] i  hosting: preparing dist directory for upload...
+[debug] [2017-09-21T04:35:39.174Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/vivasp-249f9/uploads/-KuXi2oDclV0AJfHHs11?fileCount=123&message=  
+ Thu Sep 21 2017 01:35:39 GMT-0300 (-03)
+[debug] [2017-09-21T04:37:13.452Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T04:37:13.453Z] [hosting] .tgz uploaded successfully, waiting for extraction
+[error] 
+[error] Error: File upload failed: Deploy failed.
+[debug] [2017-09-21T04:38:07.768Z] Error Context: {
+  "duration": 81816,
+  "fileCount": 123,
+  "ip": "201.6.224.200",
+  "start": 1505968605511,
+  "status": "failed",
+  "statusMessage": "Deploy failed.",
+  "uid": "115085795380455315987",
+  "uploadedCount": 123,
+  "user": {
+    "email": "thiago83brito@hotmail.com",
+    "gaiaId": "115085795380455315987",
+    "image": "https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"
+  }
+}
+[debug] [2017-09-21T04:38:23.154Z] ----------------------------------------------------------------------
+[debug] [2017-09-21T04:38:23.163Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --debug
+[debug] [2017-09-21T04:38:23.164Z] CLI Version:   3.12.0
+[debug] [2017-09-21T04:38:23.165Z] Platform:      darwin
+[debug] [2017-09-21T04:38:23.165Z] Node Version:  v6.11.2
+[debug] [2017-09-21T04:38:23.165Z] Time:          Thu Sep 21 2017 01:38:23 GMT-0300 (-03)
+[debug] [2017-09-21T04:38:23.165Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-09-21T04:38:23.187Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-09-21T04:38:23.188Z] > authorizing via signed-in user
+[debug] [2017-09-21T04:38:23.191Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/vivasp-249f9  
+ Thu Sep 21 2017 01:38:23 GMT-0300 (-03)
+[debug] [2017-09-21T04:38:24.363Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T04:38:24.365Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/vivasp-249f9/tokens  
+ Thu Sep 21 2017 01:38:24 GMT-0300 (-03)
+[debug] [2017-09-21T04:38:25.282Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'vivasp-249f9'...
+[info] 
+[info] i  deploying database, hosting
+[info] ✔  database: rules ready to deploy.
+[info] i  hosting: preparing dist directory for upload...
+[debug] [2017-09-21T04:38:29.353Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/vivasp-249f9/uploads/-KuXihPHg16DCHPSbtZg?fileCount=123&message=  
+ Thu Sep 21 2017 01:38:29 GMT-0300 (-03)
+[debug] [2017-09-21T04:39:11.699Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-21T04:39:11.700Z] [hosting] .tgz uploaded successfully, waiting for extraction
+[info] ✔  hosting: 123 files uploaded successfully
+[info] i  starting release process (may take several minutes)...
+[debug] [2017-09-21T04:40:07.641Z] >>> HTTP REQUEST POST https://deploy.firebase.com/v1/projects/vivasp-249f9/releases { database: { rulesString: '{\n  "rules": {\n    ".read": "auth != null",\n    ".write": "auth != null"\n  }\n}\n' },
+  hosting: 
+   { public: 'dist',
+     rewrites: [ [Object] ],
+     version: '-KuXihPHg16DCHPSbtZg',
+     prefix: '-KuXihPHg16DCHPSbtZg/',
+     manifest: [] } } 
+ Thu Sep 21 2017 01:40:07 GMT-0300 (-03)
+[debug] [2017-09-21T04:40:09.293Z] <<< HTTP RESPONSE 200
+[info] 
+[info] ✔  Deploy complete!
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/vivasp-249f9/overview
+[info] Hosting URL: https://vivasp-249f9.firebaseapp.com

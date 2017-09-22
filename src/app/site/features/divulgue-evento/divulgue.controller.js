@@ -8,8 +8,10 @@
 
     function DivulgueController ($scope, $uibModalInstance, $firebaseArray) {
       var $ctrl = this;
+      var eventRef = firebase.database().ref();
+      var ref = eventRef.child('events');
 
-      $ctrl.event = $firebaseArray(firebase.database().ref('events'))
+      $ctrl.event = $firebaseArray(ref);
 
       $ctrl.Close = function () {
         $uibModalInstance.dismiss('cancel');

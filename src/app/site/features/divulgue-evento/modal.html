@@ -6,7 +6,7 @@
   <form role="form" name="eventForm" class="form" ng-if="!$ctrl.formSent">
     <fieldset>
       <div class="form-group">
-        <input type="text" required="required" ng-model="$ctrl.event.title" id="eventTitle" name="eventTitle">
+        <input type="text" required="required" ng-model="$ctrl.newEvent.title" id="eventTitle" name="eventTitle">
         <label class="control-label" for="input">Título:</label>
         <i class="bar"></i>
       </div>
@@ -20,7 +20,7 @@
               required="required"
               id="eventRegion"
               ng-options="reg.value as reg.description for reg in $ctrl.regions"
-              ng-model="$ctrl.event.cityZone">
+              ng-model="$ctrl.newEvent.cityZone">
             </select>
             <label class="control-label" for="select">Região:</label>
             <i class="bar"></i>
@@ -30,7 +30,7 @@
       <div class="col-md-4">
         <fieldset>
           <div class="form-group">
-            <select name="eventPerfil" id="eventPerfil" ng-model="$ctrl.event.profile" required="required">
+            <select name="eventPerfil" id="eventPerfil" ng-model="$ctrl.newEvent.profile" required="required">
               <option value="Artista ou coletivo artístico">Artista ou coletivo artístico</option>
               <option value="Produtor de Conteúdo">Produtor de Conteúdo</option>
               <option value="Leitor / usuário do Site">Leitor / usuário do Site</option>
@@ -44,7 +44,7 @@
       <div class="col-md-4">
         <fieldset>
           <div class="form-group">
-            <select name="eventAtividade" id="eventAtividade" ng-model="$ctrl.event.activity" required="required">
+            <select name="eventAtividade" id="eventAtividade" ng-model="$ctrl.newEvent.activity" required="required">
               <option value="Cinema">Cinema</option>
               <option value="Teatro">Teatro</option>
               <option value="Música">Música</option>
@@ -65,7 +65,7 @@
       <div class="col-md-4">
         <fieldset>
           <div class="form-group">
-            <input type="text" ng-model="$ctrl.event.artist" name="eventArtist" id="eventArtist" required="required">
+            <input type="text" ng-model="$ctrl.newEvent.artist" name="eventArtist" id="eventArtist" required="required">
             <label for="eventArtist" class="control-label">Artista:</label>
             <i class="bar"></i>
           </div>
@@ -74,7 +74,7 @@
       <div class="col-md-8">
         <fieldset>
           <div class="form-group">
-            <input type="text" ng-model="$ctrl.event.description" name="eventDescription" id="eventDescription" required="required">
+            <input type="text" ng-model="$ctrl.newEvent.description" name="eventDescription" id="eventDescription" required="required">
             <label class="control-label" for="eventDescription">Descrição curta:</label>
             <i class="bar"></i>
           </div>
@@ -85,7 +85,7 @@
       <div class="col-md-12">
         <fieldset>
           <div class="form-group">
-            <textarea required="required" ng-model="$ctrl.event.longDescription" name="eventLongDescription" id="eventLongDescription"></textarea>
+            <textarea required="required" ng-model="$ctrl.newEvent.longDescription" name="eventLongDescription" id="eventLongDescription"></textarea>
             <label class="control-label" for="textarea">Descrição longa:</label>
             <i class="bar"></i>
           </div>
@@ -96,7 +96,7 @@
       <div class="col-md-12">
         <fieldset>
           <div class="form-group">
-            <input type="text" ng-model="$ctrl.event.address" name="eventAddress" id="eventAddress" required="required">
+            <input type="text" ng-model="$ctrl.newEvent.address" name="eventAddress" id="eventAddress" required="required">
             <label class="control-label" for="eventAddress">Endereço: <small>ex: Avendia São João 473, Centro</small></label>
             <i class="bar"></i>
           </div>
@@ -107,7 +107,7 @@
       <div class="col-md-9">
         <fieldset>
           <div class="form-group">
-            <input type="text" ng-model="$ctrl.event.datas" name="eventData" required="required" id="eventData">
+            <input type="text" ng-model="$ctrl.newEvent.datas" name="eventData" required="required" id="eventData">
             <label class="control-label" for="eventData">Datas: <small>ex: Dias 06 e 07 de Fevereiro às 19 hs e Dia 13 às 20 hs</small></label>
             <i class="bar"></i>
           </div>
@@ -118,7 +118,7 @@
       <div class="col-md-12">
         <fieldset>
           <div class="form-group">
-            <input type="text" ng-model="$ctrl.event.contatoSite" name="eventContatoSite" required="required" id="eventContatoSite">
+            <input type="text" ng-model="$ctrl.newEvent.contatoSite" name="eventContatoSite" required="required" id="eventContatoSite">
             <label class="control-label" for="eventContantoSite">Contato(s) do responsável para ser publicado no site:</label>
             <i class="bar"></i>
           </div>
@@ -129,7 +129,7 @@
       <div class="col-md-12">
         <fieldset>
           <div class="form-group">
-            <input type="text" ng-model="$ctrl.event.contatoRedacao" name="eventContatoRedacao" required="required" id="eventContatoRedacao">
+            <input type="text" ng-model="$ctrl.newEvent.contatoRedacao" name="eventContatoRedacao" required="required" id="eventContatoRedacao">
             <label class="control-label" for="eventContantoSite">Contato(s) do responsável (para nossa redação):</label>
             <i class="bar"></i>
           </div>
@@ -141,7 +141,7 @@
       <div class="col-md-6">
         <fieldset>
           <div class="form-group">
-            <select name="eventParentRating" id="eventParentRating" ng-model="$ctrl.event.parentRating">
+            <select name="eventParentRating" id="eventParentRating" ng-model="$ctrl.newEvent.parentRating">
               <option value="livre">Livre</option>
               <option value="10">10</option>
               <option value="12">12</option>
@@ -157,7 +157,7 @@
       <div class="col-md-6">
         <fieldset>
           <div class="form-group">
-            <select name="eventRecommend" id="eventRecommend" ng-model="$ctrl.event.recommend">
+            <select name="eventRecommend" id="eventRecommend" ng-model="$ctrl.newEvent.recommend">
               <option value="todos">Todos</option>
               <option value="casais">Casais</option>
               <option value="familia">Família</option>
@@ -183,7 +183,7 @@
   <div class="row" ng-hide="$ctrl.formSent">
     <div class="col-md-12">
       <div class="form-group">
-        <a class="btn btn-primary pull-right" ng-click="$ctrl.AddEvent($ctrl.event)">
+        <a class="btn btn-primary pull-right" ng-click="$ctrl.AddEvent($ctrl.newEvent)">
           Enviar Evento
         </a>
       </div>
