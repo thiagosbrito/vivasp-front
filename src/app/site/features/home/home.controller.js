@@ -54,7 +54,7 @@
             else if (value.category.title == 'Gastronomia') {
               vm.featGastronomia.push(value)
             }
-            else {
+            else if (value.category.title == 'Teatro') {
               vm.featTeatro.push(value)
             }
           })

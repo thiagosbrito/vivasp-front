@@ -22,6 +22,25 @@
 
       var ref = firebase.auth();
 
+      $ctrl.config = {
+      	autoHideScrollbar: false,
+      	theme: 'minimal'
+      }
+
+      var bdRef = firebase.database().ref('content');
+
+      $ctrl.content = $firebaseArray(bdRef);
+
+      $ctrl.content.$loaded().then(
+        function (results) {
+          console.log(results);
+        }
+      )
+      $ctrl.GoToContent = function (content) {
+        $ctrl.search = {};
+        $state.go('main.categories.view',{categoriaId: content.categoryId, itemId: content.$id});
+      }
+
       ref.currentUser ? $ctrl.user = ref.currentUser : $ctrl.user = null;
 
       $ctrl.Login = function (source) {
@@ -43,6 +62,15 @@
             $log.info('modal-component dismissed at: ' + new Date());
           }
         );
+      }
+
+      $ctrl.ShowSearch = function () {
+        $ctrl.openBar = true;
+      }
+
+      $ctrl.CloseSearch = function () {
+        $ctrl.openBar = false;
+        $ctrl.search = {};
       }
 
       $ctrl.Logout = function () {
@@ -82,5 +110,6 @@
           $ctrl.Login('divulgue');
         }
       }
+
     }
 })();

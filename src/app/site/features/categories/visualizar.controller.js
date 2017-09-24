@@ -3,9 +3,9 @@
   angular.module('vivaSp')
     .controller('CategoriesViewController', CategoriesViewController);
 
-    CategoriesViewController.$inject = ['$scope','$state','$firebaseArray','$stateParams','$firebaseObject','$firebaseAuth'];
+    CategoriesViewController.$inject = ['$scope','$state','$firebaseArray','$stateParams','$firebaseObject','$firebaseAuth','$uibModal'];
 
-    function CategoriesViewController ($scope, $state, $firebaseArray, $stateParams, $firebaseObject, $firebaseAuth) {
+    function CategoriesViewController ($scope, $state, $firebaseArray, $stateParams, $firebaseObject, $firebaseAuth, $uibModal) {
       $scope.state = $state;
       var $ctrl = this;
 
@@ -35,6 +35,27 @@
         }
       );
 
+      $ctrl.Login = function (source) {
+        var modalInstance = $uibModal.open({
+          animation: true,
+          controller: 'LoginModalController',
+          controllerAs: '$ctrl',
+          windowClass: 'center-modal login-modal',
+          templateUrl: 'app/site/auth/login-modal.html'
+        });
+
+        modalInstance.result.then(
+          function () {
+            if (source) {
+              $ctrl.AddComment($ctrl.commentObj);
+            }
+          },
+          function () {
+            $log.info('modal-component dismissed at: ' + new Date());
+          }
+        );
+      }
+
       $ctrl.AddComment = function (comment) {
         if (authObj.$getAuth()) {
           var userObj = authObj.$getAuth();
@@ -59,10 +80,7 @@
             }
           )
         } else {
-          console.log('Not logged');
-          // SweetAlert.swal({
-          //
-          // });
+          $ctrl.Login('comment');
         }
       };
 

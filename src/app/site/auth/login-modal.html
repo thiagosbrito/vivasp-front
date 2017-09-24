@@ -4,13 +4,15 @@
 <div class="modal-body">
   <form role="form" name="loginForm" class="form" ng-show="$ctrl.showLoginForm" novalidate autocomplete="off">
     <fieldset>
-      <div class="form-group vvsp-input" ng-class="{'error': loginForm.email.$error.pattern || loginForm.email.$error.required}">
-        <input type="text" ng-model="$ctrl.loginObj.email" id="emailLogin" ng-required="true" name="email">
+      <div class="form-group" ng-class="{'error': loginForm.email.$error.pattern || loginForm.email.$error.required}">
+        <input type="text" ng-model="$ctrl.loginObj.email" id="emailLogin" required="required" name="email">
         <label for="emailLogin">Email:</label>
+        <i class="bar"></i>
       </div>
-      <div class="form-group vvsp-input" ng-class="{'error': loginForm.senha.$error.required || loginForm.senha.$error.minlength}" ng-minlength="6">
-        <input type="password" ng-model="$ctrl.loginObj.password" id="senhaLogin" name="senha" ng-required="true">
+      <div class="form-group" ng-class="{'error': loginForm.senha.$error.required || loginForm.senha.$error.minlength}" ng-minlength="6">
+        <input type="password" ng-model="$ctrl.loginObj.password" id="senhaLogin" name="senha" required="required">
         <label for="senhaLogin">Senha:</label>
+        <i class="bar"></i>
       </div>
       <div class="form-group">
         <div class="alert alert-success" role="alert" ng-show="$ctrl.userNotFound">
@@ -41,27 +43,31 @@
       <!-- <div class="form-group">
         <input type="text" class="form-control" ng-model="$ctrl.signUp.name" required placeholder="Digite seu nome">
       </div> -->
-      <div class="form-group vvsp-input" ng-class="{'error': signForm.nome.$error.pattern || signForm.nome.$error.required}">
-        <input type="text" ng-model="$ctrl.signUp.name" id="nomeSignup" ng-required="true" name="nome">
+      <div class="form-group" ng-class="{'error': signForm.nome.$error.pattern || signForm.nome.$error.required}">
+        <input type="text" ng-model="$ctrl.signUp.name" id="nomeSignup" required="required" name="nome">
         <label for="nomeSignup">Nome:</label>
+        <i class="bar"></i>
       </div>
     </fieldset>
     <fieldset>
-      <div class="form-group vvsp-input" ng-class="{'error': signForm.email.$error.pattern || signForm.email.$error.required}">
-        <input type="text" ng-model="$ctrl.signUp.email" id="nomeSignup" ng-required="true" name="email">
+      <div class="form-group" ng-class="{'error': signForm.email.$error.pattern || signForm.email.$error.required}">
+        <input type="text" ng-model="$ctrl.signUp.email" id="nomeSignup" required="required" name="email">
         <label for="nomeSignup">Email:</label>
+        <i class="bar"></i>
       </div>
     </fieldset>
     <fieldset>
-      <div class="form-group vvsp-input" ng-class="{'error': signForm.senha.$error.required}">
-        <input type="password" ng-model="$ctrl.signUp.password" id="passwordSignup" ng-required="true" name="senha">
+      <div class="form-group" ng-class="{'error': signForm.senha.$error.required}">
+        <input type="password" ng-model="$ctrl.signUp.password" id="passwordSignup" required="required" name="senha">
         <label for="passwordSignup">Senha:</label>
+        <i class="bar"></i>
       </div>
     </fieldset>
     <fieldset>
-      <div class="form-group vvsp-input" ng-class="{'error': signForm.resenha.$error.required}">
-        <input type="password" ng-model="$ctrl.rePass" id="reTypePasswordSignup" ng-required="true" name="resenha">
+      <div class="form-group" ng-class="{'error': signForm.resenha.$error.required}">
+        <input type="password" ng-model="$ctrl.rePass" id="reTypePasswordSignup" required="required" name="resenha">
         <label for="reTypePasswordSignup">Confirme a senha:</label>
+        <i class="bar"></i>
       </div>
     </fieldset>
     <fieldset>
@@ -77,9 +83,10 @@
   </form>
   <form role="form" class="form" name="forgotForm" ng-show="$ctrl.showForgotForm" autocomplete="off">
     <fieldset class="animated" ng-class="{'fadeOut': $ctrl.check}">
-      <div class="form-group vvsp-input" ng-class="{'error': forgotForm.email.$error.pattern || forgotForm.email.$error.required}">
-        <input type="text" ng-model="$ctrl.forgotObj.email" id="emailForgot" ng-required="true" name="email">
+      <div class="form-group" ng-class="{'error': forgotForm.email.$error.pattern || forgotForm.email.$error.required}">
+        <input type="text" ng-model="$ctrl.forgotObj.email" id="emailForgot" required="required" name="email">
         <label for="emailForgot">Digite o email cadastrado:</label>
+        <i class="bar"></i>
       </div>
     </fieldset>
     <div class="message-forgot" ng-show="$ctrl.check">

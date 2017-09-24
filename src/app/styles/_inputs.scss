@@ -107,6 +107,14 @@ fieldset {
 		resize: none;
 	}
 
+	.input-group-addon {
+		background-color: transparent;
+		border: none;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
 	select {
 		width: 100%;
 		font-size: $mf-font-size;

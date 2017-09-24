@@ -53,73 +53,75 @@
             {{home.featMusica[0].description}}
           </p>
         </section>
-        <section class="col-md-4 event-holder">
+        <section class="col-md-4 event-holder" ui-sref="main.categories.view({categoriaId: home.featDanca[0].categoryId, itemId: home.featDanca[0].$id})">
           <div class="img-holder">
-            <img src="assets/images/featured/feat-003.jpg" alt="" class="img-responsive">
+            <img ng-src="{{home.featDanca[0].imgUrl}}" alt="" class="img-responsive">
           </div>
           <h3 class="event-type-title">
             Dança
           </h3>
           <p class="event-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+            {{home.featDanca[0].description}}
           </p>
         </section>
       </div>
     </div>
   </section>
-  <section class="art-spot" ng-style="{'background-image': 'url(' + home.destUp.imgUrl + ')'}">
-    <div class="img-caption">
-      <div class="infos">
-        <div class="container">
-          <div class="holder-info">
-            <h3 class="title">
-              {{home.destUp.title}}
-            </h3>
-            <p class="description">
-              {{home.destUp.description}}
-            </p>
-            <span class="complementary-text">
-              {{home.destUp.text}}
-            </span>
+  <a ui-sref="main.categories.view({categoriaId: home.destUp.categoryId, itemId: home.destUp.contentId})">
+    <section class="art-spot" ng-style="{'background-image': 'url(' + home.destUp.imgUrl + ')'}">
+      <div class="img-caption">
+        <div class="infos">
+          <div class="container">
+            <div class="holder-info">
+                <h3 class="title">
+                  {{home.destUp.title}}
+                </h3>
+                <p class="description">
+                  {{home.destUp.description}}
+                </p>
+                <span class="complementary-text">
+                  {{home.destUp.text}}
+                </span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </a>
   <section class="feature-news">
     <div class="container">
       <div class="row">
-        <section class="col-md-4 event-holder">
+        <section class="col-md-4 event-holder" ui-sref="main.categories.view({categoriaId: home.featCursos[0].categoryId, itemId: home.featCursos[0].$id})">
           <div class="img-holder">
-            <img src="http://placehold.it/360x240" alt="">
+            <img ng-src="{{home.featCursos[0].imgUrl}}" alt="" class="img-responsive">
           </div>
           <h3 class="event-type-title">
             Cursos
           </h3>
           <p class="event-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+            {{home.featCursos[0].description}}
           </p>
         </section>
-        <section class="col-md-4 event-holder">
+        <section class="col-md-4 event-holder" ui-sref="main.categories.view({categoriaId: home.featLazer[0].categoryId, itemId: home.featLazer[0].$id})">
           <div class="img-holder">
-            <img src="http://placehold.it/360x240" alt="">
+            <img ng-src="{{home.featLazer[0].imgUrl}}" alt="" class="img-responsive">
           </div>
           <h3 class="event-type-title">
             Lazer
           </h3>
           <p class="event-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+            {{home.featLazer[0].description}}
           </p>
         </section>
-        <section class="col-md-4 event-holder">
+        <section class="col-md-4 event-holder" ui-sref="main.categories.view({categoriaId: home.featGastronomia[0].categoryId, itemId: home.featGastronomia[0].$id})">
           <div class="img-holder">
-            <img src="http://placehold.it/360x240" alt="">
+            <img ng-src="{{home.featGastronomia[0].imgUrl}}" alt="" class="img-responsive">
           </div>
           <h3 class="event-type-title">
             Gastronomia
           </h3>
           <p class="event-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+            {{home.featGastronomia[0].description}}
           </p>
         </section>
       </div>
@@ -137,30 +139,32 @@
   <section class="feature-news">
     <div class="container">
       <div class="row">
-        <section class="col-md-4 event-holder">
+        <section class="col-md-4 event-holder" ui-sref="main.categories.view({categoriaId: home.featTeatro[0].categoryId, itemId: home.featTeatro[0].$id})">
           <div class="img-holder">
-            <img src="http://placehold.it/360x240" alt="">
+            <img ng-src="{{home.featTeatro[0].imgUrl}}" alt="" class="img-responsive">
           </div>
           <h3 class="event-type-title">
             Teatro
           </h3>
           <p class="event-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+            {{home.featTeatro[0].description}}
           </p>
         </section>
-        <section class="col-md-4 event-holder">
+        <section class="col-md-4 event-holder" ui-sref="main.categories.view({categoriaId: home.featVideos[0].categoryId, itemId: home.featVideos[0].$id})">
           <div class="img-holder">
-            <img src="http://placehold.it/360x240" alt="">
+            <img ng-src="{{home.featVideos[0].imgUrl}}" alt="" class="img-responsive">
           </div>
           <h3 class="event-type-title">
-            Videos
+            Vídeos
           </h3>
           <p class="event-text">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+            {{home.featVideos[0].description}}
           </p>
         </section>
         <section class="col-md-4 event-holder especial">
-          <div class="img-holder">
+
+          conteudo especial
+          <!-- <div class="img-holder">
             <img src="http://placehold.it/360x240" alt="">
           </div>
           <h3 class="event-type-title">
@@ -168,28 +172,30 @@
           </h3>
           <p class="event-text">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
-          </p>
+          </p> -->
         </section>
       </div>
     </div>
   </section>
-  <section class="art-spot" ng-style="{'background-image': 'url(' + home.destDown.imgUrl + ')'}">
-    <div class="img-caption">
-      <div class="infos">
-        <div class="container">
-          <div class="holder-info">
-            <h3 class="title">
-              {{home.destDown.title}}
-            </h3>
-            <p class="description">
-              {{home.destDown.description}}
-            </p>
-            <span class="complementary-text">
-              {{home.destDown.text}}
-            </span>
+  <a ui-sref="main.categories.view({categoriaId: home.destDown.categoryId, itemId: home.destDown.contentId})">
+    <section class="art-spot" ng-style="{'background-image': 'url(' + home.destDown.imgUrl + ')'}">
+      <div class="img-caption">
+        <div class="infos">
+          <div class="container">
+            <div class="holder-info">
+              <h3 class="title">
+                {{home.destDown.title}}
+              </h3>
+              <p class="description">
+                {{home.destDown.description}}
+              </p>
+              <span class="complementary-text">
+                {{home.destDown.text}}
+              </span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </a>
 </section>

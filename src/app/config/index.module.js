@@ -14,6 +14,7 @@
       'angular-loading-bar',
       'cfp.loadingBar',
       'toastr',
-      'angular-input-stars'
+      'angular-input-stars',
+      'ngScrollbars'
     ]);
 })();

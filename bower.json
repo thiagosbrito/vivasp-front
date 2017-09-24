@@ -22,7 +22,8 @@
     "angular-toastr": "^2.1.1",
     "angular-input-stars-directive": "angular-input-stars#^1.7.1",
     "bourbon": "^4.3.4",
-    "animate-sass": "^0.6.6"
+    "animate-sass": "^0.6.6",
+    "ng-scrollbars": "^0.0.11"
   },
   "devDependencies": {
     "angular-mocks": "~1.5.11"

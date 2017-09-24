@@ -5,10 +5,10 @@
       <div class="header-flex">
         <div class="social-links">
           <ul>
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-            <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+            <li><a href="https://www.facebook.com/vivasp.net/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com/VIVASPNET" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com/vivaspnet/"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="https://www.youtube.com/channel/UCiny6EBTC0gR_PcEEcnewhw" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
           </ul>
         </div>
         <div class="logo" ui-sref="main.home">
@@ -16,8 +16,39 @@
         </div>
         <div class="accessible-links">
           <ul>
-            <li><a href="#" class="btn btn-add-event" ng-click="header.DivulgueEvento()">Divulgue um evento</a></li>
-            <li><a href="#"><i class="fa fa-search"></i></a></li>
+            <li ng-hide="header.openBar" ng-show="!header.openBar"><a href="#" class="btn btn-add-event" ng-click="header.DivulgueEvento()">Divulgue um evento</a></li>
+            <li class="search-bar" ng-class="{'active': header.openBar}">
+              <form role="form" class="form-inline search-bar-form" name="searchForm">
+                <fieldset>
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        ng-model="$ctrl.search"
+                        id="search"
+                        name="search"
+                        class="search-input"
+                        uib-typeahead="content as content.title for content in header.content | filter:{title:$viewValue}"
+                        typeahead-popup-template-url="customPopupTemplate.html"
+                        typeahead-template-url="customTemplate.html"
+                        typeahead-show-hint="true"
+                        typeahead-min-length="0"
+                        typeahead-on-select="header.GoToContent($ctrl.search); $ctrl.search = ''"
+                        placeholder="Pesquisar sobre:">
+                      <i class="bar"></i>
+                      <div class="input-group-btn">
+                        <button class="btn btn-default" ng-click="header.CloseSearch()">
+                          <i class="fa fa-times"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </li>
+            <li ng-hide="header.openBar" ng-show="!header.openBar">
+              <a ng-click="header.ShowSearch()"><i class="fa fa-search"></i></a>
+            </li>
             <li>
               <a ng-click="header.Login()" ng-if="!header.user"><i class="fa fa-user"></i></a>
               <span uib-dropdown ng-if="header.user">
@@ -38,3 +69,30 @@
     </div>
   </div>
 </div>
+
+<script type="text/ng-template" id="customPopupTemplate.html">
+  <div class="popup-holder"
+    ng-show="isOpen() && !moveInProgress"
+    aria-hidden="{{!isOpen()}}">
+    <div class="results-holder" ng-scrollbars ng-scrollbars-options="{theme: 'minimal'}">
+      <div
+        class="search-result-holder"
+        ng-repeat="match in matches track by $index"
+        ng-class="{active: isActive($index)}"
+        ng-mouseenter="selectActive($index)"
+        ng-click="selectMatch($index); asyncSelected = '';"
+        role="option"
+        id="{{::match.id}}">
+        <div class="img-holder" ng-style="{'background-image':'url({{match.model.imgUrl}})'}"></div>
+        <div class="result-holder">
+           <h4 class="search-result-title">{{match.model.title}}</h4>
+           <p class="search-result-text">{{match.model.description}}</p>
+         </div>
+       </div>
+     </div>
+  </div>
+</script>
+
+<script type="text/ng-template" id="customTemplate.html">
+
+</script>
