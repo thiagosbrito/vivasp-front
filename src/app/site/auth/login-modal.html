@@ -4,17 +4,33 @@
 <div class="modal-body">
   <form role="form" name="loginForm" class="form" ng-show="$ctrl.showLoginForm" novalidate autocomplete="off">
     <fieldset>
-      <div class="form-group" ng-class="{'error': loginForm.email.$error.pattern || loginForm.email.$error.required}">
+      <div class="form-group">
+        <input type="text" required="required" ng-model="$ctrl.loginObj.email" id="emailLogin" name="emailLogin">
+        <label class="control-label" for="emailLogin">Digite seu e-mail:</label>
+        <i class="bar"></i>
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class="form-group">
+        <input type="password" ng-model="$ctrl.loginObj.password" id="senhaLogin" name="senha" required="required">
+        <label class="control-label" for="emailLogin">Digite sua senha:</label>
+        <i class="bar"></i>
+      </div>
+    </fieldset>
+
+
+
+      <!-- <div class="form-group" ng-class="{'error': loginForm.email.$error.pattern || loginForm.email.$error.required}">
         <input type="text" ng-model="$ctrl.loginObj.email" id="emailLogin" required="required" name="email">
         <label for="emailLogin">Email:</label>
         <i class="bar"></i>
-      </div>
-      <div class="form-group" ng-class="{'error': loginForm.senha.$error.required || loginForm.senha.$error.minlength}" ng-minlength="6">
+      </div> -->
+      <!-- <div class="form-group" ng-class="{'error': loginForm.senha.$error.required || loginForm.senha.$error.minlength}" ng-minlength="6">
         <input type="password" ng-model="$ctrl.loginObj.password" id="senhaLogin" name="senha" required="required">
         <label for="senhaLogin">Senha:</label>
         <i class="bar"></i>
-      </div>
-      <div class="form-group">
+      </div> -->
+      <!-- <div class="form-group">
         <div class="alert alert-success" role="alert" ng-show="$ctrl.userNotFound">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <strong>:(</strong> Ops, usuário não encontrado!
@@ -27,8 +43,8 @@
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <strong>:(</strong> Ops, formato de e-mail inválido!
         </div>
-      </div>
-    </fieldset>
+      </div> -->
+
     <div class="form-group">
       <button class="btn btn-danger pull-left" ng-click="$ctrl.Cancel()">
         Cancelar

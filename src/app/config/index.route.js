@@ -44,6 +44,16 @@
         controllerAs: 'home'
       })
 
+      .state('main.divulgue', {
+        url: '/divulgue-seu-evento',
+        templateUrl: 'app/site/features/divulgue-evento/divulgue.html',
+        controller: 'DivulgueEventoController',
+        controllerAs: '$ctrl',
+        params: {
+          user: null
+        }
+      })
+
       .state('main.categories',{
         url: '/categoria/:categoriaId',
         templateUrl: 'app/site/features/categories/categories.html',

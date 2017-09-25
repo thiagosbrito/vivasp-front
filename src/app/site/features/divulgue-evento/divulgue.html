@@ -1,0 +1,229 @@
+<section class="divulgue-evento">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="divulgue-evento-title">
+          Divulgue seu evento
+        </h4>
+        <form role="form" name="eventForm" class="form" novalidate>
+
+          <div class="row">
+            <div class="col-md-6">
+              <fieldset>
+                <div class="form-group">
+                  <input type="text" name="eventTitle" id="eventTitle" required="required" ng-model="$ctrl.contentData.title">
+                  <label for="eventTitle" class="control-label">Título do seu evento:</label>
+                  <i class="bar"></i>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <fieldset>
+                <div class="form-group">
+                  <input type="text" name="eventDescription" id="eventDescription" required="required" ng-model="$ctrl.contentData.description">
+                  <label for="eventDescription" class="control-label">Descrição curta do seu evento:</label>
+                  <i class="bar"></i>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <fieldset>
+                <div class="form-group">
+                  <label>Categoria:</label>
+                  <ui-select ng-model="$ctrl.contentData.category" theme="bootstrap" on-select="$ctrl.SetSubCategory($ctrl.contentData.category)">
+                    <ui-select-match placeholder="Selecione uma categoria...">{{$select.selected.title}}</ui-select-match>
+                    <ui-select-choices repeat="cat in $ctrl.categories | filter: $select.search">
+                      <div ng-bind-html="cat.title | highlight: $select.search"></div>
+                    </ui-select-choices>
+                  </ui-select>
+                </div>
+              </fieldset>
+            </div>
+            <div class="col-md-6">
+              <fieldset>
+                <div class="form-group">
+                  <label>Sub-Categoria:</label>
+                  <ui-select ng-model="$ctrl.contentData.subcategory" theme="bootstrap" ng-disabled="!$ctrl.contentData.category">
+                    <ui-select-match placeholder="Selecione uma sub-categoria...">{{$select.selected.title}}</ui-select-match>
+                    <ui-select-choices repeat="cat in $ctrl.subcategories | filter: $select.search">
+                      <div ng-bind-html="cat.title | highlight: $select.search"></div>
+                    </ui-select-choices>
+                  </ui-select>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="form-group">
+            <fieldset>
+              <label>Descrição longa do evento:</label>
+              <text-angular ng-model="$ctrl.contentData.content"></text-angular>
+            </fieldset>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              <fieldset>
+                <div class="form-group">
+                  <input type="text" required="required" ng-value="$ctrl.contentData.author.displayName" ng-model="$ctrl.contentData.author.displayName" disabled>
+                  <label class="control-label">Autor:</label>
+                  <i class="bar"></i>
+                </div>
+              </fieldset>
+            </div>
+            <div class="col-md-10-">
+              <fieldset>
+                <div class="checkbox inline-block" ng-click="$ctrl.contentData.featHome = !$ctrl.contentData.featHome">
+                  <label>
+                    Destaque Home: <i class="fa fa-2x" ng-class="{'fa-toggle-on': $ctrl.contentData.featHome, 'fa-toggle-off': !$ctrl.contentData.featHome}"></i> {{$ctrl.contentData.featHome ? 'sim' : 'não'}}
+                  </label>
+                </div>
+                <div class="checkbox inline-block" ng-click="$ctrl.contentData.featCategory = !$ctrl.contentData.featCategory">
+                  <label>
+                    Destaque Categoria: <i class="fa fa-2x" ng-class="{'fa-toggle-on': $ctrl.contentData.featCategory, 'fa-toggle-off': !$ctrl.contentData.featCategory}"></i> {{$ctrl.contentData.featCategory ? 'sim' : 'não'}}
+                  </label>
+                </div>
+                <div class="checkbox inline-block" ng-click="$ctrl.contentData.featSearch = !$ctrl.contentData.featSearch">
+                  <label>
+                    Destaque de Resultados de Busca: <i class="fa fa-2x" ng-class="{'fa-toggle-on': $ctrl.contentData.featSearch, 'fa-toggle-off': !$ctrl.contentData.featSearch}"></i> {{$ctrl.contentData.featSearch ? 'sim' : 'não'}}
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <fieldset>
+                <div class="form-group">
+                  <select
+                    ng-model="$ctrl.contentData.priceRate"
+                    required="required"
+                    ng-options="opt.value as opt.description for opt in $ctrl.priceRates">
+                    <option value=""></option>
+                  </select>
+                  <label class="control-label">Média Preço:</label>
+                  <i class="bar"></i>
+                </div>
+              </fieldset>
+            </div>
+            <div class="col-md-4">
+              <fieldset>
+                <div class="form-group stars-holder">
+                  <input-stars max="5" ng-model="$ctrl.contentData.rate"></input-stars>
+                  <label class="control-label">Avaliação:</label>
+                  <i class="bar"></i>
+                </div>
+              </fieldset>
+            </div>
+            <div class="col-md-4">
+              <fieldset>
+                <div class="form-group">
+                  <select
+                    ng-model="$ctrl.contentData.cityZone"
+                    ng-options="opt.value as opt.description for opt in $ctrl.regions">
+                    <option value=""></option>
+                  </select>
+                  <label class="control-label">Região:</label>
+                  <i class="bar"></i>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <fieldset>
+                <div class="form-group">
+                  <input type="text" name="eventPhone" id="eventPhone" required="required" ng-model="$ctrl.contentData.phone">
+                  <label for="eventPhone" class="control-label">Telefone de Contato:</label>
+                  <i class="bar"></i>
+                </div>
+              </fieldset>
+            </div>
+            <div class="col-md-6">
+              <fieldset>
+                <div class="form-group">
+                  <input type="text" name="eventEmail" id="eventEmail" required="required" ng-model="$ctrl.contentData.email">
+                  <label for="eventEmail" class="control-label">E-mail de Contato:</label>
+                  <i class="bar"></i>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <fieldset>
+                <div class="form-group data-holder">
+                  <label class="control-label">Informe as datas:</label>
+                  <div class="row" ng-repeat="dateInfo in $ctrl.contentData.dates">
+                    <div class="col-md-3">
+                      <input type="text" ng-model="dateInfo.date" placeholder="Ex: Dom à Seg">
+                      <label for="" class="control-label">&nbsp;</label>
+                      <i class="bar"></i>
+                    </div>
+                    <div class="col-md-3">
+                      <input type="text" ng-model="dateInfo.time" placeholder="Ex: das 08:00 às 12:00">
+                      <label for="" class="control-label">&nbsp;</label>
+                      <i class="bar"></i>
+                    </div>
+                    <div class="col md-1">
+                      <button class="btn btn-sm" ng-click="$ctrl.AddData()">
+                        <i class="fa fa-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <fieldset>
+                <div class="form-group group-holder">
+                  <div class="input-group">
+                    <input type="file" fileread="$ctrl.imgForUpload" ng-if="!carousel.contentData.imgUrl">
+                    <label for="" class="control-label">Imagem grande do Evento: (tamanho: 1920px x 500px)</label>
+                    <i class="bar"></i>
+                    <div class="input-group-btn">
+                      <button class="btn btn-default" ng-click="uploadFile($ctrl.imgForUpload)">
+                        <i class="fa fa-upload"></i> Upload
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <div class="col-md-12">
+              <!-- <img-crop image="$ctrl.imgForUpload" result-image="$ctrl.tmbForUpload"></img-crop> -->
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <fieldset>
+                <div class="form-group tags-holder">
+                  <tags-input class="ti-input-sm" ng-model="$ctrl.contentDatatags"></tags-input>
+                  <!-- <input type="text" tag-input="primary" ng-model="$ctrl.contentData.tags" value="" data-role="tagsinput" placeholder="Adicionar tag"> -->
+                  <label class="control-label">Tags (Metatags para mecanismos de pesquisa - SEO):</label>
+                  <i class="bar"></i>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <button class="btn btn-danger pull-left">
+                Cancelar
+              </button>
+              <button class="btn btn-primary pull-right" ng-click="$ctrl.AddContent($ctrl.contentData)">
+                Enviar solicitação
+              </button>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>

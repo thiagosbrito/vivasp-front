@@ -616,3 +616,15 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
 
   }
 }
+
+.divulgue-evento {
+  padding: 12px;
+  background-color: lighten($gray-links-social-footer, 15%);
+  .divulgue-evento-title {
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 36px;
+    font-family: 'Roboto';
+    font-weight: 300;
+  }
+}

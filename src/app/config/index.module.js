@@ -15,6 +15,11 @@
       'cfp.loadingBar',
       'toastr',
       'angular-input-stars',
-      'ngScrollbars'
+      'ngScrollbars',
+      'ui.select',
+      'textAngular',
+      'angular-input-stars',
+      'ngTagsInput',
+      'oitozero.ngSweetAlert'
     ]);
 })();

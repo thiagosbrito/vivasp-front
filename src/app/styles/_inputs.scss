@@ -64,7 +64,12 @@ fieldset {
 	// margin-top: ($mf-gap * 1.5);
 	// margin-bottom: ($mf-gap * 1.5);
 }
-
+.form-group {
+	.angular-input-stars {
+		margin-bottom: 2px !important;
+		float: left;
+	}
+}
 .form-inline {
 	> .form-group,
 	> .btn {
@@ -443,5 +448,71 @@ fieldset {
 
 	&:focus {
 		outline: none;
+	}
+}
+
+
+.inline-block {
+	display: inline-block !important;
+	&.checkbox {
+		margin-top: 0 !important;
+	}
+}
+
+.stars-holder {
+	label.control-label {
+		font-size: 1.28rem;
+    color: gray;
+    top: -1.6rem;
+    left: 0;
+	}
+	i.bar {
+		bottom: -26px !important;
+	}
+}
+
+.tags-holder {
+	label.control-label {
+		font-size: 1.28rem;
+    color: gray;
+    top: -1.9rem;
+    left: 0;
+	}
+	i.bar {
+		bottom: -6px;
+	}
+	.tags {
+		background-color: transparent !important;
+		outline: none !important;
+		border: none !important;
+		box-shadow: none;
+		&.focused {
+			box-shadow: none;
+		}
+	}
+}
+
+.group-holder {
+	 margin: 32px 0 24px 0;
+	 input[type="file"] {
+		 margin-top: 6px;
+	 }
+	 input[type="file"] ~ .bar {
+		 display: block;
+		 bottom: -6px;
+	 }
+	 .input-group-btn {
+		 button {
+			 border-radius: 4px !important;
+		 }
+	 }
+}
+
+.data-holder {
+	label.control-label {
+		font-size: 1.28rem;
+    color: gray;
+    top: -1.9rem;
+    left: 0;
 	}
 }

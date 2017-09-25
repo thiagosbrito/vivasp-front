@@ -12,10 +12,11 @@
       '$log',
       'sha256',
       'toastr',
-      'UserAPI'
+      'UserAPI',
+      '$rootScope'
     ];
 
-    function HeaderController ($scope, $state, $stateParams, $uibModal, $firebaseArray, $log, sha256, toastr, UserAPI) {
+    function HeaderController ($scope, $state, $stateParams, $uibModal, $firebaseArray, $log, sha256, toastr, UserAPI, $rootScope) {
 
       var $ctrl = this;
       $ctrl.state = $state.params.categoriaNome;
@@ -81,6 +82,7 @@
 
       firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
+          $rootScope.credentials = user;
           $ctrl.user = user;
         } else {
           $ctrl.user = null;
@@ -89,22 +91,7 @@
 
       $ctrl.DivulgueEvento = function () {
         if($ctrl.user) {
-          var modalInstance = $uibModal.open({
-            animation: true,
-            controller: 'DivulgueEventoController',
-            controllerAs: '$ctrl',
-            windowClass: 'center-modal login-modal large',
-            templateUrl: 'app/site/features/divulgue-evento/modal.html'
-          });
-
-          modalInstance.result.then(
-            function () {
-
-            },
-            function () {
-              $log.info('modal-component dismissed at: ' + new Date());
-            }
-          );
+          $state.go('main.divulgue', {user: $ctrl.user});
         }
         else {
           $ctrl.Login('divulgue');
