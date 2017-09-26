@@ -1,29 +1,27 @@
+<!-- Banners or carousel  -->
 <div class="container-fluid full-width-image-holder" ng-if="search.bCategories.length >= 2">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="spinner animated" ng-if="!search.hasBanners">
-        <div class="bounce1"></div>
-        <div class="bounce2"></div>
-        <div class="bounce3"></div>
-      </div>
-      <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides" ng-if="search.hasBanners">
-        <div uib-slide index="$index" ng-repeat="bn in search.bCategories track by $index">
-          <a href="/categoria{{bn.linkUrl}}">
-            <img ng-src="{{bn.imgUrl}}" style="margin:auto;">
-            <div class="carousel-caption">
-              <div class="container">
-                <h4>{{bn.title}}</h4>
-                <p>{{bn.description}}</p>
-              </div>
+  <section class="feature-events-banners">
+    <div class="spinner animated" ng-if="!search.hasBanners">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+    <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides" ng-if="search.hasBanners">
+      <div uib-slide index="$index" ng-repeat="bn in search.bCategories track by $index">
+        <a href="/categoria{{bn.linkUrl}}">
+          <img ng-src="{{bn.imgUrl}}" style="margin:auto;">
+          <div class="carousel-caption">
+            <div class="container">
+              <h4>{{bn.title}}</h4>
+              <p>{{bn.description}}</p>
             </div>
-          </a>
-        </div>
+          </div>
+        </a>
       </div>
     </div>
-  </div>
+  </section>
 </div>
-
-<section class="art-spot" ng-style="{'background-image': 'url(' + search.bCategories[0].imgUrl + ')'}" ng-ig="search.bCategories.length <= 1">
+<section class="art-spot" ng-style="{'background-image': 'url(' + search.bCategories[0].imgUrl + ')'}" ng-if="search.bCategories.length == 1">
   <div class="img-caption">
     <div class="infos">
       <div class="container">
@@ -42,6 +40,7 @@
     </div>
   </div>
 </section>
+<!-- end of banners or carousel  -->
 
 <div class="container" ng-if="state.current.name != 'main.categories.view'">
   <div class="row">
@@ -50,14 +49,15 @@
     </div>
   </div>
 </div>
+<!-- filter content  -->
 <div class="container">
   <div class="row">
-    <div class="col-md-10 col-md-offset-1 filter-holder">
+    <div class="col-md-12 filter-holder">
       <div class="row">
-        <div class="col-md-1">
-          <i class="fa fa-filter fa-2x"></i>
+        <div class="col-md-2">
+          <span class="pull-right label-search">filtrar por:</span>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-7">
           <div class="filter-options">
             <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
               <label ng-if="search.filter.valor">
@@ -111,6 +111,7 @@
     </div>
   </div>
 </div>
+
 <div class="container">
   <div class="row">
     <div class="col-md-4 feat-food" ng-repeat="food in search.foods[0]" ng-mouseover="food.active = true">
@@ -126,13 +127,29 @@
     </div>
   </div>
 </div>
-<div class="container-fluid full-width-image-holder">
-  <div class="row">
-    <div class="col-md-12">
-      <img src="assets/images/categories/food/food-002.jpg" alt="" class="img-responsive center-block">
+
+<!-- Banner middle position  -->
+<section class="art-spot" ng-style="{'background-image': 'url(' + search.bMiddle.imgUrl + ')'}">
+  <div class="img-caption">
+    <div class="infos">
+      <div class="container">
+        <div class="holder-info">
+          <h3 class="title">
+            {{search.bMiddle.title}}
+          </h3>
+          <p class="description">
+            {{search.bMiddle.description}}
+          </p>
+          <span class="complementary-text">
+            {{search.bMiddle.text}}
+          </span>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
+<!-- end of banner middle position -->
+
 <div class="container">
   <div class="row">
     <div class="col-md-4 feat-food" ng-repeat="food in search.foods[1]" ng-mouseover="food.active = true">
@@ -148,10 +165,25 @@
     </div>
   </div>
 </div>
-<div class="container-fluid full-width-image-holder">
-  <div class="row">
-    <div class="col-md-12">
-      <img src="assets/images/categories/food/food-003.jpg" alt="" class="img-responsive center-block">
+
+<!-- Banner bottom position  -->
+<section class="art-spot" ng-style="{'background-image': 'url(' + search.bBottom.imgUrl + ')'}">
+  <div class="img-caption">
+    <div class="infos">
+      <div class="container">
+        <div class="holder-info">
+          <h3 class="title">
+            {{search.bBottom.title}}
+          </h3>
+          <p class="description">
+            {{search.bBottom.description}}
+          </p>
+          <span class="complementary-text">
+            {{search.bBottom.text}}
+          </span>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
+<!-- end of banner bottom position -->

@@ -157,6 +157,21 @@
         return tagsArray;
       }
 
+      SweetAlert.swal({
+        title: "Digulgue seu evento!",
+        text: "Seu evento foi cadastrado com sucesso",
+        type: "success",
+        showCancelButton: false,
+        confirmButtonColor: "#DD6B55",confirmButtonText: "Obrigado",
+        closeOnConfirm: true,
+        closeOnCancel: false
+      },
+      function(isConfirm){
+       if (isConfirm) {
+          $state.go('main.conteudos.listar');
+       }
+     });
+
       $ctrl.AddContent = function (data) {
 
         // !angular.isUndefined(data.tags) ? data.tags = $scope.setTagsArray(data.tags) : false;
@@ -170,6 +185,7 @@
         data.createdAt      = data.createdAt.toISOString();
         data.categoryId     = data.category.$id;
         data.subcategory.$id ? data.subcategoryId  = data.subcategory.$id : data.subcategoryId = null;
+
 
         $ctrl.content.$add($ctrl.contentData).then(
           function (res) {

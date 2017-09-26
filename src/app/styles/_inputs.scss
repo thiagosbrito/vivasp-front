@@ -171,7 +171,7 @@ fieldset {
 		border-color: transparent;
 		line-height: 1.9;
 		width: 100%;
-		color: transparent;
+		// color: transparent;
 		transition: all $mf-transition-speed ease;
 		box-shadow: none;
 	}
@@ -508,11 +508,31 @@ fieldset {
 	 }
 }
 
+
+
+
+
+
 .data-holder {
 	label.control-label {
 		font-size: 1.28rem;
     color: gray;
     top: -1.9rem;
     left: 0;
+	}
+}
+
+.divulgue-evento {
+	input[disabled] {
+		color: $gray-links-social;
+		& ~ label.control-label {
+			font-size: 1.28rem;
+			color: gray;
+			top: -1.9rem;
+			left: 0;
+		}
+	}
+	.textangular-holder {
+		margin-bottom: 36px;
 	}
 }

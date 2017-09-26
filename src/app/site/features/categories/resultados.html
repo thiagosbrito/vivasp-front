@@ -25,59 +25,59 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-10 col-md-offset-1 filter-holder">
+    <div class="col-md-12 filter-holder">
       <div class="row">
-        <div class="col-md-1">
-          <i class="fa fa-filter fa-2x"></i>
+        <div class="col-md-2">
+          <span class="pull-right label-search">filtrar por:</span>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-7">
           <div class="filter-options">
             <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
-              <label ng-if="result.filter.valor">
-                {{result.filter.valor.description}}
+              <label ng-if="search.filter.valor">
+                {{search.filter.valor.description}}
               </label>
-              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!result.filter.valor">
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!search.filter.valor">
                 Valor <i class="fa fa-caret-down"></i>
               </a>
               <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                <li ng-repeat="valor in result.filters.valor"><a ng-click="setFilter('valor', valor)" ng-bind-html="valor.description"></a></li>
+                <li ng-repeat="valor in search.filters.valor"><a ng-click="setFilter('valor', valor)" ng-bind-html="valor.description"></a></li>
               </ul>
             </span>
             <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
-              <label ng-if="result.filter.regiao">
-                {{result.filter.regiao.description}}
+              <label ng-if="search.filter.regiao">
+                {{search.filter.regiao.description}}
               </label>
-              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!result.filter.regiao">
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!search.filter.regiao">
                 Região <i class="fa fa-caret-down"></i>
               </a>
               <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                <li ng-repeat="regiao in result.filters.regiao"><a ng-click="setFilter('regiao', regiao)" ng-bind-html="regiao.description"></a></li>
+                <li ng-repeat="regiao in search.filters.regiao"><a ng-click="setFilter('regiao', regiao)" ng-bind-html="regiao.description"></a></li>
               </ul>
             </span>
             <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
-              <label ng-if="result.filter.avaliacao" ng-bind-html="result.filter.avaliacao.description"></label>
-              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!result.filter.avaliacao">
+              <label ng-if="search.filter.avaliacao" ng-bind-html="search.filter.avaliacao.description"></label>
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!search.filter.avaliacao">
                 Avaliação <i class="fa fa-caret-down"></i>
               </a>
               <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                <li ng-repeat="avaliacao in result.filters.avaliacao"><a ng-click="setFilter('avaliacao', avaliacao)" ng-bind-html="avaliacao.description"></a></li>
+                <li ng-repeat="avaliacao in search.filters.avaliacao"><a ng-click="setFilter('avaliacao', avaliacao)" ng-bind-html="avaliacao.description"></a></li>
               </ul>
             </span>
             <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
-              <label ng-if="result.filter.tipo">
-                {{result.filter.tipo.description}}
+              <label ng-if="search.filter.tipo">
+                {{search.filter.tipo.description}}
               </label>
-              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!result.filter.tipo">
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!search.filter.tipo">
                 Tipo <i class="fa fa-caret-down"></i>
               </a>
               <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                <li ng-repeat="tipo in result.filters.tipo"><a ng-click="setFilter('tipo', tipo)" ng-bind-html="tipo.description"></a></li>
+                <li ng-repeat="tipo in search.filters.tipo"><a ng-click="setFilter('tipo', tipo)" ng-bind-html="tipo.description"></a></li>
               </ul>
             </span>
           </div>
         </div>
         <div class="col-md-3">
-          <button class="btn btn-sm btn-add-event" ng-click="search()"><i class="fa fa-search"></i> Pesquisar</button>
+          <button class="btn btn-sm btn-add-event" ng-click="doSearch(search.filter)"><i class="fa fa-search"></i> Pesquisar</button>
           <button class="btn btn-sm btn-info" ng-click="clearFilter"><i class="fa fa-times"></i> Limpar filtro</button>
         </div>
       </div>
@@ -95,18 +95,12 @@
       </h3>
       <ul class="food-infos">
         <li>
-          <div class="icon">
-            <i class="fa fa-map-marker"></i>
-          </div>
           <div class="infos">
             {{food.info.address.street}} - {{food.info.address.neighbourhood}} <br>
             {{food.info.address.city}} - {{food.info.address.state}} - {{food.info.address.postalCode}}
           </div>
         </li>
         <li>
-          <div class="icon">
-            <i class="fa fa-clock-o"></i>
-          </div>
           <div class="infos">
             {{food.info.schedule[0].days}}<br>
             {{food.info.schedule[0].time}}<br>
@@ -115,18 +109,12 @@
           </div>
         </li>
         <li>
-          <div class="icon">
-            <i class="fa fa-phone"></i>
-          </div>
           <div class="infos">
             {{food.info.contacts.phone}}<br>
             {{food.info.contacts.email}}
           </div>
         </li>
         <li>
-          <div class="icon">
-            <i class="fa fa-dollar"></i>
-          </div>
           <div class="infos">
             Média: {{food.info.avgPrice}}
           </div>

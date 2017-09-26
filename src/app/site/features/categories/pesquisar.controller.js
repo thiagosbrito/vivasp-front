@@ -14,19 +14,31 @@
       var bannersRef = firebase.database().ref('banners');
       var carouselRef = bannersRef.child('destaques');
       var query = carouselRef.orderByChild('destaqueCategoria').equalTo(true);
-
+      vm.hasBanners = false;
       vm.banners = $firebaseArray(query);
+
+      vm.banners.$loaded().then(
+        function (a) {
+          vm.bMiddle = _.findWhere(vm.banners, {position: "1", categoryId: $stateParams.categoriaId});
+          vm.bBottom = _.findWhere(vm.banners, {position: "2", categoryId: $stateParams.categoriaId});
+          vm.hasBanners = true;
+          console.log(vm.bMiddle, vm.bBottom);
+        }
+      )
 
       vm.bCategories = [];
 
       // vm.banners = vm.banners[0];
       vm.hasBanners = false;
+
       vm.banners.$loaded().then(
         function (a) {
           vm.hasBanners = true
           angular.forEach(a, function (value) {
-            value.categoryId == $stateParams.categoriaId ? vm.bCategories.push(value) : false
-          })
+            if (value.position == "0" && value.categoryId == $stateParams.categoriaId) {
+              vm.bCategories.push(value);
+            }
+          });
         }
       )
 
