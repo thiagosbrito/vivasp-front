@@ -1,0 +1,43 @@
+<div class="modal-header text-center">
+  Envie-nos sua mensagem
+</div>
+<div class="modal-body">
+  <form role="form" name="contactForm" class="form" autocomplete="off" novalidate>
+    <fieldset>
+      <div class="form-group">
+        <input type="text" required="required" id="contactName" name="contactName" ng-model="$ctrl.contact.name">
+        <label class="control-label" for="emailLogin">Digite seu nome:</label>
+        <i class="bar"></i>
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class="form-group">
+        <input type="text" id="contactEmail" name="contactEmail" required="required" ng-model="$ctrl.contact.email">
+        <label class="control-label" for="emailLogin">Digite seu e-mail:</label>
+        <i class="bar"></i>
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class="form-group">
+        <input type="text"  id="contactSubject" name="contactSubject" required="required" ng-model="$ctrl.contact.subject">
+        <label class="control-label" for="emailLogin">Digite o assunto:</label>
+        <i class="bar"></i>
+      </div>
+    </fieldset>
+    <fieldset>
+      <div class="form-group">
+        <textarea name="contactMessage" id="contactMessage" ng-model="$ctrl.contact.message" required="required"></textarea>
+        <label class="control-label" for="emailLogin">Digite sua mensagem:</label>
+        <i class="bar"></i>
+      </div>
+    </fieldset>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-danger pull-left" ng-click="$ctrl.Cancel()">
+    Cancelar
+  </button>
+  <button class="btn btn-primary pull-right" ng-disabled="contactForm.$invalid" ng-click="$ctrl.send($ctrl.contact)">
+    Enviar
+  </button>
+</div>

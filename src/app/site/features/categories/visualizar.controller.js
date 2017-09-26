@@ -32,6 +32,7 @@
           if(angular.isUndefined($ctrl.content.comments)) {
             $ctrl.content.comments = [];
           }
+          console.log($ctrl.content);
         }
       );
 

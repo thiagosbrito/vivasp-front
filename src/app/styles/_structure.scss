@@ -189,14 +189,18 @@ section.footer {
       width: 935px;
       display: flex;
       flex-direction: row;
+      align-items: center;
+      justify-content: center;
       li {
-        flex-grow: 1;
+        // flex-grow: 1;
         text-align: center;
         padding-top: 30px;
+        margin: 0 10px 40px;
         a {
           color: $gray-links-social-footer;
           text-decoration: none;
           font-size: 16px;
+          font-family: 'Roboto'
         }
       }
     }
@@ -643,5 +647,28 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
   .label-search {
     padding-top: 6px;
     color: #b3b3b3;
+  }
+}
+.infos-holder {
+  background-color: #b3b3b3;
+  border-radius: 4px;
+  margin-top: -12px;
+  padding: 9px 16px;
+  .infos-title {
+    color: #FFF;
+    padding: 6px;
+    background-color: #999;
+    border-radius: 3px;
+    i {
+      font-size: 2.3rem;
+    }
+  }
+  p {
+    line-height: 1.6rem;
+    font-family: 'Roboto'
+  }
+  i.fa-star {
+    color: #999 !important;
+    text-shadow: none;
   }
 }

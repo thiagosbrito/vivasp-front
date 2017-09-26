@@ -2,7 +2,7 @@
   <div class="img-caption">
     <div class="infos">
       <div class="container">
-        <div class="holder-info">          
+        <div class="holder-info">
           <h3 class="title">
             {{view.destImg.title}}
           </h3>
@@ -36,7 +36,40 @@
       <hr>
     </div>
     <div class="col-md-12">
-      <p ng-bind-html="view.content.content"></p>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="infos-holder">
+            <h4 class="infos-title">
+              <i class="fa fa-info-circle"></i> {{view.content.title}}
+            </h4>
+            <p>
+              {{view.content.address.street}} - {{view.content.address.number}}
+            </p>
+            <p>
+              {{view.content.address.neighbourhood}} - {{view.content.address.city}} - {{view.content.address.state}}
+            </p>
+            <p>
+              <span ng-repeat="dates in view.content.dates">
+                {{dates.date}}<br>
+                {{dates.time}}
+              </span>
+            </p>
+            <p>
+              {{view.content.phone}}<br>
+              {{view.content.email}}
+            </p>
+            <p>
+              {{view.content.priceRate | ratePrice}}
+            </p>
+            <p>
+              <input-stars max="5" ng-model="view.content.rate" ng-attr-readonly="true"></input-stars>
+            </p>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <p ng-bind-html="view.content.content"></p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
