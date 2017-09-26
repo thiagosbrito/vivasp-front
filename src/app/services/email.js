@@ -7,18 +7,21 @@
 
     function EmailAPI ($http, $httpParamSerializerJQLike) {
       var api = {};
-
+      // https://api.mailgun.net/v3/vivasp.net
+      // key-1e3eafb7a926ce988ad84b5ef9844e2f
       api.send = function (data) {
         return $http({
-          url: 'https://formspree.io/thiago83brito@hotmail.com',
+          url: 'https://api:key-1e3eafb7a926ce988ad84b5ef9844e2f@api.mailgun.net/v3/vivasp.net/messages',
           method: 'POST',
-          data: $httpParamSerializerJQLike({
-            name: data.name,
-            email: data.email,
-            _subject: data.subject,
-            _replyto: 'noreply@vivasp.net',
-            message: data.message
-          })
+          // headers: {
+          //   'Authorization' : 'Basic api:key-1e3eafb7a926ce988ad84b5ef9844e2f'
+          // },
+          data: {
+            from: data.email,
+            to: 'thiago83brito@hotmail.com',
+            subject: data.subject,
+            text: data.message
+          }
         }).then(
           function (res) {
             return res;
