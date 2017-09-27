@@ -179,7 +179,16 @@
       <h4>
         Comentários:
       </h4>
-      <div class="comment-holder" ng-repeat="comment in view.content.comments | orderBy: 'createdAt':true | limitTo: 3 track by $index">
+
+      <table class="table table-bordered" ng-if="view.content.comments.length == 0">
+        <tr>
+          <td class="text-center">
+            Não existem comentários para esse conteúdo. Seja o primeiro a comentar!
+          </td>
+        </tr>
+      </table>
+
+      <div class="comment-holder animated fadeInUp" ng-repeat="comment in view.content.comments | orderBy: 'createdAt':true | limitTo: 3 track by $index">
         <div class="icon">
           <div class="icon-circle">
             <i class="fa fa-user fa-2x"></i>
@@ -204,7 +213,7 @@
           </div>
         </div>
       </div>
-      <div class="input-comment">
+      <div class="input-comment animated fadeInUp">
         <h4>
           Deixe seu comentário:
         </h4>
