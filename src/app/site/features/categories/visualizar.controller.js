@@ -32,7 +32,6 @@
           if(angular.isUndefined($ctrl.content.comments)) {
             $ctrl.content.comments = [];
           }
-          console.log($ctrl.content);
         }
       );
 
@@ -77,7 +76,7 @@
             }
           ).catch(
             function (error) {
-              console.log(error);
+              // console.log(error);
             }
           )
         } else {

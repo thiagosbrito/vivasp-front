@@ -136,6 +136,7 @@ ul.main-nav {
 }
 section.footer {
   height: 445px;
+  padding-top: 30px;
   .back-top-top {
     width: 100%;
     padding-bottom: 30px;
@@ -670,5 +671,110 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
   i.fa-star {
     color: #999 !important;
     text-shadow: none;
+  }
+}
+
+
+#comments {
+  margin-top: 30px;
+  padding-top: 36px;
+  border-top: 1px solid #b3b3b3;
+  h4 {
+    font-family: 'Roboto';
+    font-size: 26px;
+    font-weight: 300;
+  }
+  .comment-holder {
+    display: flex;
+    flex-direction: row;
+    background-color: #fcfcfc;
+    border-radius: 4px;
+    border-bottom: 3px solid #f5f5f5;
+    margin-bottom: 12px;
+    .icon {
+      align-items: center;
+      vertical-align: center;
+      .icon-circle {
+        background: #ffc0c0;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 34px;
+        vertical-align: middle;
+        padding: 16px;
+        color: #fff;
+        margin: 14px;
+      }
+    }
+    .message {
+      flex-grow: 1;
+      .rate-date {
+        display: flex;
+        flex-direction: row;
+        paddin-top: 12px;
+        .rate {
+          margin-right: 6px;
+          margin-top: 16px;
+          li {
+            margin: -7px;;
+            i {
+              color: darken(#b3b3b3, 15%);
+              text-shadow: none;
+              outline: none;
+              cursor: default;
+            }
+          }
+        }
+        .date {
+          margin-top: 15px;
+        }
+      }
+      .username {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .comment {
+        font-size: 13px;
+        font-family: 'Roboto';
+        color: #b3b3b3;
+      }
+    }
+  }
+  .stars {
+    margin-top: -24px;
+    i {
+      color: darken(#b3b3b3, 15%);
+      text-shadow: none;
+      outline: none;
+      cursor: default;
+    }
+  }
+  .input-comment {
+    padding: 8px 16px;
+    background-color: #b3b3b3;
+    border-radius: 4px;
+    form {
+      textarea {
+        border: none;
+        background-color: #FFF;
+        box-shadow: 0px 3px 1px rgba(#999, .65);
+        padding: 4px 6px;
+        margin-bottom: 6px;
+      }
+      .char-count {
+        font-family: 'Roboto';
+        font-size: 12px;
+        color: #FFF;
+      }
+      .checkbox {
+        margin-top: -8px;
+        margin-left: -4px;
+      }
+      .btn-add-event {
+        color: #b3b3b3;
+        background-color: darken(#b3b3b3, 15%);
+      }
+    }
   }
 }

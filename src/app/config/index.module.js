@@ -20,6 +20,7 @@
       'textAngular',
       'angular-input-stars',
       'ngTagsInput',
-      'oitozero.ngSweetAlert'
+      'oitozero.ngSweetAlert',
+      'base64'
     ]);
 })();

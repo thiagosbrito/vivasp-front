@@ -7,12 +7,20 @@ var conf      = require('./conf');
 var browserSync     = require('browser-sync');
 var browserSyncSpa  = require('browser-sync-spa');
 
+var proxy = require('http-proxy-middleware');
+
 var util = require('util');
 
 var proxyMiddleware = require('http-proxy-middleware');
 
 function browserSyncInit(baseDir, browser) {
   browser = browser === undefined ? 'default' : browser;
+
+  var jsonPlaceholderProxy = proxy('/sendmail', {
+    target: 'https://api:key-1e3eafb7a926ce988ad84b5ef9844e2f@api.mailgun.net/v3/vivasp.net/messages',
+    changeOrigin: true,             // for vhosted sites, changes host header to match to target's host
+    logLevel: 'debug'
+  })
 
   var routes = null;
   if(baseDir === conf.paths.src || (util.isArray(baseDir) && baseDir.indexOf(conf.paths.src) !== -1)) {
@@ -23,7 +31,8 @@ function browserSyncInit(baseDir, browser) {
 
   var server = {
     baseDir: baseDir,
-    routes: routes
+    routes: routes,
+    middleware: [jsonPlaceholderProxy]
   };
 
   /*
