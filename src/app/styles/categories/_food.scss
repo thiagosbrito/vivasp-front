@@ -56,4 +56,62 @@
       }
     }
   }
+  &.feat-food-videos {
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    &.playing {
+      .img-holder {
+        &:before {
+          position: absolute;
+          bottom: 4px;
+          right: 8px;
+          font-family: 'FontAwesome';
+          content: '\f04b';
+          color: #fff;
+          font-size: 16px;
+          z-index: 21;
+        }
+        &:after {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          background-color: rgba(0,0,0,.45);
+          z-index: 20;
+          content: '';
+          left: 0;
+          top: 0;
+        }
+      }
+      .video-title,
+      .video-title:hover {
+        color: #fd4c14;
+        border-bottom: 3px solid #fd4c14;
+        padding-bottom: 20px;
+
+      }
+    }
+    .img-holder {
+      position: relative;
+      z-index: 10;
+      outline: none;
+      img {
+        min-width: 100%;
+        height: auto;
+      }
+    }
+    .video-title {
+      font-weight: 400;
+      font-family: 'Roboto';
+      transition: all ease .2s;
+      line-height: 16px;
+      padding-bottom: 20px;
+      small {
+        display: inline-block;
+        line-height: .8rem;
+        font-size: 12px;
+        margin-top: -5px;
+      }
+    }
+  }
 }

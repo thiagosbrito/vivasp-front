@@ -1,0 +1,59 @@
+<div class="container-fluid full-width-image-holder video-bg">
+  <div class="row">
+    <div class="col-md-12">
+      <youtube-video video-id="videos.currentVideoId" player-width="'100%'" player-height="'500px'" rel="false"></youtube-video>
+    </div>
+  </div>
+</div>
+<div class="container" ng-if="state.current.name != 'main.categories.view'">
+  <div class="row">
+    <div class="col-md-12 add-holder">
+      <img src="assets/images/adds/add-001.jpg" alt="" class="img-responsive center-block">
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 filter-holder">
+      <div class="row">
+        <div class="col-md-2">
+          <span class="pull-right label-search">filtrar por:</span>
+        </div>
+        <div class="col-md-3">
+          <div class="filter-options">
+            <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
+              <a href id="simple-dropdown" uib-dropdown-toggle>
+                Data de envio: <i class="fa fa-caret-down"></i>
+              </a>
+              <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
+                <li><a ng-click="videos.reverseList = false">Mais recentes</a></li>
+                <li><a ng-click="videos.reverseList = true">Mais antigos</a></li>
+              </ul>
+            </span>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-sm btn-add-event" ng-click="doSearch(search.filter)"><i class="fa fa-search"></i> Pesquisar</button>
+          <button class="btn btn-sm btn-info" ng-click="clearFilter"><i class="fa fa-times"></i> Limpar filtro</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 feat-food feat-food-videos"
+        ng-class="{'playing': video.id.videoId === videos.currentVideoId}"
+        ng-repeat="video in videos.videoList | orderBy : video.snippet.publishedAt : videos.reverseList track by $index"
+        ng-click="videos.SetCurrentVideo(video)">
+      <div class="img-holder">
+        <img ng-src="{{video.snippet.thumbnails.medium.url}}" alt="{{video.snippet.title}}">
+      </div>
+      <h3 class="video-title">
+        {{video.snippet.title}}
+        <small>Publicado em: {{video.snippet.publishedAt | date: 'dd/MM/yyyy HH:mm:ss'}}</small>
+      </h3>
+      <p class="video-description">{{video.snippet.description}}</p>
+    </div>
+  </div>
+</div>

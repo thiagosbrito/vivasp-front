@@ -21,6 +21,8 @@
       'angular-input-stars',
       'ngTagsInput',
       'oitozero.ngSweetAlert',
-      'base64'
+      'base64',
+      'jtt_youtube',
+      'youtube-embed'
     ]);
 })();

@@ -86,6 +86,13 @@
         controllerAs: 'view'
       })
 
+      .state('main.videos', {
+        url: '/videos',
+        templateUrl: '/app/site/features/videos/listar.html',
+        controller: 'VideosListarController',
+        controllerAs: 'videos'
+      })
+
       .state('main.quemsomos',{
         url: '/quem-somos',
         templateUrl: 'app/site/features/institucional/quem-somos.html',
