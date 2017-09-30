@@ -3,370 +3,139 @@
   angular.module('vivaSp')
     .controller('CategoriesResultsController', CategoriesResults);
 
-    CategoriesResults.$inject = ['$scope','$state','$stateParams'];
+    CategoriesResults.$inject = ['$scope','$state','$stateParams','$firebaseArray'];
 
-    function CategoriesResults ($scope, $state, $stateParams) {
+    function CategoriesResults ($scope, $state, $stateParams, $firebaseArray) {
 
       var vm = this;
 
       vm.filter = $stateParams.filter;
+      vm.hasBanners = false;
+      var bannerRef = firebase.database().ref('banners').child('destaques');
+      var queryBanner = bannerRef.orderByChild('categoryId').equalTo($stateParams.categoriaId);
+      vm.banners = $firebaseArray(queryBanner);
+
+      vm.banners.$loaded().then(
+        function (results) {
+          vm.bannerList = results;
+          vm.bannerList.length > 0 ? vm.hasBanners = true : vm.hasBanners = false;
+        }
+      ).catch(
+        function (error) {
+          console.log(error);
+        }
+      );
 
       vm.range = function (count) {
         return new Array(+count);
       };
 
-      vm.foods = [
-        [
+      var contentRed = firebase.database().ref('content');
+      var queryContent = contentRed.orderByChild('categoryId').equalTo($stateParams.categoriaId);
+
+      vm.contents = $firebaseArray(queryContent);
+
+      vm.contents.$loaded().then(
+        function (results) {
+          if(vm.filter.tipo) {
+            vm.filter.tipo
+          }
+          console.log(vm.filter, results);
+        }
+      ).catch(
+        function (error) {
+          console.log(error);
+        }
+      )
+      vm.filters = {
+        'valor': [
           {
-            title: 'Sujinho Hamburgueria',
-            imageUrl: 'http://lorempixel.com/360/240/food/1',
-            info: {
-              address: {
-                street: 'R, Maceió, 64',
-                neighbourhood: 'Consolação',
-                city: 'São Paulo',
-                state: 'SP',
-                postalCode: '01302-010'
-              },
-              schedule: [
-                {
-                  days: 'Domingo à Quinta',
-                  time: '12:00 - 00:00'
-                },
-                {
-                  days: 'Sexta e Sábado',
-                  time: '12:00 - 02:00'
-                }
-              ],
-              contacts: {
-                phone: '(11) 3231-5207',
-                siteTitle: 'hamburgueriadosujinho.com.br'
-              },
-              avgPrice: 'R$ 30,00',
-              rate: 4
-            }
+            description: 'R$ 10,00 à R$ 30,00',
+            value: 0
           },
           {
-            title: 'Wendy\'s',
-            imageUrl: 'http://lorempixel.com/360/240/food/2',
-            info: {
-              address: {
-                street: 'R, Serafim Grande, 664',
-                neighbourhood: 'Consolação',
-                city: 'São Paulo',
-                state: 'SP',
-                postalCode: '01302-011'
-              },
-              schedule: [
-                {
-                  days: 'Domingo à Quinta',
-                  time: '12:00 - 00:00'
-                },
-                {
-                  days: 'Sexta e Sábado',
-                  time: '12:00 - 02:00'
-                }
-              ],
-              contacts: {
-                phone: '(11) 3231-5207',
-                siteTitle: 'wendys.com.br'
-              },
-              avgPrice: 'R$ 30,00',
-              rate: 4
-            }
+            description: 'R$ 30,00 à R$ 50,00',
+            value: 1
           },
           {
-            title: 'Sujinho Hamburgueria',
-            imageUrl: 'http://lorempixel.com/360/240/food/3',
-            info: {
-              address: {
-                street: 'R, Maceió, 64',
-                neighbourhood: 'Consolação',
-                city: 'São Paulo',
-                state: 'SP',
-                postalCode: '01302-010'
-              },
-              schedule: [
-                {
-                  days: 'Domingo à Quinta',
-                  time: '12:00 - 00:00'
-                },
-                {
-                  days: 'Sexta e Sábado',
-                  time: '12:00 - 02:00'
-                }
-              ],
-              contacts: {
-                phone: '(11) 3231-5207',
-                siteTitle: 'hamburgueriadosujinho.com.br'
-              },
-              avgPrice: 'R$ 30,00',
-              rate: 4
-            }
+            description: 'R$ 50,00 à R$ 100,00',
+            value: 2
           },
           {
-            title: 'Wendy\'s',
-            imageUrl: 'http://lorempixel.com/360/240/food/4',
-            info: {
-              address: {
-                street: 'R, Serafim Grande, 664',
-                neighbourhood: 'Consolação',
-                city: 'São Paulo',
-                state: 'SP',
-                postalCode: '01302-011'
-              },
-              schedule: [
-                {
-                  days: 'Domingo à Quinta',
-                  time: '12:00 - 00:00'
-                },
-                {
-                  days: 'Sexta e Sábado',
-                  time: '12:00 - 02:00'
-                }
-              ],
-              contacts: {
-                phone: '(11) 3231-5207',
-                siteTitle: 'wendys.com.br'
-              },
-              avgPrice: 'R$ 30,00',
-              rate: 4
-            }
+            description: 'acima de R$ 30,00',
+            value: 3
+          }
+        ],
+        'regiao': [
+          {
+            description: 'Centro',
+            value: 0
           },
           {
-            title: 'Sujinho Hamburgueria',
-            imageUrl: 'http://lorempixel.com/360/240/food/5',
-            info: {
-              address: {
-                street: 'R, Maceió, 64',
-                neighbourhood: 'Consolação',
-                city: 'São Paulo',
-                state: 'SP',
-                postalCode: '01302-010'
-              },
-              schedule: [
-                {
-                  days: 'Domingo à Quinta',
-                  time: '12:00 - 00:00'
-                },
-                {
-                  days: 'Sexta e Sábado',
-                  time: '12:00 - 02:00'
-                }
-              ],
-              contacts: {
-                phone: '(11) 3231-5207',
-                siteTitle: 'hamburgueriadosujinho.com.br'
-              },
-              avgPrice: 'R$ 30,00',
-              rate: 4
-            }
+            description: 'Grande SP',
+            value: 1
           },
           {
-            title: 'Wendy\'s',
-            imageUrl: 'http://lorempixel.com/360/240/food/6',
-            info: {
-              address: {
-                street: 'R, Serafim Grande, 664',
-                neighbourhood: 'Consolação',
-                city: 'São Paulo',
-                state: 'SP',
-                postalCode: '01302-011'
-              },
-              schedule: [
-                {
-                  days: 'Domingo à Quinta',
-                  time: '12:00 - 00:00'
-                },
-                {
-                  days: 'Sexta e Sábado',
-                  time: '12:00 - 02:00'
-                }
-              ],
-              contacts: {
-                phone: '(11) 3231-5207',
-                siteTitle: 'wendys.com.br'
-              },
-              avgPrice: 'R$ 30,00',
-              rate: 4
-            }
+            description: 'Leste',
+            value: 2
           },
           {
-            title: 'Sujinho Hamburgueria',
-            imageUrl: 'http://lorempixel.com/360/240/food/7',
-            info: {
-              address: {
-                street: 'R, Maceió, 64',
-                neighbourhood: 'Consolação',
-                city: 'São Paulo',
-                state: 'SP',
-                postalCode: '01302-010'
-              },
-              schedule: [
-                {
-                  days: 'Domingo à Quinta',
-                  time: '12:00 - 00:00'
-                },
-                {
-                  days: 'Sexta e Sábado',
-                  time: '12:00 - 02:00'
-                }
-              ],
-              contacts: {
-                phone: '(11) 3231-5207',
-                siteTitle: 'hamburgueriadosujinho.com.br'
-              },
-              avgPrice: 'R$ 30,00',
-              rate: 4
-            }
+            description: 'Oeste',
+            value: 3
           },
           {
-            title: 'Wendy\'s',
-            imageUrl: 'http://lorempixel.com/360/240/food/8',
-            info: {
-              address: {
-                street: 'R, Serafim Grande, 664',
-                neighbourhood: 'Consolação',
-                city: 'São Paulo',
-                state: 'SP',
-                postalCode: '01302-011'
-              },
-              schedule: [
-                {
-                  days: 'Domingo à Quinta',
-                  time: '12:00 - 00:00'
-                },
-                {
-                  days: 'Sexta e Sábado',
-                  time: '12:00 - 02:00'
-                }
-              ],
-              contacts: {
-                phone: '(11) 3231-5207',
-                siteTitle: 'wendys.com.br'
-              },
-              avgPrice: 'R$ 30,00',
-              rate: 4
-            }
+            description: 'Norte',
+            value: 4
           },
           {
-            title: 'Sujinho Hamburgueria',
-            imageUrl: 'http://lorempixel.com/360/240/food/9',
-            info: {
-              address: {
-                street: 'R, Maceió, 64',
-                neighbourhood: 'Consolação',
-                city: 'São Paulo',
-                state: 'SP',
-                postalCode: '01302-010'
-              },
-              schedule: [
-                {
-                  days: 'Domingo à Quinta',
-                  time: '12:00 - 00:00'
-                },
-                {
-                  days: 'Sexta e Sábado',
-                  time: '12:00 - 02:00'
-                }
-              ],
-              contacts: {
-                phone: '(11) 3231-5207',
-                siteTitle: 'hamburgueriadosujinho.com.br'
-              },
-              avgPrice: 'R$ 30,00',
-              rate: 4
-            }
+            description: 'Sul',
+            value: 5
+          }
+        ],
+        'avaliacao': [
+          {
+            description: '1 estrela <i class="fa fa-star">',
+            value: 0,
           },
           {
-            title: 'Wendy\'s',
-            imageUrl: 'http://lorempixel.com/360/240/food/10',
-            info: {
-              address: {
-                street: 'R, Serafim Grande, 664',
-                neighbourhood: 'Consolação',
-                city: 'São Paulo',
-                state: 'SP',
-                postalCode: '01302-011'
-              },
-              schedule: [
-                {
-                  days: 'Domingo à Quinta',
-                  time: '12:00 - 00:00'
-                },
-                {
-                  days: 'Sexta e Sábado',
-                  time: '12:00 - 02:00'
-                }
-              ],
-              contacts: {
-                phone: '(11) 3231-5207',
-                siteTitle: 'wendys.com.br'
-              },
-              avgPrice: 'R$ 30,00',
-              rate: 4
-            }
+            description: '2 estrelas <i class="fa fa-star"></i> <i class="fa fa-star">',
+            value: 1
           },
           {
-            title: 'Sujinho Hamburgueria',
-            imageUrl: 'http://lorempixel.com/360/240/food/1',
-            info: {
-              address: {
-                street: 'R, Maceió, 64',
-                neighbourhood: 'Consolação',
-                city: 'São Paulo',
-                state: 'SP',
-                postalCode: '01302-010'
-              },
-              schedule: [
-                {
-                  days: 'Domingo à Quinta',
-                  time: '12:00 - 00:00'
-                },
-                {
-                  days: 'Sexta e Sábado',
-                  time: '12:00 - 02:00'
-                }
-              ],
-              contacts: {
-                phone: '(11) 3231-5207',
-                siteTitle: 'hamburgueriadosujinho.com.br'
-              },
-              avgPrice: 'R$ 30,00',
-              rate: 4
-            }
+            description: '3 estrelas <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star">',
+            value: 2
           },
           {
-            title: 'Wendy\'s',
-            imageUrl: 'http://lorempixel.com/360/240/food/2',
-            info: {
-              address: {
-                street: 'R, Serafim Grande, 664',
-                neighbourhood: 'Consolação',
-                city: 'São Paulo',
-                state: 'SP',
-                postalCode: '01302-011'
-              },
-              schedule: [
-                {
-                  days: 'Domingo à Quinta',
-                  time: '12:00 - 00:00'
-                },
-                {
-                  days: 'Sexta e Sábado',
-                  time: '12:00 - 02:00'
-                }
-              ],
-              contacts: {
-                phone: '(11) 3231-5207',
-                siteTitle: 'wendys.com.br'
-              },
-              avgPrice: 'R$ 30,00',
-              rate: 4
-            }
+            description: '4 estrelas <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star">',
+            value: 3
+          },
+          {
+            description: '5 estrelas <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star">',
+            value: 4
+          }
+        ],
+        'tipo': [
+          {
+            description: 'Lanches',
+            value: 0
+          },
+          {
+            description: 'Cozinha Asiática',
+            value: 1
+          },
+          {
+            description: 'Cozinha Árabe',
+            value: 2
+          },
+          {
+            description: 'Cozinha Brasileira',
+            value: 3
+          },
+          {
+            description: 'Cozinha Italiana',
+            value: 4
           }
         ]
-      ];
-
+      };
     }
 })();

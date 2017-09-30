@@ -17,35 +17,59 @@
       vm.hasBanners = false;
       vm.banners = $firebaseArray(query);
 
+      var contentRed = firebase.database().ref('content');
+      var queryContent = contentRed.orderByChild('categoryId').equalTo($stateParams.categoriaId);
+      vm.contents = $firebaseArray(queryContent);
+
+      vm.contentList = [];
+      var limit;
+      vm.contents.$loaded().then(
+        function (results) {
+          vm.contentList.push(results);
+          limit = Math.ceil(results.length / 2);
+          vm.list1 = vm.contentList[0].splice(0,limit);
+          vm.list2 = vm.contentList[0].splice(0,limit*2);
+          console.log(vm.list1, vm.list2);
+        }
+      ).catch(
+        function (error) {
+          console.log(error);
+        }
+      )
+
+      //
+      // vm.contents = vm.content
+
+      // Get middle and bottom featured banners
       vm.banners.$loaded().then(
         function (a) {
           vm.bMiddle = _.findWhere(vm.banners, {position: "1", categoryId: $stateParams.categoriaId});
           vm.bBottom = _.findWhere(vm.banners, {position: "2", categoryId: $stateParams.categoriaId});
-          vm.hasBanners = true;
           console.log(vm.bMiddle, vm.bBottom);
         }
-      )
+      );
 
       vm.bCategories = [];
 
       // vm.banners = vm.banners[0];
       vm.hasBanners = false;
 
+
+      // get the main banners in carousel for the featured category
       vm.banners.$loaded().then(
         function (a) {
-          vm.hasBanners = true
+          vm.hasBanners = true;
           angular.forEach(a, function (value) {
             if (value.position == "0" && value.categoryId == $stateParams.categoriaId) {
               vm.bCategories.push(value);
             }
           });
         }
-      )
+      );
 
       $scope.doSearch = function (filter) {
-        console.log(filter);
         $state.go('main.categories.results',{filter: filter});
-      }
+      };
       vm.hasBanners = false;
       $scope.toggled = function(open) {
         console.log(open);
@@ -83,9 +107,9 @@
             title: 'Varanda Ranch Steak',
             description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
             imageUrl: 'http://lorempixel.com/360/240/food/6'
-          },
-        ],
-      ]
+          }
+        ]
+      ];
       vm.filters = {
         'valor': [
           {
@@ -152,30 +176,8 @@
             description: '5 estrelas <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star">',
             value: 4
           }
-        ],
-        'tipo': [
-          {
-            description: 'Lanches',
-            value: 0
-          },
-          {
-            description: 'Cozinha Asiática',
-            value: 1
-          },
-          {
-            description: 'Cozinha Árabe',
-            value: 2
-          },
-          {
-            description: 'Cozinha Brasileira',
-            value: 3
-          },
-          {
-            description: 'Cozinha Italiana',
-            value: 4
-          }
         ]
-      }
+      };
 
       vm.filter = {
         valor: null,
@@ -184,9 +186,18 @@
         tipo: null
       };
 
+      var subcategoriesRef = firebase.database().ref('subcategories');
+      var querySub = subcategoriesRef.orderByChild('categoryId').equalTo($stateParams.categoriaId);
+
+      vm.subcats = $firebaseArray(querySub).$loaded().then(
+        function (results) {
+          vm.filters.tipo= results;
+        }
+      );
+
       $scope.setFilter = function (section, obj) {
         vm.filter[section] = obj;
-      }
+      };
       $scope.clearFilter = function () {
         vm.filter = {
           valor: null,

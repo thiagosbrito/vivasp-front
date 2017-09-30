@@ -59,7 +59,7 @@
             }
           })
         }
-      )
+      );
       vm.hasBanners = false;
       var carouselRef = bannersRef.child('carousel');
       var query = carouselRef.orderByChild('active').equalTo(true);
@@ -73,7 +73,7 @@
           vm.hasBanners = true;
           vm.bannersList = a;
         }
-      )
+      );
       vm.destaques = $firebaseArray(queryDest);
 
       vm.destaques.$loaded().then(

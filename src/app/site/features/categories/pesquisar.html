@@ -67,7 +67,7 @@
                 Valor <i class="fa fa-caret-down"></i>
               </a>
               <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                <li ng-repeat="valor in search.filters.valor"><a ng-click="setFilter('valor', valor)" ng-bind-html="valor.description"></a></li>
+                <li ng-repeat="valor in search.filters.valor track by $index"><a ng-click="setFilter('valor', valor)" ng-bind-html="valor.description"></a></li>
               </ul>
             </span>
             <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
@@ -78,7 +78,7 @@
                 Região <i class="fa fa-caret-down"></i>
               </a>
               <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                <li ng-repeat="regiao in search.filters.regiao"><a ng-click="setFilter('regiao', regiao)" ng-bind-html="regiao.description"></a></li>
+                <li ng-repeat="regiao in search.filters.regiao track by $index"><a ng-click="setFilter('regiao', regiao)" ng-bind-html="regiao.description"></a></li>
               </ul>
             </span>
             <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
@@ -87,18 +87,18 @@
                 Avaliação <i class="fa fa-caret-down"></i>
               </a>
               <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                <li ng-repeat="avaliacao in search.filters.avaliacao"><a ng-click="setFilter('avaliacao', avaliacao)" ng-bind-html="avaliacao.description"></a></li>
+                <li ng-repeat="avaliacao in search.filters.avaliacao track by $index"><a ng-click="setFilter('avaliacao', avaliacao)" ng-bind-html="avaliacao.description"></a></li>
               </ul>
             </span>
             <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
               <label ng-if="search.filter.tipo">
-                {{search.filter.tipo.description}}
+                  {{search.filter.tipo.title}}
               </label>
               <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!search.filter.tipo">
                 Tipo <i class="fa fa-caret-down"></i>
               </a>
               <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                <li ng-repeat="tipo in search.filters.tipo"><a ng-click="setFilter('tipo', tipo)" ng-bind-html="tipo.description"></a></li>
+                <li ng-repeat="tipo in search.filters.tipo track by $index"><a ng-click="setFilter('tipo', tipo)" ng-bind-html="tipo.title"></a></li>
               </ul>
             </span>
           </div>
@@ -114,17 +114,21 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-4 feat-food" ng-repeat="food in search.foods[0]" ng-mouseover="food.active = true">
+    <section
+      class="col-md-4 event-holder"
+      ng-repeat="content in search.list1"
+      ng-mouseover="content.active = true"
+      ui-sref="main.categories.view({categoriaId: content.categoryId, itemId: content.$id})">
       <div class="img-holder">
-        <img ng-src="{{food.imageUrl}}" alt="">
+        <img ng-src="{{content.imgUrl}}" alt="" class="img-responsive">
       </div>
       <h3 class="event-type-title">
-        {{food.title}}
+        {{content.title}}
       </h3>
       <p class="event-text">
-        {{food.description}}
+        {{content.description}}
       </p>
-    </div>
+    </section>
   </div>
 </div>
 
@@ -152,17 +156,21 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-4 feat-food" ng-repeat="food in search.foods[1]" ng-mouseover="food.active = true">
+    <section
+      class="col-md-4 event-holder"
+      ng-repeat="content in search.list2"
+      ng-mouseover="content.active = true"
+      ui-sref="main.categories.view({categoriaId: content.categoryId, itemId: content.$id})">
       <div class="img-holder">
-        <img ng-src="{{food.imageUrl}}" alt="">
+        <img ng-src="{{content.imgUrl}}" alt="" class="img-responsive">
       </div>
       <h3 class="event-type-title">
-        {{food.title}}
+        {{content.title}}
       </h3>
       <p class="event-text">
-        {{food.description}}
+        {{content.description}}
       </p>
-    </div>
+    </section>
   </div>
 </div>
 
