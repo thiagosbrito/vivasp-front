@@ -188,7 +188,7 @@
         </tr>
       </table>
 
-      <div class="comment-holder animated fadeInUp" ng-repeat="comment in view.content.comments | orderBy: 'createdAt':true | limitTo: 3 track by $index">
+      <div class="comment-holder animated fadeInUp" ng-repeat="comment in view.content.comments | orderBy: 'createdAt':true | limitTo: 3 track by $index" ng-if="comment.approved">
         <div class="icon">
           <div class="icon-circle">
             <i class="fa fa-user fa-2x"></i>

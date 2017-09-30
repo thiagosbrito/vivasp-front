@@ -31,6 +31,15 @@
           $ctrl.content = a.$getRecord($stateParams.itemId);
           if(angular.isUndefined($ctrl.content.comments)) {
             $ctrl.content.comments = [];
+          } else {
+            angular.forEach($ctrl.content.comments, function (value) {
+                if (value.approved) {
+                  value = value
+                }
+                else {
+                  value = null;
+                }
+            })
           }
         }
       );
