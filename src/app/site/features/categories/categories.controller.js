@@ -56,7 +56,7 @@
       ]
 
       $scope.toggled = function(open) {
-        console.log(open);
+        // console.log(open);
       };
 
       vm.filters = {

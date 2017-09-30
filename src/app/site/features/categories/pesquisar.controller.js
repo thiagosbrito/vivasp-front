@@ -111,25 +111,29 @@
         ]
       ];
       vm.filters = {
-        'valor': [
+        'priceRate': [
           {
-            description: 'R$ 10,00 à R$ 30,00',
+            description: 'Grátis',
             value: 0
           },
           {
-            description: 'R$ 30,00 à R$ 50,00',
+            description: 'R$ 10,00 à R$ 30,00',
             value: 1
           },
           {
-            description: 'R$ 50,00 à R$ 100,00',
+            description: 'R$ 30,00 à R$ 50,00',
             value: 2
           },
           {
-            description: 'acima de R$ 30,00',
+            description: 'R$ 50,00 à R$ 100,00',
             value: 3
+          },
+          {
+            description: 'acima de R$ 30,00',
+            value: 4
           }
         ],
-        'regiao': [
+        'cityZone': [
           {
             description: 'Centro',
             value: 0
@@ -155,35 +159,35 @@
             value: 5
           }
         ],
-        'avaliacao': [
+        'rate': [
           {
             description: '1 estrela <i class="fa fa-star">',
-            value: 0,
+            value: 1,
           },
           {
             description: '2 estrelas <i class="fa fa-star"></i> <i class="fa fa-star">',
-            value: 1
-          },
-          {
-            description: '3 estrelas <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star">',
             value: 2
           },
           {
-            description: '4 estrelas <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star">',
+            description: '3 estrelas <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star">',
             value: 3
           },
           {
-            description: '5 estrelas <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star">',
+            description: '4 estrelas <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star">',
             value: 4
+          },
+          {
+            description: '5 estrelas <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star">',
+            value: 5
           }
         ]
       };
 
       vm.filter = {
-        valor: null,
-        regiao: null,
-        avaliacao: null,
-        tipo: null
+        priceRate: null,
+        cityZone: null,
+        rate: null,
+        subcategoryId: null
       };
 
       var subcategoriesRef = firebase.database().ref('subcategories');
@@ -191,19 +195,20 @@
 
       vm.subcats = $firebaseArray(querySub).$loaded().then(
         function (results) {
-          vm.filters.tipo= results;
+          vm.filters.subcategoryId = results;
         }
       );
 
       $scope.setFilter = function (section, obj) {
         vm.filter[section] = obj;
       };
+
       $scope.clearFilter = function () {
         vm.filter = {
-          valor: null,
-          regiao: null,
-          avaliacao: null,
-          tipo: null
+          priceRate: null,
+          cityZone: null,
+          rate: null,
+          subcategoryId: null
         };
       }
     }

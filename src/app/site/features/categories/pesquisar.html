@@ -52,6 +52,13 @@
 <!-- filter content  -->
 <div class="container">
   <div class="row">
+    <div class="col-md-12">
+<pre>
+{{search.filter | json}}
+</pre>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-12 filter-holder">
       <div class="row">
         <div class="col-md-2">
@@ -60,52 +67,52 @@
         <div class="col-md-7">
           <div class="filter-options">
             <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
-              <label ng-if="search.filter.valor">
-                {{search.filter.valor.description}}
+              <label ng-if="search.filter.priceRate">
+                {{search.filter.priceRate.description}}
               </label>
-              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!search.filter.valor">
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!search.filter.priceRate">
                 Valor <i class="fa fa-caret-down"></i>
               </a>
               <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                <li ng-repeat="valor in search.filters.valor track by $index"><a ng-click="setFilter('valor', valor)" ng-bind-html="valor.description"></a></li>
+                <li ng-repeat="valor in search.filters.priceRate track by $index"><a ng-click="setFilter('priceRate', valor)" ng-bind-html="valor.description"></a></li>
               </ul>
             </span>
             <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
-              <label ng-if="search.filter.regiao">
-                {{search.filter.regiao.description}}
+              <label ng-if="search.filter.cityZone">
+                {{search.filter.cityZone.description}}
               </label>
-              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!search.filter.regiao">
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!search.filter.cityZone">
                 Região <i class="fa fa-caret-down"></i>
               </a>
               <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                <li ng-repeat="regiao in search.filters.regiao track by $index"><a ng-click="setFilter('regiao', regiao)" ng-bind-html="regiao.description"></a></li>
+                <li ng-repeat="regiao in search.filters.cityZone track by $index"><a ng-click="setFilter('cityZone', regiao)" ng-bind-html="regiao.description"></a></li>
               </ul>
             </span>
             <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
-              <label ng-if="search.filter.avaliacao" ng-bind-html="search.filter.avaliacao.description"></label>
-              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!search.filter.avaliacao">
+              <label ng-if="search.filter.rate" ng-bind-html="search.filter.rate.description"></label>
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!search.filter.rate">
                 Avaliação <i class="fa fa-caret-down"></i>
               </a>
               <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                <li ng-repeat="avaliacao in search.filters.avaliacao track by $index"><a ng-click="setFilter('avaliacao', avaliacao)" ng-bind-html="avaliacao.description"></a></li>
+                <li ng-repeat="avaliacao in search.filters.rate track by $index"><a ng-click="setFilter('rate', avaliacao)" ng-bind-html="avaliacao.description"></a></li>
               </ul>
             </span>
             <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
-              <label ng-if="search.filter.tipo">
-                  {{search.filter.tipo.title}}
+              <label ng-if="search.filter.subcategoryId">
+                  {{search.filter.subcategoryId.title}}
               </label>
-              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!search.filter.tipo">
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!search.filter.subcategoryId">
                 Tipo <i class="fa fa-caret-down"></i>
               </a>
               <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                <li ng-repeat="tipo in search.filters.tipo track by $index"><a ng-click="setFilter('tipo', tipo)" ng-bind-html="tipo.title"></a></li>
+                <li ng-repeat="tipo in search.filters.subcategoryId track by $index"><a ng-click="setFilter('subcategoryId', tipo)" ng-bind-html="tipo.title"></a></li>
               </ul>
             </span>
           </div>
         </div>
         <div class="col-md-3">
           <button class="btn btn-sm btn-add-event" ng-click="doSearch(search.filter)"><i class="fa fa-search"></i> Pesquisar</button>
-          <button class="btn btn-sm btn-info" ng-click="clearFilter"><i class="fa fa-times"></i> Limpar filtro</button>
+          <button class="btn btn-sm btn-info" ng-click="clearFilter()"><i class="fa fa-times"></i> Limpar filtro</button>
         </div>
       </div>
     </div>
@@ -120,7 +127,7 @@
       ng-mouseover="content.active = true"
       ui-sref="main.categories.view({categoriaId: content.categoryId, itemId: content.$id})">
       <div class="img-holder">
-        <img ng-src="{{content.imgUrl}}" alt="" class="img-responsive">
+        <img ng-src="{{content.imgUrl}}" alt="{{content.title}}" class="img-responsive">
       </div>
       <h3 class="event-type-title">
         {{content.title}}
@@ -162,7 +169,7 @@
       ng-mouseover="content.active = true"
       ui-sref="main.categories.view({categoriaId: content.categoryId, itemId: content.$id})">
       <div class="img-holder">
-        <img ng-src="{{content.imgUrl}}" alt="" class="img-responsive">
+        <img ng-src="{{content.imgUrl}}" alt="{{content.title}}" class="img-responsive">
       </div>
       <h3 class="event-type-title">
         {{content.title}}

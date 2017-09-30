@@ -34,7 +34,7 @@
 
       $ctrl.content.$loaded().then(
         function (results) {
-          console.log(results);
+          // console.log(results);
         }
       )
       $ctrl.GoToContent = function (content) {

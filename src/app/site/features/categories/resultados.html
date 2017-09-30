@@ -36,96 +36,110 @@
         <div class="col-md-7">
           <div class="filter-options">
             <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
-              <label ng-if="result.filter.valor">
-                {{result.filter.valor.description}}
+              <label ng-if="result.filter.priceRate">
+                {{result.filter.priceRate.description}}
               </label>
-              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!result.filter.valor">
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!result.filter.priceRate">
                 Valor <i class="fa fa-caret-down"></i>
               </a>
               <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                <li ng-repeat="valor in result.filters.valor"><a ng-click="setFilter('valor', valor)" ng-bind-html="valor.description"></a></li>
+                <li ng-repeat="valor in result.filters.priceRate track by $index"><a ng-click="setFilter('priceRate', valor)" ng-bind-html="valor.description"></a></li>
               </ul>
             </span>
             <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
-              <label ng-if="result.filter.regiao">
-                {{result.filter.regiao.description}}
+              <label ng-if="result.filter.cityZone">
+                {{result.filter.cityZone.description}}
               </label>
-              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!result.filter.regiao">
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!result.filter.cityZone">
                 Região <i class="fa fa-caret-down"></i>
               </a>
               <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                <li ng-repeat="regiao in result.filters.regiao"><a ng-click="setFilter('regiao', regiao)" ng-bind-html="regiao.description"></a></li>
+                <li ng-repeat="regiao in result.filters.cityZone track by $index"><a ng-click="setFilter('cityZone', regiao)" ng-bind-html="regiao.description"></a></li>
               </ul>
             </span>
             <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
-              <label ng-if="result.filter.avaliacao" ng-bind-html="result.filter.avaliacao.description"></label>
-              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!result.filter.avaliacao">
+              <label ng-if="result.filter.rate" ng-bind-html="result.filter.rate.description"></label>
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!result.filter.rate">
                 Avaliação <i class="fa fa-caret-down"></i>
               </a>
               <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                <li ng-repeat="avaliacao in result.filters.avaliacao"><a ng-click="setFilter('avaliacao', avaliacao)" ng-bind-html="avaliacao.description"></a></li>
+                <li ng-repeat="avaliacao in result.filters.rate track by $index"><a ng-click="setFilter('rate', avaliacao)" ng-bind-html="avaliacao.description"></a></li>
               </ul>
             </span>
             <span uib-dropdown on-toggle="toggled(open)" class="filter-dropdown-holder">
-              <label ng-if="result.filter.tipo">
-                {{result.filter.tipo.title}}
+              <label ng-if="result.filter.subcategoryId">
+                  {{result.filter.subcategoryId.title}}
               </label>
-              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!result.filter.tipo">
+              <a href id="simple-dropdown" uib-dropdown-toggle ng-if="!result.filter.subcategoryId">
                 Tipo <i class="fa fa-caret-down"></i>
               </a>
               <ul class="dropdown-menu" uib-dropdown-menu aria-labelledby="simple-dropdown">
-                <li ng-repeat="tipo in result.filters.tipo"><a ng-click="setFilter('tipo', tipo)" ng-bind-html="tipo.description"></a></li>
+                <li ng-repeat="tipo in result.filters.subcategoryId track by $index"><a ng-click="setFilter('subcategoryId', tipo)" ng-bind-html="tipo.title"></a></li>
               </ul>
             </span>
           </div>
         </div>
         <div class="col-md-3">
           <button class="btn btn-sm btn-add-event" ng-click="doSearch(result.filter)"><i class="fa fa-search"></i> Pesquisar</button>
-          <button class="btn btn-sm btn-info" ng-click="clearFilter"><i class="fa fa-times"></i> Limpar filtro</button>
+          <button class="btn btn-sm btn-info" ng-click="clearFilter()"><i class="fa fa-times"></i> Limpar filtro</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 <div class="container">
+  <div class="row animated" ng-class="{'fadeInDown': result.contentList.length == 0}" ng-if="result.contentList.length == 0">
+    <div class="col-md-12">
+      <div class="alert alert-warning" role="alert">
+        <i class="fa fa-info-circle"></i>
+        Sua busca não retornou resultados, altere os filtros e tente novamente
+      </div>
+    </div>
+  </div>
   <div class="row">
-    <div class="col-md-4 feat-food feat-food-infos" ng-repeat="food in result.foods[0] track by $index" ng-mouseover="food.active = true" ui-sref="main.categories.view({itemId: $index})">
+    <section
+      class="col-md-4 event-holder"
+      ng-repeat="content in result.contentList track by $index"
+      ng-mouseover="content.active = true"
+      ui-sref="main.categories.view({itemId: content.$id})">
       <div class="img-holder">
-        <img ng-src="{{food.imageUrl}}" alt="">
+        <img ng-src="{{content.imgUrl}}" alt="{{content.title}}" class="img-responsive">
       </div>
       <h3 class="event-type-title">
-        {{food.title}}
+        {{content.title}}
       </h3>
-      <ul class="food-infos">
-        <li>
-          <div class="infos">
-            {{food.info.address.street}} - {{food.info.address.neighbourhood}} <br>
-            {{food.info.address.city}} - {{food.info.address.state}} - {{food.info.address.postalCode}}
-          </div>
-        </li>
-        <li>
-          <div class="infos">
-            {{food.info.schedule[0].days}}<br>
-            {{food.info.schedule[0].time}}<br>
-            {{food.info.schedule[1].days}}<br>
-            {{food.info.schedule[1].time}}
-          </div>
-        </li>
-        <li>
-          <div class="infos">
-            {{food.info.contacts.phone}}<br>
-            {{food.info.contacts.email}}
-          </div>
-        </li>
-        <li>
-          <div class="infos">
-            Média: {{food.info.avgPrice}}
-          </div>
-        </li>
-        <li>
-          <span ng-repeat="star in result.range(food.info.rate) track by $index"><i class="fa fa-star"></i></span>
-        </li>
-      </ul>
-    </div>
+      <p class="event-text">
+        <ul class="content-infos">
+          <li>
+            <div class="infos">
+              {{content.address.street}} - {{content.address.neighbourhood}} <br>
+              {{content.address.city}} - {{content.address.state}} - {{content.address.postalCode}}
+            </div>
+          </li>
+          <li>
+            <div class="infos">
+              <span ng-repeat="dates in content.dates" class="info-date">
+                {{dates.date ? dates.date : 'Nenhum data informada'}}<br>
+                {{dates.time ? dates.time : 'Nenhum horário informada'}}
+              </span>
+            </div>
+          </li>
+          <li>
+            <div class="infos">
+              {{content.phone}}<br>
+              {{content.email}}
+            </div>
+          </li>
+          <li>
+            <div class="infos">
+              Média: {{content.priceRate | ratePrice}}
+            </div>
+          </li>
+          <li>
+            <span class="rate-star" ng-repeat="star in result.range(content.rate) track by $index"><i class="fa fa-star"></i></span>
+          </li>
+        </ul>
+      </p>
+    </section>
   </div>
 </div>
