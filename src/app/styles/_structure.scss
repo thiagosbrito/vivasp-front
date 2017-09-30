@@ -368,11 +368,48 @@ img-crop {
 .login-modal {
   .modal-dialog {
     width: 400px;
+    .modal-content {
+      background-color: transparent;
+      border: none;
+    }
+    .modal-body {
+      display: block;
+      background-color: #fff;
+      padding: 30px 15px;
+    }
+    .modal-header {
+      background-color: transparent;
+      font-size: 26px;
+      color: #fff;
+      font-weight: lighter;
+      margin-bottom: 0 !important;
+    }
   }
   &.large {
     .modal-dialog {
       width: 650px;
     }
+  }
+  .extra-buttons {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    margin-top: 5px;
+    button {
+      flex-grow: 1;
+      text-align: center;
+      border-radius: 4px;
+      transition: all ease .4s;
+      &:hover {
+        background-color: rgba(#FFF, .45);
+        color: #999;
+        font-weight: bolder;
+      }
+    }
+  }
+  .extra-buttons,
+  .social-login {
+    margin-bottom: 20px;
   }
 }
 
