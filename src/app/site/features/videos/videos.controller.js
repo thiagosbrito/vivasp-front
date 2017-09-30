@@ -2,9 +2,9 @@
   'use strict';
   angular.module('vivaSp')
     .controller('VideosListarController', VideosListarController);
-    VideosListarController.$inject = ['$scope','$state','youtubeFactory'];
+    VideosListarController.$inject = ['$scope','$state','youtubeFactory','$anchorScroll'];
 
-    function VideosListarController ($scope, $state, youtubeFactory) {
+    function VideosListarController ($scope, $state, youtubeFactory, $anchorScroll) {
       var $ctrl = this;
 
       $ctrl.GetVideos = function () {
@@ -25,6 +25,7 @@
 
       $ctrl.SetCurrentVideo = function (video) {
         $ctrl.currentVideoId = video.id.videoId;
+        $anchorScroll();
       }
     }
 })();
