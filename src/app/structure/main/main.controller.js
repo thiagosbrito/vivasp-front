@@ -12,7 +12,6 @@
 
       $ctrl.GetClass = function () {
         var state = $state;
-        console.log(state);
         return 'default';
       }
     }

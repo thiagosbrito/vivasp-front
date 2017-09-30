@@ -5,7 +5,7 @@
         <li ui-sref-active="active">
           <a ui-sref="main.videos">Vídeos</a>
         </li>
-        <li ng-repeat="cat in nav.categories" ui-sref-active="active">
+        <li ng-repeat="cat in nav.menuItems" ui-sref-active="active">
           <a ui-sref="main.categories.search({categoriaId: cat.$id})">{{cat.title}}</a>
         </li>
       </ul>
