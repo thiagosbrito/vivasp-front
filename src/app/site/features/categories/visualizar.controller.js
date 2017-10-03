@@ -37,7 +37,7 @@
       comments.$loaded().then(
         function (cmts) {
           $ctrl.commentsLoaded = cmts.$resolved;
-          $ctrl.comments = _.where(cmts, {contentId: $stateParams.itemId});
+          $ctrl.comments = _.where(cmts, {contentId: $stateParams.itemId, approved: true});
           console.log($ctrl.comments);
         }
       )
