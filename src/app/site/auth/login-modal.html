@@ -34,28 +34,28 @@
       </div> -->
       <div class="form-group" ng-class="{'error': signForm.nome.$error.pattern || signForm.nome.$error.required}">
         <input type="text" ng-model="$ctrl.signUp.name" id="nomeSignup" required="required" name="nome">
-        <label for="nomeSignup">Nome:</label>
+        <label class="control-label" for="nomeSignup">Nome:</label>
         <i class="bar"></i>
       </div>
     </fieldset>
     <fieldset>
       <div class="form-group" ng-class="{'error': signForm.email.$error.pattern || signForm.email.$error.required}">
         <input type="text" ng-model="$ctrl.signUp.email" id="nomeSignup" required="required" name="email">
-        <label for="nomeSignup">Email:</label>
+        <label class="control-label" for="nomeSignup">Email:</label>
         <i class="bar"></i>
       </div>
     </fieldset>
     <fieldset>
       <div class="form-group" ng-class="{'error': signForm.senha.$error.required}">
         <input type="password" ng-model="$ctrl.signUp.password" id="passwordSignup" required="required" name="senha">
-        <label for="passwordSignup">Senha:</label>
+        <label class="control-label" for="passwordSignup">Senha:</label>
         <i class="bar"></i>
       </div>
     </fieldset>
     <fieldset>
       <div class="form-group" ng-class="{'error': signForm.resenha.$error.required}">
         <input type="password" ng-model="$ctrl.rePass" id="reTypePasswordSignup" required="required" name="resenha">
-        <label for="reTypePasswordSignup">Confirme a senha:</label>
+        <label class="control-label" for="reTypePasswordSignup">Confirme a senha:</label>
         <i class="bar"></i>
       </div>
     </fieldset>
@@ -74,7 +74,7 @@
     <fieldset class="animated" ng-class="{'fadeOut': $ctrl.check}">
       <div class="form-group" ng-class="{'error': forgotForm.email.$error.pattern || forgotForm.email.$error.required}">
         <input type="text" ng-model="$ctrl.forgotObj.email" id="emailForgot" required="required" name="email">
-        <label for="emailForgot">Digite o email cadastrado:</label>
+        <label class="control-label" for="emailForgot">Digite o email cadastrado:</label>
         <i class="bar"></i>
       </div>
     </fieldset>
