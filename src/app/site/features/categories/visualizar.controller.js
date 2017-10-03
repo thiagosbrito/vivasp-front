@@ -10,7 +10,9 @@
       var $ctrl = this;
 
       var contentRef = firebase.database().ref('content');
+      var commentRef = firebase.database().ref('comments');
       var list = $firebaseArray(contentRef);
+      var comments = $firebaseArray(commentRef);
 
       var bannersRef = firebase.database().ref('banners');
       var carouselRef = bannersRef.child('destaques');
@@ -29,20 +31,16 @@
       list.$loaded().then(
         function (a) {
           $ctrl.content = a.$getRecord($stateParams.itemId);
-          if(angular.isUndefined($ctrl.content.comments)) {
-            $ctrl.content.comments = [];
-          } else {
-            angular.forEach($ctrl.content.comments, function (value) {
-                if (value.approved) {
-                  value = value
-                }
-                else {
-                  value = null;
-                }
-            })
-          }
         }
       );
+
+      comments.$loaded().then(
+        function (cmts) {
+          $ctrl.commentsLoaded = cmts.$resolved;
+          $ctrl.comments = _.where(cmts, {contentId: $stateParams.itemId});
+          console.log($ctrl.comments);
+        }
+      )
 
       $ctrl.Login = function (source) {
         var modalInstance = $uibModal.open({
@@ -70,16 +68,15 @@
           var userObj = authObj.$getAuth();
           comment.author = {
             displayName: userObj.displayName,
-            uid: userObj.uid
+            uid: userObj.uid,
+            userImg: userObj.photoURL
           };
-          comment.userUid = userObj.uid;
+          comment.contentId = $stateParams.itemId;
           comment.createdAt = new Date();
           comment.createdAt = comment.createdAt.toISOString();
           comment.approved = false;
-          $ctrl.content.comments.push(comment);
-          $ctrl.content = _.omit($ctrl.content, '$id');
-          $ctrl.content = _.omit($ctrl.content, '$priority');
-          contentRef.child($stateParams.itemId).update($ctrl.content).then(
+
+          commentRef.push(comment).then(
             function (res) {
               $state.reload()
             }

@@ -180,19 +180,22 @@
         Comentários:
       </h4>
 
-      <table class="table table-bordered" ng-if="view.content.comments.length == 0">
-        <tr>
-          <td class="text-center">
-            Não existem comentários para esse conteúdo. Seja o primeiro a comentar!
-          </td>
-        </tr>
-      </table>
 
-      <div class="comment-holder animated fadeInUp" ng-repeat="comment in view.content.comments | orderBy: 'createdAt':true | limitTo: 3 track by $index" ng-if="comment.approved">
+      <div class="comment-holder" ng-class="{ 'completed' : view.commentsLoaded }">
+        <h5 class="loading text-center">Carrengando comentários...</h5>
+      </div>
+
+
+      <div class="comment-holder" ng-if="view.comments.length == 0">
+        <h5 class="loading text-center">Não existem comentários para esse conteúdo. Seja o primeiro a comentar!</h5>
+      </div>
+
+      <div class="comment-holder animated fadeInUp" ng-repeat="comment in view.comments | orderBy: 'createdAt':true | limitTo: 3 track by $index">
         <div class="icon">
-          <div class="icon-circle">
+          <div class="icon-circle" ng-if="!comment.author.userImg">
             <i class="fa fa-user fa-2x"></i>
           </div>
+          <img ng-src="{{comment.author.userImg}}" class="img-circle img-responsive" ng-if="comment.author.userImg">
         </div>
         <div class="message">
           <div class="rate-date">

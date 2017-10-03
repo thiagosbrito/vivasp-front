@@ -44,6 +44,8 @@
 
       ref.currentUser ? $ctrl.user = ref.currentUser : $ctrl.user = null;
 
+      console.log($ctrl.user);
+
       $ctrl.Login = function (source) {
         var modalInstance = $uibModal.open({
           animation: true,
@@ -54,10 +56,11 @@
         });
 
         modalInstance.result.then(
-          function () {
+          function (user) {
             if (source) {
               $ctrl.DivulgueEvento();
             }
+            console.log(user);
           },
           function () {
             $log.info('modal-component dismissed at: ' + new Date());

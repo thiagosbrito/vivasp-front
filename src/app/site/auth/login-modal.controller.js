@@ -3,9 +3,9 @@
   angular.module('vivaSp')
     .controller('LoginModalController', LoginModalController);
 
-    LoginModalController.$inject = ['$scope','$uibModalInstance','$firebaseAuth','sha256'];
+    LoginModalController.$inject = ['$scope','$uibModalInstance','$firebaseAuth','sha256','$uibModalStack'];
 
-    function LoginModalController ($scope, $uibModalInstance, $firebaseAuth, sha256) {
+    function LoginModalController ($scope, $uibModalInstance, $firebaseAuth, sha256, $uibModalStack) {
       var $ctrl = this;
 
       $ctrl.loginObj = {};
@@ -21,7 +21,7 @@
       $ctrl.Login = function (user) {
         ref.signInWithEmailAndPassword(user.email, user.password).then(
           function (res) {
-            $uibModalInstance.close();
+            $uibModalStack.dismissAll();
           }
         ).catch(
           function (error) {
@@ -40,6 +40,39 @@
               $ctrl.userNotFound = false;
               $ctrl.wrongPassword = false;
             }
+          }
+        )
+      }
+
+      var fbProvider = new firebase.auth.FacebookAuthProvider();
+
+      $ctrl.LoginFacebook = function () {
+        ref.signInWithPopup(fbProvider).then(
+          function (result) {
+            $uibModalStack.dismissAll();
+          }
+        ).catch(
+          function (error) {
+            console.log(error);
+          }
+        )
+      };
+
+      var gProvider = new firebase.auth.GoogleAuthProvider();
+
+      gProvider.addScope('https://www.googleapis.com/auth/plus.login');
+      gProvider.addScope('https://www.googleapis.com/auth/plus.me');
+      gProvider.addScope('https://www.googleapis.com/auth/userinfo.email');
+      gProvider.addScope('https://www.googleapis.com/auth/userinfo.profile');
+
+      $ctrl.LoginGoogle = function () {
+        ref.signInWithPopup(gProvider).then(
+          function (result) {
+            $uibModalStack.dismissAll();
+          }
+        ).catch(
+          function (error) {
+            console.log(error);
           }
         )
       }
