@@ -8,8 +8,7 @@
     </div>
     <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides" ng-if="search.hasBanners">
       <div uib-slide index="$index" ng-repeat="bn in search.bCategories track by $index">
-        <a href="/categoria{{bn.linkUrl}}">
-          <img ng-src="{{bn.imgUrl}}" style="margin:auto;">
+        <a href="/categoria{{bn.linkUrl}}" ng-style="{'background':'url('+bn.imgUrl+')'}">
           <div class="carousel-caption">
             <div class="container">
               <h4>{{bn.title}}</h4>

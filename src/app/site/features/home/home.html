@@ -31,18 +31,21 @@
   <section class="feature-news">
     <div class="container">
       <div class="row">
-        <section class="col-md-4 event-holder" ui-sref="main.categories.view({categoriaId: home.featCinema[0].categoryId, itemId: home.featCinema[0].$id})">
+        <section
+          class="col-md-4 event-holder"
+          ng-repeat="content in home.featTop track by content.position.home.position"
+          ui-sref="main.categories.view({categoriaId: content.categoryId, itemId: content.$id})">
           <div class="img-holder">
-            <img ng-src="{{home.featCinema[0].imgUrl}}" alt="" class="img-responsive">
+            <img ng-src="{{content.imgUrl}}" alt="" class="img-responsive">
           </div>
-          <h3 class="event-type-title">
-            Cinema
+          <h3 class="event-type-title" ng-style="{'color': content.category.color}">
+            {{content.category.title}}
           </h3>
           <p class="event-text">
-            {{home.featCinema[0].description}}
+            {{content.description}}
           </p>
         </section>
-        <section class="col-md-4 event-holder" ui-sref="main.categories.view({categoriaId: home.featMusica[0].categoryId, itemId: home.featMusica[0].$id})">
+        <!-- <section class="col-md-4 event-holder" ui-sref="main.categories.view({categoriaId: home.featMusica[0].categoryId, itemId: home.featMusica[0].$id})">
           <div class="img-holder">
             <img ng-src="{{home.featMusica[0].imgUrl}}" alt="" class="img-responsive">
           </div>
@@ -63,7 +66,7 @@
           <p class="event-text">
             {{home.featDanca[0].description}}
           </p>
-        </section>
+        </section> -->
       </div>
     </div>
   </section>

@@ -25,37 +25,29 @@
       vm.content.$loaded().then(
         function (a) {
 
-          vm.featCinema = [];
-          vm.featMusica = [];
-          vm.featDanca = [];
-          vm.featCursos = [];
-          vm.featLazer = [];
-          vm.featGastronomia = [];
-          vm.featTeatro = [];
+          // vm.featCinema = [];
+          // vm.featMusica = [];
+          // vm.featDanca = [];
+          // vm.featCursos = [];
+          // vm.featLazer = [];
+          // vm.featGastronomia = [];
+          // vm.featTeatro = [];
+
+          vm.featTop = [];
+          vm.featMid = [];
+          vm.featBot = [];
 
           vm.homeContent = a;
 
           angular.forEach(vm.homeContent, function (value) {
-            if (value.category.title == 'Cinema') {
-              vm.featCinema.push(value);
+            if (value.position.home.position <= 3) {
+              vm.featTop.push(value);
             }
-            else if (value.category.title == 'Música') {
-              vm.featMusica.push(value)
+            if (value.position.home.position >= 4 && value.position.home.position <= 6) {
+              vm.featMid.push(value);
             }
-            else if (value.category.title == 'Dança') {
-              vm.featDanca.push(value)
-            }
-            else if (value.category.title == 'Cursos') {
-              vm.featCursos.push(value)
-            }
-            else if (value.category.title == 'Lazer') {
-              vm.featLazer.push(value)
-            }
-            else if (value.category.title == 'Gastronomia') {
-              vm.featGastronomia.push(value)
-            }
-            else if (value.category.title == 'Teatro') {
-              vm.featTeatro.push(value)
+            if (value.position.home.position >= 7 && value.position.home.position <= 8) {
+              vm.featBot.push(value);
             }
           })
         }

@@ -19,9 +19,16 @@
     function HeaderController ($scope, $state, $stateParams, $uibModal, $firebaseArray, $log, sha256, toastr, UserAPI, $rootScope) {
 
       var $ctrl = this;
+
+
       $ctrl.state = $state.params.categoriaNome;
 
       var ref = firebase.auth();
+
+      $rootScope.$watch('style', function (value) {
+        angular.isUndefined(value) ? $ctrl.logo = "assets/images/logos/logo-principal.png" : $ctrl.logo = value.logo;
+        // angular.isUndefined(value) ? $ctrl.color = "#fdc006" : $ctrl.color = value.color;
+      });
 
       $ctrl.config = {
       	autoHideScrollbar: false,

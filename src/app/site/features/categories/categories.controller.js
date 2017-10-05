@@ -4,16 +4,34 @@
   angular.module('vivaSp')
     .controller('CategoriesController', CategoriesController);
 
-    CategoriesController.$inject = ['$scope', '$stateParams','$state','$firebaseArray'];
+    CategoriesController.$inject = ['$scope', '$stateParams','$state','$firebaseArray','$rootScope'];
 
-    function CategoriesController ($scope, $stateParams, $state, $firebaseArray) {
+    function CategoriesController ($scope, $stateParams, $state, $firebaseArray, $rootScope) {
       var vm = this;
 
-      vm.category = $stateParams.categoriaNome;
+      // vm.category = $stateParams.categoriaNome;
 
       var bannersRef = firebase.database().ref('banners');
       var carouselRef = bannersRef.child('destaques');
       var query = carouselRef.orderByChild('destaqueCategoria').equalTo(true);
+
+      var catRef = firebase.database().ref('categories');
+      var categories = $firebaseArray(catRef);
+
+      var objStyle = {
+        logo: null,
+        color: null
+      };
+
+      categories.$loaded().then(
+        function (results) {
+          vm.category = results.$getRecord($stateParams.categoriaId);
+          objStyle.logo = vm.category.logoUrl;
+          objStyle.color = vm.category.color;          
+          $rootScope.style = objStyle;
+        }
+      );
+
 
       vm.banners = $firebaseArray(query);
 
@@ -160,6 +178,7 @@
       $scope.setFilter = function (section, obj) {
         vm.filter[section] = obj;
       }
+
       $scope.clearFilter = function () {
         vm.filter = {
           valor: null,

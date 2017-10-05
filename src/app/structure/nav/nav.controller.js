@@ -3,9 +3,9 @@
   angular.module('vivaSp')
     .controller('NavController',NavController);
 
-    NavController.$inject = ['$scope','$state','$firebaseArray'];
+    NavController.$inject = ['$scope','$state','$firebaseArray','$rootScope'];
 
-    function NavController ($scope, $state, $firebaseArray) {
+    function NavController ($scope, $state, $firebaseArray, $rootScope) {
       var vm = this;
       var catRef = firebase.database().ref('categories');
       var ActiveRef = catRef.orderByChild('showInMenu').equalTo(true)
@@ -22,6 +22,9 @@
           })
         }
       );
+      $rootScope.$watch('style', function (value) {
+        angular.isUndefined(value) ? vm.color = "#fdc006" : vm.color = value.color;
+      });
       // vm.categories = _.where(vm.categories, {active: true});
       // console.log(vm.categories);
 
