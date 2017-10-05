@@ -29,7 +29,7 @@
 <section class="container" id="description">
   <div class="row">
     <div class="col-md-12">
-      <h3 class="title" ng-bind="view.content.title"></h3>
+      <h3 class="title" ng-bind="view.content.title" ng-style="{'color': view.content.category.color}"></h3>
       <span ng-bind="view.content.description"></span>
       <hr>
       <p>por: {{view.content.author.displayName}} {{view.content.createdAt | date: 'dd/MM/yyyy'}} <i class="fa fa-clock-o"></i> {{view.content.createdAt | date: 'hh:mm'}}  |  {{view.content.updatedAt ? 'Atualizado ' : ''}}{{view.content.updatedAt | date: 'dd/MM/yyyy hh:mm'}}</p>
@@ -38,9 +38,9 @@
     <div class="col-md-12">
       <div class="row">
         <div class="col-md-3">
-          <div class="infos-holder">
+          <div class="infos-holder" ng-style="{'background-color': view.content.category.color}">
             <h4 class="infos-title">
-              <i class="fa fa-info-circle"></i> {{view.content.title}}
+              {{view.content.title}}
             </h4>
             <p>
               {{view.content.address.street}} - {{view.content.address.number}}
@@ -216,7 +216,7 @@
           </div>
         </div>
       </div>
-      <div class="input-comment animated fadeInUp">
+      <div class="input-comment animated fadeInUp" ng-style="{'background-color': view.content.category.color, 'color': '#fff'}">
         <h4>
           Deixe seu comentário:
         </h4>

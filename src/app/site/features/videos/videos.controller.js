@@ -2,10 +2,17 @@
   'use strict';
   angular.module('vivaSp')
     .controller('VideosListarController', VideosListarController);
-    VideosListarController.$inject = ['$scope','$state','youtubeFactory','$anchorScroll'];
+    VideosListarController.$inject = ['$scope','$state','youtubeFactory','$anchorScroll','$rootScope'];
 
-    function VideosListarController ($scope, $state, youtubeFactory, $anchorScroll) {
+    function VideosListarController ($scope, $state, youtubeFactory, $anchorScroll, $rootScope) {
       var $ctrl = this;
+
+      $ctrl.style = {};
+
+      $ctrl.style.logo = "assets/images/logos/logo-video.png";
+      $ctrl.style.color = "#ef489c";
+      
+      $rootScope.style = $ctrl.style;
 
       $ctrl.GetVideos = function () {
         youtubeFactory.getVideosFromChannelById({

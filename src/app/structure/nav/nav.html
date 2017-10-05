@@ -5,7 +5,7 @@
 {{nav.color}}
 </pre> -->
       <ul class="main-nav">
-        <li ui-sref-active="active">
+        <li ui-sref-active="active" ng-style="{'border-color': nav.color}">
           <a ui-sref="main.videos">Vídeos</a>
         </li>
         <li ng-repeat="cat in nav.menuItems" ui-sref-active="active" ng-style="{'border-color': nav.color}">
