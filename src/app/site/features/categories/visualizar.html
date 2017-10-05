@@ -216,7 +216,7 @@
           </div>
         </div>
       </div>
-      <div class="input-comment animated fadeInUp" ng-style="{'background-color': view.content.category.color, 'color': '#fff'}">
+      <div class="input-comment animated fadeInUp" ng-style="{'background-color': '#FFF', 'border':'1px solid #f5f5f5'}">
         <h4>
           Deixe seu comentário:
         </h4>
@@ -241,7 +241,7 @@
               <div class="col-md-8">
                 <div class="form-group">
                   <label for="" style="display: inline-block">&nbsp;</label>
-                  <button class="btn btn-add-event pull-right" ng-click="(view.AddComment(view.commentObj))">
+                  <button class="btn btn-add-event pull-right" ng-click="(view.AddComment(view.commentObj))" ng-style="{'background-color':'darken({{view.content.category.color}})', 'color': '#fff'}">
                     enviar comentário
                   </button>
                 </div>
@@ -249,13 +249,6 @@
             </div>
           </fieldset>
         </form>
-        <!-- <br>
-        <label>
-          Comentário:
-        </label>
-        <textarea class="form-control" rows="6" style="resize: none"></textarea>
-        <br>
-        <button class="btn btn-primary pull-right">Comentar</button> -->
       </div>
     </div>
   </div>

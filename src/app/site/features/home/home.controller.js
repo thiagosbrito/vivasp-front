@@ -23,22 +23,8 @@
 
       vm.content = $firebaseArray(queryContent);
 
-      // vm.SeparateByCategory = function (array) {
-      //
-      //   console.log(_.groupBy(array, 'categoryId'));
-      //   return _.groupBy(array, 'categoryId');
-      // }
-
       vm.content.$loaded().then(
         function (a) {
-
-          // vm.featCinema = [];
-          // vm.featMusica = [];
-          // vm.featDanca = [];
-          // vm.featCursos = [];
-          // vm.featLazer = [];
-          // vm.featGastronomia = [];
-          // vm.featTeatro = [];
 
           vm.featTop = [];
           vm.featMid = [];
@@ -47,16 +33,23 @@
           vm.homeContent = a;
 
           angular.forEach(vm.homeContent, function (value) {
-            if (value.position.home.position <= 3) {
-              vm.featTop.push(value);
-            }
-            if (value.position.home.position >= 4 && value.position.home.position <= 6) {
-              vm.featMid.push(value);
-            }
-            if (value.position.home.position >= 7 && value.position.home.position <= 8) {
-              vm.featBot.push(value);
+            if (value.featHome && value.position) {
+              if (value.position.home.position <= 3) {
+                value.position.home.position = parseInt(value.position.home.position);
+                vm.featTop.push(value);
+              }
+              if (value.position.home.position >= 4 && value.position.home.position <= 6) {
+                value.position.home.position = parseInt(value.position.home.position);
+                vm.featMid.push(value);
+              }
+              if (value.position.home.position >= 7 && value.position.home.position <= 8) {
+                value.position.home.position = parseInt(value.position.home.position);
+                vm.featBot.push(value);
+              }
             }
           })
+
+          console.log(vm.featTop);
         }
       );
       vm.hasBanners = false;
@@ -77,37 +70,9 @@
 
       vm.destaques.$loaded().then(
         function (a) {
-          console.log(a);
           vm.destUp = _.findWhere(vm.destaques, {position: "0"});
           vm.destDown = _.findWhere(vm.destaques, {position: "1"});
-          console.log(vm.destUp, vm.destDown);
         }
       )
-      // if(vm.destaques) {
-      //   vm.destUp = _.findWhere(vm.destaques, {position: "0"});
-      //   console.log(vm.destUp);
-      //   vm.destDown = _.findWhere(vm.destaques, {position: "1"});
-      //   console.log(vm.destDown);
-      // }
-
-      // console.log(vm.destaques);
-
-      // var getId = function (payload) {
-      //   angular.forEach(payload, function (value, k) {
-      //     value.$id = k;
-      //   })
-      //
-      //   return payload;
-      // };
-      //
-      // $scope.getCategories = function () {
-      //   FirebaseAPI.getAll('categories').then(
-      //     function (res) {
-      //       vm.categories = getId(res.data);
-      //       console.log(vm.categories);
-      //     }
-      //   )
-      // }();
-
     }
 })();
