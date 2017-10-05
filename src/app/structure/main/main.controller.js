@@ -17,6 +17,10 @@
 
       $ctrl.messaging = firebase.messaging();
 
+      $rootScope.$watch('style', function (value) {
+        angular.isUndefined(value) ? $ctrl.color = "#fdc006" : $ctrl.color = value.color;
+      });
+
       $ctrl.GetNotificationPermission = function () {
         $ctrl.messaging.requestPermission().then(
           function(token) {

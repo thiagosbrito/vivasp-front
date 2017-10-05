@@ -12,6 +12,8 @@
     $httpProvider.interceptors.push('LoaderInterceptor');
     $locationProvider.html5Mode(true);
     cfpLoadingBarProvider.includeSpinner = false;
+    cfpLoadingBarProvider.parentSelector = '#loading-bar-container';
+    cfpLoadingBarProvider.spinnerTemplate = '<div><span class="fa fa-spinner">Custom Loading Message...</div>';
   }
 
 })();

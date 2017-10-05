@@ -4,10 +4,17 @@
   angular.module('vivaSp')
     .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', '$state','$firebaseArray'];
+    HomeController.$inject = ['$scope', '$state','$firebaseArray','$rootScope'];
 
-    function HomeController ($scope, $state, $firebaseArray) {
+    function HomeController ($scope, $state, $firebaseArray, $rootScope) {
       var vm = this;
+
+      vm.style = {};
+
+      vm.style.logo = "assets/images/logos/logo-principal.png";
+      vm.style.color = "#ffd817";
+
+      $rootScope.style = vm.style;
 
       var bannersRef = firebase.database().ref('banners');
 
