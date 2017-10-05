@@ -4,7 +4,7 @@
 <!-- <pre>
 {{nav.color}}
 </pre> -->
-      <ul class="main-nav">
+      <ul class="main-nav hidden-sm hidden-xs">
         <li ui-sref-active="active" ng-style="{'border-color': nav.color}">
           <a ui-sref="main.videos">Vídeos</a>
         </li>
@@ -12,6 +12,19 @@
           <a ui-sref="main.categories.search({categoriaId: cat.$id})">{{cat.title}}</a>
         </li>
       </ul>
+      <div class="mobile-nav hidden-lg hidden-md">
+        <a class="menu-bar" ng-init="nav.collapse = true" ng-click="nav.collapse = !nav.collapse">
+          <span class="bars" ng-style="{'background-color': nav.color, 'box-shadow': '0 5px 0' + nav.color +', 0 10px 0' + nav.color}"></span>
+          <img ng-src="{{nav.logo}}" alt="" width="120" style="margin-left: auto;">
+        </a>
+        <div class="collapse menu" id="menu" uib-collapse="nav.collapse">
+          <ul class="list">
+            <li ng-repeat="cat in nav.menuItems" ui-sref-active="active" ng-style="{'border-color': nav.color}">
+              <a ui-sref="main.categories.search({categoriaId: cat.$id})">{{cat.title}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>

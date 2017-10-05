@@ -24,6 +24,7 @@
       );
       $rootScope.$watch('style', function (value) {
         angular.isUndefined(value) ? vm.color = "#fdc006" : vm.color = value.color;
+        angular.isUndefined(value) ? vm.logo = "assets/images/logos/logo-principal.png" : vm.logo = value.logo;
       });
       // vm.categories = _.where(vm.categories, {active: true});
       // console.log(vm.categories);
