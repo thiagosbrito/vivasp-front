@@ -947,3 +947,73 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
     }
   }
 }
+
+.quemsomos-holder {
+  width: 100%;
+  position: relative;;
+  margin: 0;
+  padding: 0;
+  .linha {
+    display: flex;
+    height: 400px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    .cor-1 {
+      background-color: #fdc006
+    }
+    .cor-2 {
+      background-color: #f73c37
+    }
+    .cor-3 {
+      background-color: #0fe867;
+    }
+    .coluna-menor {
+      width: 45%;
+    }
+    .coluna-maior {
+      width: 55%;
+      background: url('../../assets/images/institucional/quem-somos-001.jpg') center no-repeat;
+    }
+    .coluna {
+      width: 50%;
+    }
+    .coluna-maior,
+    .coluna-menor,
+    .coluna {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &.img-002 {
+        background: url('../../assets/images/institucional/quem-somos-002.jpg') center no-repeat;
+        background-size: cover;
+      }
+      &.img-003 {
+        background: url('../../assets/images/institucional/quem-somos-003.jpg') center no-repeat;
+        background-size: cover;
+      }
+      .text {
+        width: 40%;
+        color: #fff;
+        h4 {
+          text-transform: uppercase;
+          font-size: 2.2rem;
+        }
+        p {
+          font-weight: 300;
+          font-size: 1.8rem;
+        }
+        .line {
+          width: 15%;
+          height: 3px;
+          background-color: #FFF;
+          margin: 30px 0;
+          display: block;
+        }
+      }
+    }
+  }
+  // #fdc006 - primeira cor
+  // #f73c37 - segunda cor
+  // #0fe867 - terceira cor
+}

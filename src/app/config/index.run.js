@@ -20,6 +20,7 @@
 
     $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams){
       // console.log('$stateChangeSuccess to '+toState.name+'- fired once the state transition is complete.');
+      window.scrollTo(0, 0);
       cfpLoadingBar.complete();
     });
 
