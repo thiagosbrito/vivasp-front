@@ -64,16 +64,8 @@
             </fieldset>
           </div>
           <div class="row">
-            <div class="col-md-2">
-              <fieldset>
-                <div class="form-group">
-                  <input type="text" required="required" ng-model="$ctrl.contentData.author.displayName" disabled>
-                  <label class="control-label">Autor:</label>
-                  <i class="bar"></i>
-                </div>
-              </fieldset>
-            </div>
-            <div class="col-md-10-">
+
+            <!-- <div class="col-md-10-">
               <fieldset>
                 <div class="checkbox inline-block" ng-click="$ctrl.contentData.featHome = !$ctrl.contentData.featHome">
                   <label>
@@ -91,9 +83,18 @@
                   </label>
                 </div>
               </fieldset>
-            </div>
+            </div> -->
           </div>
           <div class="row">
+            <div class="col-md-4">
+              <fieldset>
+                <div class="form-group">
+                  <input type="text" required="required" ng-model="$ctrl.contentData.author.displayName" disabled>
+                  <label class="control-label">Autor:</label>
+                  <i class="bar"></i>
+                </div>
+              </fieldset>
+            </div>
             <div class="col-md-4">
               <fieldset>
                 <div class="form-group">
@@ -108,7 +109,7 @@
                 </div>
               </fieldset>
             </div>
-            <div class="col-md-4">
+            <!-- <div class="col-md-4">
               <fieldset>
                 <div class="form-group stars-holder">
                   <input-stars max="5" ng-model="$ctrl.contentData.rate"></input-stars>
@@ -116,7 +117,7 @@
                   <i class="bar"></i>
                 </div>
               </fieldset>
-            </div>
+            </div> -->
             <div class="col-md-4">
               <fieldset>
                 <div class="form-group">

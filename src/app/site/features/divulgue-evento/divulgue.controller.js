@@ -55,6 +55,7 @@
           "$id": userId,
           "displayName": userName
         },
+        "source": "site",
         "dates": [
           {
             "date": "",
