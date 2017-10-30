@@ -53,7 +53,7 @@
       <div class="img-holder">
         <img ng-src="{{video.snippet.thumbnails.medium.url}}" alt="{{video.snippet.title}}">
       </div>
-      <h3 class="video-title">
+      <h3 class="video-title" ng-style="{'color': videos.style.color, 'border-color': videos.style.color}">
         {{video.snippet.title}}
         <small>Publicado em: {{video.snippet.publishedAt | date: 'dd/MM/yyyy HH:mm:ss'}}</small>
       </h3>
