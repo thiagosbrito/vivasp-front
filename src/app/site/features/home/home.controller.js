@@ -9,6 +9,10 @@
     function HomeController ($scope, $state, $firebaseArray, $rootScope) {
       var vm = this;
 
+      $scope.myInterval = 3000;
+      $scope.noWrapSlides = false;
+      $scope.active = 0;
+
       vm.style = {};
 
       vm.style.logo = "assets/images/logos/logo-principal.png";

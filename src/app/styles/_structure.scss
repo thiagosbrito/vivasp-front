@@ -26,9 +26,12 @@
     background-size: 214px;
     overflow: hidden;
     cursor: pointer;
+    &.fix-logo {
+      margin-left: 9px;
+    }
   }
   .social-links {
-    // flex-grow: 5;
+    flex-grow: 5;
     // border: 1px solid;
     ul {
       margin: 60px 0 0;
@@ -46,8 +49,13 @@
     }
   }
   .accessible-links {
-    // flex-grow: 5;
-    // border: 1px solid;
+    flex-grow: 5;
+    .row-flex {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-top: 40px;
+    }
     ul {
       &:not(.dropdown-menu) {
         margin: 60px 0 0;
@@ -116,13 +124,6 @@
             transition: all ease .5s;
             &.active {
               display: inline-block;
-              width: 280px;
-            }
-            .form-group {
-              width: 100%;
-              .input-group {
-                width: 100%;
-              }
             }
           }
         }
