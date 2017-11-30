@@ -60,6 +60,8 @@
     outline: none;
     cursor: pointer;
     position: relative;
+    height: 350px;
+    margin-bottom: 24px;
     &.playing {
       .img-holder {
         &:before {
@@ -82,13 +84,21 @@
           left: 0;
           top: 0;
         }
+        .video-title {
+          font-size: 1.8rem;
+        }
       }
       .video-title,
       .video-title:hover {
+        font-size: 1.8rem;
         color: #fd4c14;
         border-bottom: 3px solid #fd4c14;
         padding-bottom: 20px;
-
+        width: 100%;
+        small {
+          display: inline-block;
+          width: 100%;
+        }
       }
     }
     .img-holder {
@@ -104,13 +114,12 @@
       font-weight: 400;
       font-family: 'Roboto';
       transition: all ease .2s;
-      line-height: 16px;
       padding-bottom: 20px;
+      width: 100%;
+      font-size: 1.8rem;
       small {
         display: inline-block;
-        line-height: .8rem;
-        font-size: 12px;
-        margin-top: -5px;
+        width: 100%;
       }
     }
   }
