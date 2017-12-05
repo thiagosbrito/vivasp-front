@@ -11,7 +11,7 @@
         <a href="/categoria{{bn.linkUrl}}" ng-style="{'background':'url('+bn.imgUrl+')'}">
           <div class="carousel-caption">
             <div class="container">
-              <h4>{{bn.title}}</h4>
+              <h4 ng-style="{'color': bn.category.color}">{{bn.title}}</h4>
               <p>{{bn.description}}</p>
             </div>
           </div>
@@ -25,7 +25,7 @@
     <div class="infos">
       <div class="container">
         <div class="holder-info">
-          <h3 class="title">
+          <h3 class="title" ng-style="{'color': search.bCategories[0].category.color}">
             {{search.bCategories[0].title}}
           </h3>
           <p class="description">
@@ -112,7 +112,7 @@
 </div>
 
 <div class="container">
-  <div class="row">
+  <div class="row search-pre-result">
     <section
       class="col-md-4 event-holder"
       ng-repeat="content in search.list1"
@@ -154,7 +154,7 @@
 <!-- end of banner middle position -->
 
 <div class="container">
-  <div class="row">
+  <div class="row search-pre-result">
     <section
       class="col-md-4 event-holder"
       ng-repeat="content in search.list2"

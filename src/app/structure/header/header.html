@@ -31,8 +31,6 @@
                         class="search-input"
                         uib-typeahead="content as content.title for content in header.content | filter:{title:$viewValue}"
                         typeahead-popup-template-url="customPopupTemplate.html"
-                        typeahead-template-url="customTemplate.html"
-                        typeahead-show-hint="true"
                         typeahead-on-select="header.GoToContent($ctrl.search); $ctrl.search = ''"
                         placeholder="Pesquisar sobre:">
                       <i class="bar"></i>

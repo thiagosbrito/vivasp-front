@@ -23,6 +23,7 @@
       'oitozero.ngSweetAlert',
       'base64',
       'jtt_youtube',
-      'youtube-embed'
+      'youtube-embed',
+      '720kb.socialshare'
     ]);
 })();

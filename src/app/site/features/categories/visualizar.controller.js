@@ -3,9 +3,9 @@
   angular.module('vivaSp')
     .controller('CategoriesViewController', CategoriesViewController);
 
-    CategoriesViewController.$inject = ['$scope','$state','$firebaseArray','$stateParams','$firebaseObject','$firebaseAuth','$uibModal'];
+    CategoriesViewController.$inject = ['$scope','$state','$firebaseArray','$stateParams','$firebaseObject','$firebaseAuth','$uibModal','$location'];
 
-    function CategoriesViewController ($scope, $state, $firebaseArray, $stateParams, $firebaseObject, $firebaseAuth, $uibModal) {
+    function CategoriesViewController ($scope, $state, $firebaseArray, $stateParams, $firebaseObject, $firebaseAuth, $uibModal, $location) {
       $scope.state = $state;
       var $ctrl = this;
 
@@ -19,6 +19,9 @@
       var query = carouselRef.orderByChild('contentId').equalTo($stateParams.itemId);
 
       var authObj = $firebaseAuth();
+
+
+      $ctrl.loadedUrl = 'https://www.vivasp.net' + $location.path();
 
       $ctrl.destaque = $firebaseObject(query);
 
