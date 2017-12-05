@@ -105,8 +105,8 @@
           ng-repeat="content in home.featBot | limitTo: '2' | orderBy: 'content.position.home.position' track by $index"
           ui-sref="main.categories.view({categoriaId: content.categoryId, itemId: content.$id})">
           {{content.position.home.position}}
-          <div class="img-holder">
-            <img ng-src="{{content.imgUrl}}" alt="" class="img-responsive">
+          <div class="img-holder" ng-class="{'background-image': 'url({{content.imgUrl}})'}">
+            <!-- <img ng-src="{{}}" alt="" class="img-responsive"> -->
           </div>
           <h3 class="event-type-title" ng-style="{'color': content.category.color}">
             {{content.category.title}}

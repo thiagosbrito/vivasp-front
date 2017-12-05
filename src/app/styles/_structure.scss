@@ -1018,3 +1018,11 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
   // #f73c37 - segunda cor
   // #0fe867 - terceira cor
 }
+.img-holder {
+  width: 400px;
+  height: 200px;
+  background-position: center;
+  background-size: 100% auto;
+  overflow: hidden;
+  background-repeat: no-repeat;
+}
