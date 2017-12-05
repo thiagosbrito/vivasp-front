@@ -366,7 +366,7 @@ section.footer {
       height: 500px;
       background: linear-gradient(
         to left,
-        #000,
+        rgba(#000, 0.25),
         rgba(#000, 0)
       );
       .infos {
@@ -1019,10 +1019,19 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
   // #0fe867 - terceira cor
 }
 .img-holder {
-  width: 400px;
+  width: 360px;
   height: 200px;
-  background-position: center;
-  background-size: 100% auto;
+  background-position: center center;
   overflow: hidden;
   background-repeat: no-repeat;
+  position: relative;
+  img {
+    position: absolute;
+    clip: rect(0px, 360px, 240px, 0px);
+  }
+}
+.message-forgot {
+  h5 {
+    font-weight: lighter;
+  }
 }

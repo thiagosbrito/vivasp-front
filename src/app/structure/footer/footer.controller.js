@@ -10,10 +10,11 @@
       '$location',
       '$anchorScroll',
       '$uibModal',
-      'EmailAPI'
+      'EmailAPI',
+      '$timeout'
     ];
 
-    function FooterController ($scope, $state, $location, $anchorScroll, $uibModal, EmailAPI) {
+    function FooterController ($scope, $state, $location, $anchorScroll, $uibModal, EmailAPI, $timeout) {
 
       var $ctrl = this;
 

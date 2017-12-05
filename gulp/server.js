@@ -17,7 +17,8 @@ function browserSyncInit(baseDir, browser) {
   browser = browser === undefined ? 'default' : browser;
 
   var jsonPlaceholderProxy = proxy('/sendmail', {
-    target: 'https://api:key-1e3eafb7a926ce988ad84b5ef9844e2f@api.mailgun.net/v3/vivasp.net/messages',
+    // https://api.mailgun.net/v3/sandbox03d531ce845b45089dfad26b58f9f4ad.mailgun.org
+    target: 'https://api.mailgun.net/v3/sandbox03d531ce845b45089dfad26b58f9f4ad.mailgun.org/messages',
     changeOrigin: true,             // for vhosted sites, changes host header to match to target's host
     logLevel: 'debug'
   })

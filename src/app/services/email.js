@@ -9,7 +9,7 @@
       var api = {};
 
       api.send = function (data) {
-        var URL = "https://api:key-1e3eafb7a926ce988ad84b5ef9844e2f@api.mailgun.net/v3/vivasp.net/messages";
+        var URL = "/sendmail";
 
         var dataJSON = {
             from: "postmaster@vivasp.net",
@@ -22,6 +22,8 @@
         var req = {
           method : 'POST',
           url: URL,
+          username: 'api',
+          password: 'key-1e3eafb7a926ce988ad84b5ef9844e2f',
           headers : {
             'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8'
           },
@@ -33,7 +35,8 @@
           },
           data: dataJSON
         }
-        $http(req).then(
+
+        return $http(req).then(
           function(data){
             return data
           }

@@ -36,7 +36,7 @@
           ng-repeat="content in home.featTop | orderBy: 'content.position.home.position' track by $index"
           ui-sref="main.categories.view({categoriaId: content.categoryId, itemId: content.$id})">
           <div class="img-holder">
-            <img ng-src="{{content.imgUrl}}" alt="" class="img-responsive">
+            <img ng-src="{{content.imgUrl}}">
           </div>
           <h3 class="event-type-title" ng-style="{'color': content.category.color}">
             {{content.category.title}}
@@ -76,9 +76,8 @@
           class="col-md-4 event-holder"
           ng-repeat="content in home.featMid | orderBy: content.position.home.position track by $index"
           ui-sref="main.categories.view({categoriaId: content.categoryId, itemId: content.$id})">
-          {{content.position.home.position}}
           <div class="img-holder">
-            <img ng-src="{{content.imgUrl}}" alt="" class="img-responsive">
+            <img ng-src="{{content.imgUrl}}">
           </div>
           <h3 class="event-type-title" ng-style="{'color': content.category.color}">
             {{content.category.title}}
@@ -102,11 +101,10 @@
       <div class="row">
         <section
           class="col-md-4 event-holder"
-          ng-repeat="content in home.featBot | limitTo: '2' | orderBy: 'content.position.home.position' track by $index"
+          ng-repeat="content in home.featBot | orderBy: 'content.position.home.position' track by $index"
           ui-sref="main.categories.view({categoriaId: content.categoryId, itemId: content.$id})">
-          {{content.position.home.position}}
-          <div class="img-holder" ng-class="{'background-image': 'url({{content.imgUrl}})'}">
-            <!-- <img ng-src="{{}}" alt="" class="img-responsive"> -->
+          <div class="img-holder">
+            <img ng-src="{{content.imgUrl}}">
           </div>
           <h3 class="event-type-title" ng-style="{'color': content.category.color}">
             {{content.category.title}}
@@ -115,9 +113,9 @@
             {{content.description}}
           </p>
         </section>
-        <section class="col-md-4 event-holder especial">
+        <!-- <section class="col-md-4 event-holder especial">
           conteudo especial
-        </section>
+        </section> -->
       </div>
     </div>
   </section>

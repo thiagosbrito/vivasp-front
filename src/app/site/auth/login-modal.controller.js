@@ -26,19 +26,16 @@
         ).catch(
           function (error) {
             if (error.code == 'auth/wrong-password') {
-              $ctrl.wrongPassword = true;
+              $ctrl.wrongEmailPassword = true;
               $ctrl.userNotFound = false;
-              $ctrl.invalidEmail = false;
             }
             if (error.code == 'auth/user-not-found') {
               $ctrl.userNotFound = true;
-              $ctrl.wrongPassword = false;
-              $ctrl.invalidEmail = false;
+              $ctrl.wrongEmailPassword = false;
             }
             if (error.code == 'auth/invalid-email') {
-              $ctrl.invalidEmail = true;
+              $ctrl.wrongEmailPassword = true;
               $ctrl.userNotFound = false;
-              $ctrl.wrongPassword = false;
             }
           }
         )
@@ -99,7 +96,6 @@
 
       $ctrl.RetrievePassword = function (email) {
         ref.sendPasswordResetEmail(email).then(function() {
-          $ctrl.showForgotForm = false
           $ctrl.check = true;
         }, function(error) {
           console.log(error);

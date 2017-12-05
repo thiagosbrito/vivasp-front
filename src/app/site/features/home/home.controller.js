@@ -15,6 +15,13 @@
 
       vm.style = {};
 
+      vm.SetImgBackground = function (content) {
+        if (content.imgUrl) {
+          console.log(content.imgUrl);
+          return {'background-image':'url(' + content.imgUrl + ')'};
+        }
+      }
+
       vm.style.logo = "assets/images/logos/logo-principal.png";
       vm.style.color = "#ffd817";
 
