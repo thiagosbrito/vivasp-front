@@ -158,20 +158,20 @@
         return tagsArray;
       }
 
-      SweetAlert.swal({
-        title: "Digulgue seu evento!",
-        text: "Seu evento foi cadastrado com sucesso",
-        type: "success",
-        showCancelButton: false,
-        confirmButtonColor: "#DD6B55",confirmButtonText: "Obrigado",
-        closeOnConfirm: true,
-        closeOnCancel: false
-      },
-      function(isConfirm){
-       if (isConfirm) {
-          $state.go('main.conteudos.listar');
-       }
-     });
+      // SweetAlert.swal({
+      //   title: "Digulgue seu evento!",
+      //   text: "Seu evento foi cadastrado com sucesso",
+      //   type: "success",
+      //   showCancelButton: false,
+      //   confirmButtonColor: "#DD6B55",confirmButtonText: "Obrigado",
+      //   closeOnConfirm: true,
+      //   closeOnCancel: false
+      // },
+      // function(isConfirm){
+      //  if (isConfirm) {
+      //     $state.go('main.conteudos.listar');
+      //  }
+      // });
 
       $ctrl.AddContent = function (data) {
 
@@ -200,7 +200,7 @@
              closeOnConfirm: true,
              closeOnCancel: false },
             function(isConfirm){
-              $state.go('main.conteudos.listar');
+              $state.go('main.home');
             });
           },
           function (err) {

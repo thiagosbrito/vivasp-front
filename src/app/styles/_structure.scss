@@ -700,7 +700,7 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
       margin: 0 !important;
       padding: 0;
       display: block;
-      background-color: lighten($gray-links-social-footer, 5%);
+      background-color: #FFF;
       border-bottom: 1px solid #999;
       width: 400px;
       .img-holder {
@@ -733,7 +733,7 @@ $curve: cubic-bezier(0.650, 0.000, 0.450, 1.000);
 
 .divulgue-evento {
   padding: 12px;
-  background-color: lighten($gray-links-social-footer, 15%);
+  // background-color: lighten($gray-links-social-footer, 15%);
   .divulgue-evento-title {
     text-align: center;
     margin-top: 12px;
