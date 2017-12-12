@@ -36,7 +36,7 @@
           ng-repeat="content in home.featTop | orderBy: 'content.position.home.position' track by $index"
           ui-sref="main.categories.view({categoriaId: content.categoryId, itemId: content.$id})">
           <div class="img-holder">
-            <img ng-src="{{content.imgUrl}}">
+            <img ng-src="{{content.imgThumbUrl}}">
           </div>
           <h3 class="event-type-title" ng-style="{'color': content.category.color}">
             {{content.category.title}}
@@ -77,7 +77,7 @@
           ng-repeat="content in home.featMid | orderBy: content.position.home.position track by $index"
           ui-sref="main.categories.view({categoriaId: content.categoryId, itemId: content.$id})">
           <div class="img-holder">
-            <img ng-src="{{content.imgUrl}}">
+            <img ng-src="{{content.imgThumbUrl}}">
           </div>
           <h3 class="event-type-title" ng-style="{'color': content.category.color}">
             {{content.category.title}}
@@ -104,7 +104,7 @@
           ng-repeat="content in home.featBot | orderBy: 'content.position.home.position' track by $index"
           ui-sref="main.categories.view({categoriaId: content.categoryId, itemId: content.$id})">
           <div class="img-holder">
-            <img ng-src="{{content.imgUrl}}">
+            <img ng-src="{{content.imgThumbUrl}}">
           </div>
           <h3 class="event-type-title" ng-style="{'color': content.category.color}">
             {{content.category.title}}
